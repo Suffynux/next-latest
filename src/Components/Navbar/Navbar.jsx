@@ -13,7 +13,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="Nextgrid IT Logo" 
-              className="h-[62px] w-auto"
+              className="h-[80px] md:h-[100px] w-auto"
             />
           </div>
 
