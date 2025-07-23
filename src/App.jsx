@@ -1,10 +1,13 @@
 import Home from "./Components/Layout/Home"
+import MouseLayout from "./Components/Layout/UpdateHome"
+
 function App() {
  
 
   return (
     <>
-<Home/>
+{/* <Home/> */}
+<MouseLayout/>
     </>
   )
 }

@@ -3,7 +3,7 @@ import { Globe, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from "../../assets/Images/logo.png";
 
-const navItems = ["Solutions", "Industries", "Insights", "About us", "Careers"];
+const navItems = ["Services", "Industries", "About us", "Contact us"];
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

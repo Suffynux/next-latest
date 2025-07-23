@@ -8,6 +8,7 @@ import AnimatedFooter from "../Footer/Footer"
 const Home = () => {
   return (
     <>
+  
     <Navbar/>
     <Hero/>
     <Industry/>
