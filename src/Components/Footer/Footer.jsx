@@ -69,7 +69,7 @@ const AnimatedFooter = () => {
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
-      url: '#',
+      url: 'https://www.linkedin.com/company/nextgrid-it',
       color: 'hover:bg-blue-700',
       bgColor: 'bg-blue-600'
     },
@@ -219,19 +219,22 @@ const AnimatedFooter = () => {
                   <div className="p-2 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
                     <Phone className="w-5 h-5 text-blue-400" />
                   </div>
-                  <span>+1 (555) 123-4567</span>
+                  {/* Phone number */}
+                  <span>+4 4783 262-2054</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors cursor-pointer group">
                   <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
                     <Mail className="w-5 h-5 text-green-400" />
+                    {/* Email */}
                   </div>
-                  <span>hello@nextgrid.com</span>
+                  <span>info@nextgridit.co.uk</span>
                 </div>
                 <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors cursor-pointer group">
                   <div className="p-2 bg-red-500/20 rounded-lg group-hover:bg-red-500/30 transition-colors mt-1">
                     <MapPin className="w-5 h-5 text-red-400" />
                   </div>
-                  <span>123 Innovation Street<br />Tech District, CA 90210</span>
+                  <span>483 Green Lanes, London<br />United Kingdom, N13 4BS</span>
+              
                 </div>
               </div>
 
@@ -297,6 +300,7 @@ const AnimatedFooter = () => {
               <div className="flex flex-wrap gap-3 mb-8">
                 {socialLinks.map((social, index) => (
                   <a
+                    target='_blank'
                     key={index}
                     href={social.url}
                     className={`group relative p-3 rounded-xl ${social.bgColor} text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg overflow-hidden`}
