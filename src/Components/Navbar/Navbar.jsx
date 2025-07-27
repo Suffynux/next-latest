@@ -251,7 +251,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Nextgrid IT Logo"
-              className="h-[80px] md:h-[100px] w-auto"
+              className="h-[80px] md:h-[80px] w-auto"
             />
           </motion.div>
 
