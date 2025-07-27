@@ -25,20 +25,21 @@
 
 // export default App
 
-import Home from "./Components/Layout/Home"
+// App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./Components/Layout/Home";
 import DynamicServicePage from "./Components/OurServices/DynamicServicePage";
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/services", // Changed from "services/" to "/services"
-      element: <DynamicServicePage />,
+      path: "/",
+      element: <Home />,
     },
     {
-      path: "/", // Optional home route
-      element: <Home />,
-    }
+      path: "/services",
+      element: <DynamicServicePage />,
+    },
   ]);
 
   return <RouterProvider router={router} />;

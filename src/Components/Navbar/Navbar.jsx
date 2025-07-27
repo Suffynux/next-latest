@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Globe, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from "../../assets/Images/logo.svg"
+import { Link } from 'react-router-dom';
 
 const navItems = [
   {
@@ -100,6 +101,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
+          <Link to="/">
            <motion.div
             className="flex-shrink-0"
             initial={{ opacity: 0, y: -10 }}
@@ -111,7 +113,7 @@ const Navbar = () => {
               alt="Nextgrid IT Logo"
               className="h-[80px] md:h-[80px] w-auto"
             />
-          </motion.div>
+          </motion.div></Link>
 
 
             {/* Desktop Navigation */}
@@ -128,6 +130,12 @@ const Navbar = () => {
                   },
                 }}
               >
+              <Link to="/services">
+                <li className='list-none text-[#003A75] hover:text-[#1D5BA6] px-3 py-2 text-sm font-medium transition-colors flex items-center '>
+                  Test service page
+                </li>
+              </Link>
+
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
