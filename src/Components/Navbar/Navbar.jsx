@@ -140,11 +140,10 @@
 // };
 
 // export default Navbar;
-
-
 import React, { useState } from 'react';
 import { Globe, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from "../../assets/Images/logo.svg"
 
 const navItems = [
   {
@@ -152,48 +151,66 @@ const navItems = [
     content: {
       sections: [
         {
-          title: "IT Infrastructure & Support",
+          title: "IT Managed Services",
           items: [
-            "IT Managed Services",
-            "24/7 Remote Monitoring & Support",
-            "On-Demand Field Support (FSO)",
-            "Network & User Support",
-            "Proactive Maintenance"
+            "End-to-end infrastructure management",
+            "24/7 remote monitoring & support",
+            "Proactive maintenance and issue resolution",
+            "SLA-driven service delivery"
           ]
         },
         {
-          title: "Asset & Project Management",
+          title: "On-Demand Field Support (FSO)",
           items: [
-            "IT Asset Management",
-            "IT Asset Disposal (ITAD)",
-            "Project & Change Management",
-            "Cloud Migration Support",
-            "Office Moves & Tech Upgrades"
+            "On-site troubleshooting and hardware support",
+            "Device deployment and relocation",
+            "Engineer dispatch and hands-on assistance across the UK"
           ]
         },
         {
-          title: "Staffing & Creative Services",
+          title: "IT Asset Management",
           items: [
-            "Technical & IT Recruitment",
-            "Offshore & Onshore Hiring",
-            "UI/UX Design & Prototyping",
-            "Website Design (WordPress/Custom)",
-            "Brand Identity & Logo Creation"
+            "IT asset tracking and lifecycle management",
+            "Procurement support and vendor coordination",
+            "IT Asset Disposal (ITAD) – secure and compliant"
           ]
         }
       ],
       rightSections: [
-        "End-to-end Infrastructure Management",
-        "SLA-driven Service Delivery",
-        "Device Deployment & Relocation",
-        "Engineer Dispatch Across UK",
-        "Procurement Support",
-        "Vendor Coordination",
-        "Network Performance Optimization",
-        "Software Installations & Updates",
-        "Infrastructure Scaling",
-        "Technical Interview Screening",
-        "Content Writing & Visual Assets"
+        {
+          title: "Network & User Support",
+          items: [
+            "Network performance optimization",
+            "User account and access management",
+            "Software installations, updates, and troubleshooting"
+          ]
+        },
+        {
+          title: "Project & Change Management",
+          items: [
+            "Office moves and tech upgrades",
+            "Infrastructure scaling",
+            "Cloud migration support",
+            "Transition planning and execution"
+          ]
+        },
+        {
+          title: "Recruitment Services (Technical & IT)",
+          items: [
+            "Full-time and contract-based IT staffing",
+            "Technical interview screening and assessments",
+            "Offshore and onshore hiring support"
+          ]
+        },
+        {
+          title: "Creative & Digital Support",
+          items: [
+            "UI/UX design and prototyping",
+            "Logo and brand identity creation",
+            "Website design (WordPress/Custom)",
+            "Content writing and visual assets for tech companies"
+          ]
+        }
       ],
       featured: {
         title: "Comprehensive IT Solutions Tailored for Your Business Growth",
@@ -209,6 +226,15 @@ const navItems = [
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [expandedMobileService, setExpandedMobileService] = useState(null);
+
+  const handleMobileServiceClick = (serviceName) => {
+    if (expandedMobileService === serviceName) {
+      setExpandedMobileService(null);
+    } else {
+      setExpandedMobileService(serviceName);
+    }
+  };
 
   return (
     <div className="relative">
@@ -216,16 +242,19 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <motion.div
-              className="flex-shrink-0"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="h-[80px] md:h-[100px] w-32 bg-blue-600 rounded flex items-center justify-center text-white font-bold">
-                LOGO
-              </div>
-            </motion.div>
+           <motion.div
+            className="flex-shrink-0"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <img
+              src={logo}
+              alt="Nextgrid IT Logo"
+              className="h-[80px] md:h-[100px] w-auto"
+            />
+          </motion.div>
+
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
@@ -308,17 +337,84 @@ const Navbar = () => {
               >
                 <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
                   {navItems.map((item) => (
-                    <motion.a
-                      key={item.name}
-                      href="#"
-                      className="text-[#003A75] hover:bg-blue-50 block px-3 py-2 text-base font-medium transition-colors"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {item.name}
-                    </motion.a>
+                    <div key={item.name}>
+                      {item.content ? (
+                        // Services with expandable content
+                        <div>
+                          <motion.button
+                            onClick={() => handleMobileServiceClick(item.name)}
+                            className="w-full text-left text-[#003A75] hover:bg-blue-50 px-3 py-2 text-base font-medium transition-colors flex items-center justify-between"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {item.name}
+                            <span className={`transform transition-transform ${expandedMobileService === item.name ? 'rotate-180' : ''}`}>
+                              ▼
+                            </span>
+                          </motion.button>
+                          
+                          <AnimatePresence>
+                            {expandedMobileService === item.name && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pl-4 pr-2 py-2 bg-gray-50 rounded-lg mx-3 mb-2">
+                                  {/* Main Sections */}
+                                  {item.content.sections.map((section, sectionIndex) => (
+                                    <div key={sectionIndex} className="mb-4">
+                                      <h4 className="font-semibold text-[#003A75] text-sm mb-2">{section.title}</h4>
+                                      <ul className="space-y-1">
+                                        {section.items.map((subItem, subIndex) => (
+                                          <li key={subIndex}>
+                                            <a href="#" className="text-gray-600 text-xs block py-1 hover:text-[#003A75]">
+                                              • {subItem}
+                                            </a>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ))}
+                                  
+                                  {/* Right Sections */}
+                                  {item.content.rightSections.map((rightSection, rightIndex) => (
+                                    <div key={rightIndex} className="mb-4">
+                                      <h4 className="font-semibold text-[#003A75] text-sm mb-2">{rightSection.title}</h4>
+                                      <ul className="space-y-1">
+                                        {rightSection.items.map((subItem, subIndex) => (
+                                          <li key={subIndex}>
+                                            <a href="#" className="text-gray-600 text-xs block py-1 hover:text-[#003A75]">
+                                              • {subItem}
+                                            </a>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : (
+                        // Regular menu items
+                        <motion.a
+                          href="#"
+                          className="text-[#003A75] hover:bg-blue-50 block px-3 py-2 text-base font-medium transition-colors"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {item.name}
+                        </motion.a>
+                      )}
+                    </div>
                   ))}
+                  
                   <div className="pt-4 pb-2 border-t border-gray-100">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -358,64 +454,49 @@ const Navbar = () => {
             onMouseLeave={() => setHoveredItem(null)}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              <div className="grid grid-cols-12 gap-8">
-                {/* Featured Content */}
-                <div className="col-span-3">
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <img 
-                      src={navItems.find(item => item.name === hoveredItem)?.content.featured.image}
-                      alt="Featured"
-                      className="w-full h-32 object-cover rounded-lg mb-4"
-                    />
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {navItems.find(item => item.name === hoveredItem)?.content.featured.title}
-                    </h3>
-                    <button className="text-[#003A75] hover:text-[#1D5BA6] text-sm font-medium flex items-center">
-                      LEARN MORE <ArrowRight className="w-4 h-4 ml-1" />
-                    </button>
-                  </div>
+              <div className="grid grid-cols-2 gap-8">
+                {/* Left Column - Services 1-4 */}
+                <div className="space-y-6">
+                  {navItems.find(item => item.name === hoveredItem)?.content.sections.map((section, index) => (
+                    <div key={index}>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-3">{section.title}</h3>
+                      <ul className="space-y-2">
+                        {section.items.map((subItem, subIndex) => (
+                          <li key={subIndex}>
+                            <a 
+                              href="#" 
+                              className="text-gray-600 hover:text-[#003A75] text-sm transition-colors flex items-center group"
+                            >
+                              {subItem}
+                              <ArrowRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
 
-                {/* Main Sections */}
-                <div className="col-span-6">
-                  <div className="grid grid-cols-3 gap-6">
-                    {navItems.find(item => item.name === hoveredItem)?.content.sections.map((section, index) => (
-                      <div key={index}>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-4">{section.title}</h3>
-                        <ul className="space-y-2">
-                          {section.items.map((subItem, subIndex) => (
-                            <li key={subIndex}>
-                              <a 
-                                href="#" 
-                                className="text-gray-600 hover:text-[#003A75] text-sm transition-colors flex items-center group"
-                              >
-                                {subItem}
-                                <ArrowRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right Side Items */}
-                <div className="col-span-3">
-                  <div className="space-y-3">
-                    {navItems.find(item => item.name === hoveredItem)?.content.rightSections.map((rightItem, index) => (
-                      <a 
-                        key={index}
-                        href="#" 
-                        className="block text-gray-600 hover:text-[#003A75] text-sm transition-colors group"
-                      >
-                        <div className="flex items-center justify-between">
-                          {rightItem}
-                          <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </div>
-                      </a>
-                    ))}
-                  </div>
+                {/* Right Column - Services 5-7 */}
+                <div className="space-y-6">
+                  {navItems.find(item => item.name === hoveredItem)?.content.rightSections.map((rightSection, index) => (
+                    <div key={index}>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-3">{rightSection.title}</h3>
+                      <ul className="space-y-2">
+                        {rightSection.items.map((subItem, subIndex) => (
+                          <li key={subIndex}>
+                            <a 
+                              href="#" 
+                              className="text-gray-600 hover:text-[#003A75] text-sm transition-colors flex items-center group"
+                            >
+                              {subItem}
+                              <ArrowRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
