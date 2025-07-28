@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const navItems = [
   {
     name: "Services",
+    path : "/services",
     content: {
       sections: [
         {
@@ -77,9 +78,16 @@ const navItems = [
       }
     }
   },
-  { name: "Industries" },
-  { name: "About us" },
-  { name: "Contact us" }
+  { name: "Industries",
+    path: "/industries"
+
+   },
+  { name: "About us" ,
+    path: "/about-us"
+  },
+  { name: "Contact us",
+    path: "/contact-us"
+   }
 ];
 
 const Navbar = () => {
@@ -147,6 +155,7 @@ const Navbar = () => {
                       visible: { opacity: 1, y: 0 },
                     }}
                   >
+                    <Link to={item.path}>
                     <a
                       href="#"
                       className="text-[#003A75] hover:text-[#1D5BA6] px-3 py-2 text-sm font-medium transition-colors flex items-center"
@@ -154,6 +163,7 @@ const Navbar = () => {
                       {item.name}
                       {item.content && <span className="ml-1">▼</span>}
                     </a>
+                    </Link>
                   </motion.div>
                 ))}
               </motion.div>

@@ -1,0 +1,36 @@
+   <!-- {activeTab === 'pricing' && (
+          <div className="animate-fadeIn">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Simple, Transparent Pricing</h2>
+              <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 relative overflow-hidden">
+                {service.pricing.popular && (
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-2 text-sm font-semibold">
+                    Most Popular Choice
+                  </div>
+                )}
+                <div className={`${service.pricing.popular ? 'pt-8' : ''}`}>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">
+                    {service.pricing.starting_price}
+                    <span className="text-lg text-gray-600 font-normal">/{service.pricing.billing}</span>
+                  </div>
+                  <p className="text-gray-600 mb-8">Starting price - custom quotes available</p>
+                  
+                  <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 mb-6">
+                    Get Custom Quote
+                  </button>
+                  
+                  <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
+                    <div className="flex items-center gap-1">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      No setup fees
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      Cancel anytime
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )} -->
