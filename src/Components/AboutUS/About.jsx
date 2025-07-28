@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Code, Smartphone, Search, TrendingUp, Shield, Headphones, Users, Award, Target, Zap } from 'lucide-react';
 import MainLayout from '../Layout/MainLayout';
-import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,7 +39,7 @@ const AboutPage = () => {
       icon: Shield,
       title: "IT Managed Services",
       description: "Complete IT infrastructure management and monitoring to ensure optimal performance and security.",
-      link: "/services"
+      link: "#"
     },
     {
       icon: Headphones,
@@ -301,17 +300,15 @@ const AboutPage = () => {
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <Link to={service.link}
-                 key={index} 
-                
+                <a 
+                  key={index} 
+                  href={service.link}
                   className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 group hover:transform hover:-translate-y-4 hover:rotate-1 block relative overflow-hidden"
                   style={{
                     ...fadeInUp,
                     ...staggeredDelay(index, 0.5)
-                  }}>
-                 
-                
-                
+                  }}
+                >
                   {/* Hover effect overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
@@ -327,7 +324,7 @@ const AboutPage = () => {
                       Learn more →
                     </div>
                   </div>
-                 </Link>
+                </a>
               );
             })}
           </div>
@@ -500,7 +497,7 @@ const AboutPage = () => {
         }
       `}</style>
     </div>
-    </ MainLayout>
+    </MainLayout>
   );
 };
 

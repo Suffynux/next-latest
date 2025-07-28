@@ -1,23 +1,62 @@
+
 import React, { useEffect, useRef, useState } from "react";
-import { Code, Globe, Shield } from "lucide-react";
+import {
+  Shield,
+  Headphones,
+  Target,
+  Users,
+  Zap,
+  Award,
+  TrendingUp,
+} from "lucide-react";
+
 
 const services = [
   {
-    icon: <Code size={32} />,
-    title: "Web Development",
-    description: "High-performance websites and scalable applications tailored to your business needs.",
-  },
-  {
-    icon: <Globe size={32} />,
-    title: "Digital Transformation", 
-    description: "Modernize your operations with cloud, automation, and agile tools.",
-  },
-  {
     icon: <Shield size={32} />,
-    title: "Cybersecurity",
-    description: "Comprehensive security solutions to safeguard your digital infrastructure.",
+    title: "IT Managed Services",
+    description:
+      "Complete IT infrastructure management and monitoring to ensure optimal performance and security.",
+  },
+  {
+    icon: <Headphones size={32} />,
+    title: "On-Demand Field Support (FSO)",
+    description:
+      "Professional on-site technical support services delivered by certified field service technicians.",
+  },
+  {
+    icon: <Target size={32} />,
+    title: "IT Asset Management",
+    description:
+      "Comprehensive tracking and management of your IT assets throughout their entire lifecycle.",
+  },
+  {
+    icon: <Users size={32} />,
+    title: "Network & User Support",
+    description:
+      "Complete network infrastructure support and end-user assistance for seamless operations.",
+  },
+  {
+    icon: <Zap size={32} />,
+    title: "Project & Change Management",
+    description:
+      "Expert project management and change implementation services to ensure successful IT transformations.",
+  },
+  {
+    icon: <Award size={32} />,
+    title: "Recruitment Services (Technical & IT)",
+    description:
+      "Specialized technical recruitment services to help you find the right IT talent for your organization.",
+  },
+  {
+    icon: <TrendingUp size={32} />,
+    title: "Creative & Digital Support",
+    description:
+      "Creative design and digital marketing support to enhance your brand presence and engagement.",
   },
 ];
+
+
 
 const ServicesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -191,3 +230,5 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
+
+
