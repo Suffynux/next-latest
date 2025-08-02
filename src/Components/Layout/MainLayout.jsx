@@ -3,6 +3,7 @@
 import Navbar from "../Navbar/Navbar";
 import AnimatedFooter from "../Footer/Footer";
 
+
 export default function MainLayout({ children }) {
   return (
     <>

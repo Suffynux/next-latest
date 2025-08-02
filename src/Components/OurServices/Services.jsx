@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import {
   Shield,
@@ -8,8 +7,11 @@ import {
   Zap,
   Award,
   TrendingUp,
+  Globe,
+  Monitor,
+  UserCheck,
+  Palette
 } from "lucide-react";
-
 
 const services = [
   {
@@ -56,13 +58,36 @@ const services = [
   },
 ];
 
-
+const keyServices = [
+  {
+    icon: <Globe size={40} />,
+    title: "Global Field Services",
+    description: "Rapid engineer dispatch, on-site troubleshooting, and hardware support—delivered at your location."
+  },
+  {
+    icon: <Monitor size={40} />,
+    title: "IT Managed Services",
+    description: "End-to-end support, including remote helpdesk, IT asset management, and proactive monitoring."
+  },
+  {
+    icon: <UserCheck size={40} />,
+    title: "Technical Recruitment",
+    description: "Skilled IT professionals, sourced and screened by expert recruiters, ready for permanent or contract roles."
+  },
+  {
+    icon: <Palette size={40} />,
+    title: "Creative & Digital Support",
+    description: "UI/UX, branding, websites, and content tailored to tech firms and MSPs."
+  }
+];
 
 const ServicesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [cardVisibility, setCardVisibility] = useState(services.map(() => false));
+  const [keyCardVisibility, setKeyCardVisibility] = useState(keyServices.map(() => false));
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
+  const keyCardRefs = useRef([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -92,7 +117,7 @@ const ServicesSection = () => {
                 newState[index] = true;
                 return newState;
               });
-            }, index * 200); // Stagger animation
+            }, index * 200);
           }
         },
         { threshold: 0.1 }
@@ -110,21 +135,100 @@ const ServicesSection = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const keyCardObservers = keyCardRefs.current.map((cardRef, index) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setKeyCardVisibility(prev => {
+                const newState = [...prev];
+                newState[index] = true;
+                return newState;
+              });
+            }, index * 100);
+          }
+        },
+        { threshold: 0.1 }
+      );
+
+      if (cardRef) {
+        observer.observe(cardRef);
+      }
+
+      return observer;
+    });
+
+    return () => {
+      keyCardObservers.forEach(observer => observer.disconnect());
+    };
+  }, []);
+
   return (
     <section ref={sectionRef} className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading with slide-down animation */}
+        {/* Key Services Section */}
+        <div className="mb-20">
+          <h2 
+            className={`text-3xl md:text-4xl font-bold text-center text-[#003A75] mb-12 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 -translate-y-8'
+            }`}
+          >
+            Key Services
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {keyServices.map((service, index) => (
+              <div
+                key={`key-${index}`}
+                ref={el => keyCardRefs.current[index] = el}
+                className={`bg-white rounded-xl shadow-lg p-8 group transition-all duration-500 transform ${
+                  keyCardVisibility[index] 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-12'
+                } hover:shadow-xl hover:-translate-y-2`}
+                style={{
+                  transitionDelay: `${index * 100}ms`
+                }}
+              >
+                <div 
+                  className={`text-[#003A75] mb-6 transition-all duration-500 transform ${
+                    keyCardVisibility[index] 
+                      ? 'scale-100 rotate-0' 
+                      : 'scale-50 rotate-45'
+                  } group-hover:scale-110 group-hover:text-blue-600`}
+                >
+                  {service.icon}
+                </div>
+                
+                <h3 className="text-xl font-bold mb-3 text-[#003A75] group-hover:text-blue-600 transition-colors duration-300">
+                  {service.title}
+                </h3>
+                
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+                
+                <div className="h-1 bg-gradient-to-r from-[#003A75] to-blue-500 rounded-full mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* All Services Section */}
         <h2 
           className={`text-3xl md:text-4xl font-bold text-center text-[#003A75] mb-12 transition-all duration-1000 ${
             isVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 -translate-y-8'
           }`}
+          style={{ transitionDelay: '300ms' }}
         >
-          Our Services
+          Our Complete Service Portfolio
         </h2>
         
-        {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
@@ -139,66 +243,30 @@ const ServicesSection = () => {
                 transitionDelay: `${index * 100}ms`
               }}
             >
-              {/* Icon with bounce animation */}
               <div 
                 className={`text-[#003A75] mb-4 transition-all duration-500 transform ${
                   cardVisibility[index] 
                     ? 'scale-100 rotate-0' 
                     : 'scale-50 rotate-45'
                 } group-hover:scale-110 group-hover:text-blue-600`}
-                style={{
-                  transitionDelay: `${(index * 100) + 200}ms`
-                }}
               >
                 {service.icon}
               </div>
               
-              {/* Title with slide-in animation */}
-              <h3 
-                className={`text-xl font-semibold mb-2 text-[#003A75] transition-all duration-600 transform ${
-                  cardVisibility[index] 
-                    ? 'opacity-100 translate-x-0' 
-                    : 'opacity-0 -translate-x-4'
-                } group-hover:text-blue-600`}
-                style={{
-                  transitionDelay: `${(index * 100) + 300}ms`
-                }}
-              >
+              <h3 className="text-xl font-semibold mb-2 text-[#003A75] group-hover:text-blue-600 transition-colors duration-300">
                 {service.title}
               </h3>
               
-              {/* Description with typewriter-like effect */}
-              <div className="overflow-hidden">
-                <p 
-                  className={`text-gray-600 text-sm transition-all duration-800 transform ${
-                    cardVisibility[index] 
-                      ? 'opacity-100 translate-y-0 max-h-20' 
-                      : 'opacity-0 translate-y-4 max-h-0'
-                  } group-hover:text-gray-800`}
-                  style={{
-                    transitionDelay: `${(index * 100) + 400}ms`
-                  }}
-                >
-                  {service.description}
-                </p>
-              </div>
+              <p className="text-gray-600 text-sm">
+                {service.description}
+              </p>
               
-              {/* Decorative bottom border that animates in */}
-              <div 
-                className={`h-1 bg-gradient-to-r from-[#003A75] to-blue-500 rounded-full mt-4 transition-all duration-500 transform origin-left ${
-                  cardVisibility[index] 
-                    ? 'scale-x-100 opacity-100' 
-                    : 'scale-x-0 opacity-0'
-                } group-hover:from-blue-500 group-hover:to-blue-600`}
-                style={{
-                  transitionDelay: `${(index * 100) + 600}ms`
-                }}
-              />
+              <div className="h-1 bg-gradient-to-r from-[#003A75] to-blue-500 rounded-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>
         
-        {/* Additional animated elements */}
+        {/* Closing Content */}
         <div className="mt-16 text-center">
           <div 
             className={`inline-block transition-all duration-1000 transform ${
@@ -223,12 +291,8 @@ const ServicesSection = () => {
           </p>
         </div>
       </div>
-      
-
     </section>
   );
 };
 
 export default ServicesSection;
-
-

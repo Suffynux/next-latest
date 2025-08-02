@@ -1,7 +1,7 @@
 import Navbar from "../Navbar/Navbar"
 import Hero from "../Hero/Hero"
 import ServicesSection from "../OurServices/Services"
-import Industry from "../Industries/Industry"
+import WhatWeDo from "../../Components/Industries/WhatWeDo"
 import Slider from "../Slider/Slider"
 import AboutUsLanding from "../AboutUS/LandingAbout"
 import AnimatedFooter from "../Footer/Footer"
@@ -13,7 +13,7 @@ const Home = () => {
     <MainLayout>
     {/* <Navbar/> */}
     <Hero/>
-    <Industry/>
+    <WhatWeDo/>
     <ServicesSection/>
     <Slider/>
     <AboutUsLanding/>

@@ -1,61 +1,61 @@
 import { useState, useEffect } from "react";
-import { Star, Quote, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight, Play, Pause, Building2, MapPin } from "lucide-react";
 
 const reviews = [
   {
-    logo: "https://via.placeholder.com/120x60/4F46E5/ffffff?text=ACME+Corp",
-    companyName: "ACME Corporation",
-    quote: "The team is engaged and proud to work for our clients and adapt to changing needs quickly. Their dedication to excellence has transformed our entire digital infrastructure.",
-    name: "Sarah Johnson",
-    title: "Global IT Director",
-    industry: "Technology & Software",
+    companyName: "Retail Group",
+    quote: "We had a last-minute issue with a client office in Paris and no one on our team could get there. NextGrid sent someone within hours knew exactly what to do, handled it, and even followed up the next day. That's the kind of reliability you don't find often.",
+    name: "IT Lead",
+    title: "IT Lead",
+    industry: "Retail & E-commerce",
     rating: 5,
-    avatar: "https://via.placeholder.com/60x60/EC4899/ffffff?text=SJ",
-    featured: true
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face",
+    featured: true,
+    location: "France"
   },
   {
-    logo: "https://via.placeholder.com/120x60/059669/ffffff?text=GreenTech",
-    companyName: "GreenTech Solutions",
-    quote: "They are very flexible when we need additional resources or shift priorities. The level of professionalism and technical expertise exceeded our expectations.",
-    name: "Michael Chen",
-    title: "Director of IT Operations",
-    industry: "Energy & Utilities",
+    companyName: "Logistics Firm",
+    quote: "I've hired freelancers before it's always hit or miss. But working with NextGrid felt like having our own local IT team, just without the overhead. Everything was smooth: scheduling, updates, reporting. Zero headaches.",
+    name: "COO",
+    title: "Chief Operations Officer",
+    industry: "Logistics & Transportation",
     rating: 5,
-    avatar: "https://via.placeholder.com/60x60/0EA5E9/ffffff?text=MC",
-    featured: false
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face",
+    featured: false,
+    location: "Germany"
   },
   {
-    logo: "https://via.placeholder.com/120x60/DC2626/ffffff?text=TechFlow",
-    companyName: "TechFlow Industries",
-    quote: "Processes are well followed, and issues are resolved quickly when escalated. Their proactive approach has significantly reduced our operational overhead.",
-    name: "Emily Rodriguez",
+    companyName: "Co-Working Startup",
+    quote: "When we expanded into five new cities, the biggest stress was figuring out how to support our teams technically. NextGrid just handled it. Engineers on the ground, remote support, setup. We didn't miss a beat.",
+    name: "Founder",
+    title: "Founder & CEO",
+    industry: "Co-Working & Real Estate",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face",
+    featured: true,
+    location: "Netherlands"
+  },
+  {
+    companyName: "Fintech Scale-up",
+    quote: "We needed hands-on support during an office move and didn't have enough internal staff. NextGrid filled the gap brilliantly. The team was on time, proactive, and completely in sync with our internal IT.",
+    name: "IT Manager",
     title: "IT Manager",
-    industry: "Manufacturing",
+    industry: "Financial Technology",
     rating: 5,
-    avatar: "https://via.placeholder.com/60x60/7C3AED/ffffff?text=ER",
-    featured: false
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop&crop=face",
+    featured: false,
+    location: "UK"
   },
   {
-    logo: "https://via.placeholder.com/120x60/F59E0B/ffffff?text=InnovateCo",
-    companyName: "InnovateCo",
-    quote: "Outstanding service delivery and innovation. They've helped us scale our operations seamlessly while maintaining the highest security standards.",
-    name: "David Park",
-    title: "Chief Technology Officer",
-    industry: "Financial Services",
+    companyName: "Design Agency",
+    quote: "I used to waste hours chasing freelance techs who'd go quiet mid-job. With NextGrid, one message and it's handled. No chasing, no follow-ups, they just get it done.",
+    name: "Founder",
+    title: "Founder & Creative Director",
+    industry: "Design & Creative Services",
     rating: 5,
-    avatar: "https://via.placeholder.com/60x60/10B981/ffffff?text=DP",
-    featured: true
-  },
-  {
-    logo: "https://via.placeholder.com/120x60/8B5CF6/ffffff?text=DataCorp",
-    companyName: "DataCorp Analytics",
-    quote: "Their expertise in cloud migration and data management is unparalleled. The project was delivered on time and exceeded all performance metrics.",
-    name: "Lisa Wang",
-    title: "VP of Engineering",
-    industry: "Data & Analytics",
-    rating: 5,
-    avatar: "https://via.placeholder.com/60x60/F97316/ffffff?text=LW",
-    featured: false
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face",
+    featured: false,
+    location: "UK"
   }
 ];
 
@@ -116,10 +116,10 @@ const AdvancedReviewSlider = () => {
             <span className="text-sm font-medium text-gray-600">Trusted by Industry Leaders</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-4">
-            Client Success Stories
+            Why Businesses Trust NextGrid IT
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover how we've helped businesses transform their operations and achieve remarkable results
+            Real testimonials from clients who've experienced our reliable, professional IT support across Europe
           </p>
         </div>
 
@@ -205,46 +205,44 @@ const AdvancedReviewSlider = () => {
                         <Quote className="w-16 h-16 text-blue-600" />
                       </div>
 
-                      {/* Company Logo */}
+                      {/* Industry Information */}
                       <div className="flex justify-center mb-8">
-                        <div className="bg-white rounded-xl p-4 shadow-lg">
-                          <img
-                            src={review.logo}
-                            alt={`${review.companyName} Logo`}
-                            className="h-12 object-contain"
-                          />
+                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-100">
+                          <div className="flex items-center gap-3">
+                            <Building2 className="w-6 h-6 text-blue-600" />
+                            <div className="text-center">
+                              <h3 className="font-semibold text-lg text-gray-900">{review.industry}</h3>
+                              <div className="flex items-center justify-center gap-1 mt-1">
+                                <MapPin className="w-4 h-4 text-blue-600" />
+                                <span className="text-sm text-blue-600 font-medium">{review.location}</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
 
                       {/* Rating */}
-                      <div className="flex justify-center gap-1 mb-6">
+                      <div className="flex justify-center gap-1 mb-8">
                         {renderStars(review.rating)}
                       </div>
 
                       {/* Quote */}
-                      <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 max-w-4xl mx-auto text-center">
+                      <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center font-medium">
                         "{review.quote}"
                       </blockquote>
 
                       {/* Author Info */}
-                      <div className="flex items-center justify-center gap-6">
+                      <div className="flex items-center justify-center gap-6 bg-gray-50 rounded-xl p-6">
                         <img
                           src={review.avatar}
                           alt={review.name}
-                          className="w-16 h-16 rounded-full shadow-lg"
+                          className="w-16 h-16 rounded-full shadow-lg border-2 border-white"
                         />
                         <div className="text-left">
-                          <h4 className="font-semibold text-lg text-gray-900">{review.name}</h4>
-                          <p className="text-blue-600 font-medium">{review.title}</p>
-                          <p className="text-sm text-gray-500">{review.industry}</p>
+                          <h4 className="font-bold text-lg text-gray-900">{review.name}</h4>
+                          <p className="text-blue-600 font-semibold">{review.title}</p>
+                          <p className="text-sm text-gray-600 font-medium">{review.companyName}</p>
                         </div>
-                      </div>
-
-                      {/* Company Name */}
-                      <div className="mt-6 text-center">
-                        <p className="text-sm font-medium text-gray-500">
-                          {review.companyName}
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -255,13 +253,13 @@ const AdvancedReviewSlider = () => {
 
           {/* Progress Bar */}
           <div className="mt-8 max-w-md mx-auto">
-            <div className="bg-gray-200 rounded-full h-1 overflow-hidden">
+            <div className="bg-gray-200 rounded-full h-2 overflow-hidden">
               <div 
                 className="bg-gradient-to-r from-blue-500 to-purple-500 h-full rounded-full transition-all duration-300"
                 style={{ width: `${((currentSlide + 1) / reviews.length) * 100}%` }}
               />
             </div>
-            <div className="flex justify-between mt-2 text-xs text-gray-500">
+            <div className="flex justify-between mt-3 text-sm text-gray-600 font-medium">
               <span>Review {currentSlide + 1}</span>
               <span>of {reviews.length}</span>
             </div>

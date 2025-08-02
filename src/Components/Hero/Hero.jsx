@@ -1,284 +1,158 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Play, Shield, Server, Cloud, Code, Database, Wifi } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const heroSlides = [
-  {
-    id: 1,
-    title: "Transform Your Business with Expert IT Solutions",
-    subtitle: "Comprehensive Managed Services",
-    description: "Streamline operations, enhance security, and accelerate growth with our enterprise-grade IT managed services tailored for modern businesses.",
-    buttonText: "Get Started",
-    secondaryButtonText: "Watch Demo",
-    background: "from-blue-900 via-blue-800 to-indigo-900",
-    features: ["24/7 Support", "Cloud Migration", "Security First"],
-    textColor: "text-white"
-  },
-  {
-    id: 2,
-    title: "Secure Your Digital Infrastructure",
-    subtitle: "Advanced Cybersecurity Solutions",
-    description: "Protect your business from evolving threats with our comprehensive cybersecurity framework and proactive monitoring services.",
-    buttonText: "Learn More",
-    secondaryButtonText: "Free Assessment",
-    background: "from-indigo-900 via-blue-800 to-blue-900",
-    features: ["Threat Detection", "Data Protection", "Compliance Ready"],
-    textColor: "text-white"
-  },
-  {
-    id: 3,
-    title: "Scale with Confidence in the Cloud",
-    subtitle: "Cloud Infrastructure Management",
-    description: "Migrate, manage, and optimize your cloud infrastructure with our expert team ensuring maximum performance and cost efficiency.",
-    buttonText: "Explore Services",
-    secondaryButtonText: "Case Studies",
-    background: "from-blue-800 via-indigo-800 to-cyan-900",
-    features: ["Auto-Scaling", "Cost Optimization", "Multi-Cloud"],
-    textColor: "text-white"
-  }
-];
+const HeroSection = () => {
+  const [videoIndex, setVideoIndex] = useState(0);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const videoRef = useRef(null);
 
-const floatingIcons = [
-  { Icon: Shield, delay: 0, position: 'top-1/4 left-1/6' },
-  { Icon: Server, delay: 500, position: 'top-1/3 right-1/4' },
-  { Icon: Cloud, delay: 1000, position: 'bottom-1/3 left-1/4' },
-  { Icon: Code, delay: 1500, position: 'top-1/2 right-1/6' },
-  { Icon: Database, delay: 2000, position: 'bottom-1/4 right-1/5' },
-  { Icon: Wifi, delay: 2500, position: 'bottom-1/3 left-1/6' },
-];
+  const videos = [
+    "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    "https://videos.pexels.com/video-files/31710198/13510814_2560_1440_30fps.mp4",
+    "https://videos.pexels.com/video-files/7140928/7140928-uhd_2560_1440_24fps.mp4"
+  ];
 
-const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const sectionRef = useRef(null);
-
+  // Initialize video playback when component mounts
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const videoElement = videoRef.current;
+    
+    const handlePlayback = () => {
+      if (videoElement) {
+        videoElement.play().catch(error => {
+          console.error("Autoplay failed:", error);
+          // Fallback: Try playing after user interaction
+          document.addEventListener('click', () => {
+            videoElement.play().catch(e => console.error("Still can't play:", e));
+          }, { once: true });
+        });
+      }
+    };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const handleLoadedData = () => {
+      setIsVideoLoaded(true);
+      handlePlayback();
+    };
+
+    if (videoElement) {
+      videoElement.addEventListener('loadeddata', handleLoadedData);
+      videoElement.addEventListener('ended', () => handleNextVideo());
+      
+      // Try to play immediately if already loaded
+      if (videoElement.readyState >= 3) {
+        handleLoadedData();
+      }
     }
 
-    return () => observer.disconnect();
+    return () => {
+      if (videoElement) {
+        videoElement.removeEventListener('loadeddata', handleLoadedData);
+        videoElement.removeEventListener('ended', () => handleNextVideo());
+      }
+    };
   }, []);
 
+  // Handle video index changes
   useEffect(() => {
-    if (!isAutoPlay) return;
+    setIsVideoLoaded(false);
+    const videoElement = videoRef.current;
     
-    const interval = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % heroSlides.length);
-    }, 5000);
+    if (videoElement) {
+      const handleCanPlay = () => {
+        setIsVideoLoaded(true);
+        videoElement.play().catch(error => {
+          console.error("Playback failed on video change:", error);
+        });
+      };
 
-    return () => clearInterval(interval);
-  }, [isAutoPlay]);
+      videoElement.addEventListener('canplay', handleCanPlay, { once: true });
+      
+      return () => {
+        videoElement.removeEventListener('canplay', handleCanPlay);
+      };
+    }
+  }, [videoIndex]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    setIsAutoPlay(false);
+  const handleNextVideo = () => {
+    setVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-    setIsAutoPlay(false);
+  const handlePrevVideo = () => {
+    setVideoIndex((prevIndex) => (prevIndex - 1 + videos.length) % videos.length);
   };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-    setIsAutoPlay(false);
-  };
-
-  const currentSlideData = heroSlides[currentSlide];
 
   return (
-    <section 
-      ref={sectionRef}
-      className={`relative min-h-screen flex items-center justify-center bg-gradient-to-br ${currentSlideData.background} overflow-hidden transition-all duration-1000`}
-      onMouseEnter={() => setIsAutoPlay(false)}
-      onMouseLeave={() => setIsAutoPlay(true)}
-    >
-      {/* Animated Background Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white opacity-5 rounded-full animate-pulse"
-            style={{
-              width: Math.random() * 6 + 2 + 'px',
-              height: Math.random() * 6 + 2 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-              animationDelay: Math.random() * 3 + 's',
-              animationDuration: (Math.random() * 4 + 2) + 's'
-            }}
+    <section className="relative w-full h-screen flex items-start justify-start text-white overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black">
+      {/* Video Background */}
+      <video
+        ref={videoRef}
+        key={videoIndex}
+        className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-500 ${isVideoLoaded ? 'opacity-50' : 'opacity-0'}`}
+        autoPlay
+        muted
+        playsInline
+        loop
+        preload="auto"
+      >
+        <source src={videos[videoIndex]} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black via-transparent to-black z-10"></div>
+
+      {/* Content Aligned Left */}
+      <div className="relative z-20 px-6 md:px-12 lg:px-24 pt-32 max-w-3xl text-left">
+        <h1 className="text-4xl md:text-6xl font-bold uppercase mb-4">
+          IT Managed Support. Wherever You Need It.
+        </h1>
+        <p className="text-lg md:text-xl font-light mb-6">
+          Trusted by businesses across Europe and APAC to deliver fast, expert IT solutions—on-site and on-demand.
+        </p>
+        <div className="space-x-4">
+          <Link to="/contact-us" className="inline-block px-6 py-3 bg-white text-gray-900 font-semibold rounded-md  transition-colors duration-300 hover:bg-[#1D5BA6] hover:text-white">
+            Contact us
+          </Link>
+          <Link to="/services" className="inline-block px-6 py-3 bg-white text-gray-900 font-semibold rounded-md hover:bg-[#1D5BA6] hover:text-white   transition-colors duration-300">
+            Services
+          </Link>
+        </div>
+      </div>
+
+      {/* Video Navigation Arrows - Fixed Click Area */}
+      <div className="absolute inset-0 flex items-center justify-between px-4 z-20 pointer-events-none">
+        <div 
+          onClick={handlePrevVideo}
+          className="p-4 text-white/80 hover:text-white transition-colors duration-300 group cursor-pointer pointer-events-auto"
+          aria-label="Previous Video"
+          role="button"
+        >
+          <ChevronLeft className="w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
+        </div>
+        
+        <div 
+          onClick={handleNextVideo}
+          className="p-4 text-white/80 hover:text-white transition-colors duration-300 group cursor-pointer pointer-events-auto"
+          aria-label="Next Video"
+          role="button"
+        >
+          <ChevronRight className="w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
+        </div>
+      </div>
+
+      {/* Bottom Center Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        {videos.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setVideoIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${index === videoIndex ? 'bg-white w-4' : 'bg-white/30'}`}
+            aria-label={`Go to video ${index + 1}`}
           />
         ))}
       </div>
-
-      {/* Floating Tech Icons - Adjusted positions */}
-      {floatingIcons.map(({ Icon, delay, position }, index) => (
-        <div
-          key={index}
-          className={`absolute ${position} -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 transform ${
-            isVisible 
-              ? 'opacity-20 scale-100' 
-              : 'opacity-0 scale-50'
-          }`}
-          style={{ 
-            transitionDelay: `${delay}ms`,
-            animation: isVisible ? `float ${3 + (index * 0.5)}s ease-in-out infinite` : 'none'
-          }}
-        >
-          <Icon size={24} className="text-white animate-pulse" />
-        </div>
-      ))}
-
-      {/* Main Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          {/* Subtitle - Adjusted padding */}
-      <div 
-  className={`transition-all duration-1000 transform ${
-    isVisible 
-      ? 'opacity-100 translate-y-0' 
-      : 'opacity-0 translate-y-8'
-  }`}
-  style={{ transitionDelay: '200ms' }}
->
-  <span className={`inline-block px-4 sm:px-6 py-2 sm:py-3 bg-white/10 ${currentSlideData.textColor} rounded-full backdrop-blur-md border border-white/20 text-xs sm:text-sm font-medium hover:bg-white/20 transition-all duration-300 mb-6`}>
-    {currentSlideData.subtitle}
-  </span>
-</div>
-          {/* Main Title - Fixed line breaks */}
-          <h1 
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold ${currentSlideData.textColor} mb-6 leading-tight transition-all duration-1000 transform ${
-              isVisible 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-12'
-            }`}
-            style={{ transitionDelay: '400ms' }}
-          >
-            {currentSlideData.title.split(' ').map((word, i) => (
-              <React.Fragment key={i}>
-                {word}
-                {i < currentSlideData.title.split(' ').length - 1 ? ' ' : ''}
-                {/* Add line break after "Transform Your" */}
-                {word === "Your" && <br />}
-              </React.Fragment>
-            ))}
-          </h1>
-
-          {/* Description */}
-          <p 
-            className={`text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 transform ${
-              isVisible 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-12'
-            }`}
-            style={{ transitionDelay: '600ms' }}
-          >
-            {currentSlideData.description}
-          </p>
-
-          {/* Feature Tags */}
-          <div 
-            className={`flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 lg:mb-10 transition-all duration-1000 transform ${
-              isVisible 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-12'
-            }`}
-            style={{ transitionDelay: '800ms' }}
-          >
-            {currentSlideData.features.map((feature, index) => (
-              <span
-                key={index}
-                className={`px-4 sm:px-6 py-2 sm:py-3 bg-white/10 ${currentSlideData.textColor} rounded-full backdrop-blur-md border border-white/20 text-xs sm:text-sm font-medium hover:bg-white/20 transition-all duration-300`}
-              >
-                {feature}
-              </span>
-            ))}
-          </div>
-
-          {/* Action Buttons */}
-          <div 
-            className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 transform ${
-              isVisible 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-12'
-            }`}
-            style={{ transitionDelay: '1000ms' }}
-          >
-            <button className="group px-8 py-4 bg-white text-blue-900 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-2">
-              {currentSlideData.buttonText}
-              <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-            </button>
-            
-            <button className="group px-8 py-4 bg-transparent text-white border-2 border-white rounded-full font-semibold text-lg hover:bg-white hover:text-blue-900 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
-              <Play size={20} className="group-hover:scale-110 transition-transform duration-300" />
-              {currentSlideData.secondaryButtonText}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Slide Navigation - Fixed position */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-4 z-20">
-        <button 
-          onClick={prevSlide}
-          className="p-2 text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-all duration-300 backdrop-blur-sm"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        
-        <div className="flex gap-2">
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide 
-                  ? 'bg-white scale-125' 
-                  : 'bg-white bg-opacity-50 hover:bg-opacity-80'
-              }`}
-            />
-          ))}
-        </div>
-        
-        <button 
-          onClick={nextSlide}
-          className="p-2 text-white hover:bg-white hover:bg-opacity-20 rounded-full transition-all duration-300 backdrop-blur-sm"
-        >
-          <ChevronRight size={24} />
-        </button>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-white bg-opacity-20">
-        <div 
-          className="h-full bg-white transition-all duration-300 ease-out"
-          style={{ 
-            width: `${((currentSlide + 1) / heroSlides.length) * 100}%` 
-          }}
-        />
-      </div>
-
-      {/* Floating Animation Keyframes */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          25% { transform: translateY(-10px) rotate(5deg); }
-          50% { transform: translateY(0px) rotate(0deg); }
-          75% { transform: translateY(-5px) rotate(-5deg); }
-        }
-      `}</style>
     </section>
   );
 };
 
-export default Hero;
+export default HeroSection;
