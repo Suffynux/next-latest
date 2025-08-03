@@ -218,78 +218,7 @@ const ServicesSection = () => {
         </div>
 
         {/* All Services Section */}
-        <h2 
-          className={`text-3xl md:text-4xl font-bold text-center text-[#003A75] mb-12 transition-all duration-1000 ${
-            isVisible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 -translate-y-8'
-          }`}
-          style={{ transitionDelay: '300ms' }}
-        >
-          Our Complete Service Portfolio
-        </h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              ref={el => cardRefs.current[index] = el}
-              className={`bg-white rounded-xl shadow-md p-6 group transition-all duration-700 transform ${
-                cardVisibility[index] 
-                  ? 'opacity-100 translate-y-0 scale-100' 
-                  : 'opacity-0 translate-y-12 scale-95'
-              } hover:shadow-xl hover:-translate-y-2 hover:scale-105`}
-              style={{
-                transitionDelay: `${index * 100}ms`
-              }}
-            >
-              <div 
-                className={`text-[#003A75] mb-4 transition-all duration-500 transform ${
-                  cardVisibility[index] 
-                    ? 'scale-100 rotate-0' 
-                    : 'scale-50 rotate-45'
-                } group-hover:scale-110 group-hover:text-blue-600`}
-              >
-                {service.icon}
-              </div>
-              
-              <h3 className="text-xl font-semibold mb-2 text-[#003A75] group-hover:text-blue-600 transition-colors duration-300">
-                {service.title}
-              </h3>
-              
-              <p className="text-gray-600 text-sm">
-                {service.description}
-              </p>
-              
-              <div className="h-1 bg-gradient-to-r from-[#003A75] to-blue-500 rounded-full mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-          ))}
-        </div>
-        
-        {/* Closing Content */}
-        <div className="mt-16 text-center">
-          <div 
-            className={`inline-block transition-all duration-1000 transform ${
-              isVisible 
-                ? 'opacity-100 scale-100 rotate-0' 
-                : 'opacity-0 scale-50 rotate-180'
-            }`}
-            style={{ transitionDelay: '800ms' }}
-          >
-            <div className="w-16 h-1 bg-gradient-to-r from-[#003A75] to-blue-500 mx-auto rounded-full"></div>
-          </div>
-          
-          <p 
-            className={`mt-6 text-gray-600 max-w-2xl mx-auto transition-all duration-1000 transform ${
-              isVisible 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-8'
-            }`}
-            style={{ transitionDelay: '1000ms' }}
-          >
-            We combine cutting-edge technology with industry expertise to deliver solutions that drive your business forward.
-          </p>
-        </div>
+  
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ const reviews = [
     title: "Founder & CEO",
     industry: "Co-Working & Real Estate",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face",
+    avatar: "https://images.pexels.com/photos/1181695/pexels-photo-1181695.jpeg",
     featured: true,
     location: "Netherlands"
   },

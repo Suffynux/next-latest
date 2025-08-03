@@ -447,20 +447,20 @@ const AnimatedFooter = () => {
   };
 
   const socialLinks = [
-    {
-      name: 'Facebook',
-      icon: <Facebook className="w-5 h-5" />,
-      url: '#',
-      color: 'hover:bg-blue-600',
-      bgColor: 'bg-blue-500'
-    },
-    {
-      name: 'Twitter',
-      icon: <Twitter className="w-5 h-5" />,
-      url: '#',
-      color: 'hover:bg-sky-500',
-      bgColor: 'bg-sky-400'
-    },
+    // {
+    //   name: 'Facebook',
+    //   icon: <Facebook className="w-5 h-5" />,
+    //   url: '#',
+    //   color: 'hover:bg-blue-600',
+    //   bgColor: 'bg-blue-500'
+    // },
+    // {
+    //   name: 'Twitter',
+    //   icon: <Twitter className="w-5 h-5" />,
+    //   url: '#',
+    //   color: 'hover:bg-sky-500',
+    //   bgColor: 'bg-sky-400'
+    // },
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
@@ -468,28 +468,28 @@ const AnimatedFooter = () => {
       color: 'hover:bg-blue-700',
       bgColor: 'bg-blue-600'
     },
-    {
-      name: 'Instagram',
-      icon: <Instagram className="w-5 h-5" />,
-      url: '#',
-      color: 'hover:bg-pink-600',
-      bgColor: 'bg-gradient-to-r from-purple-500 to-pink-500'
-    },
-    {
-      name: 'YouTube',
-      icon: <Youtube className="w-5 h-5" />,
-      url: '#',
-      color: 'hover:bg-red-600',
-      bgColor: 'bg-red-500'
-    }
+    // {
+    //   name: 'Instagram',
+    //   icon: <Instagram className="w-5 h-5" />,
+    //   url: '#',
+    //   color: 'hover:bg-pink-600',
+    //   bgColor: 'bg-gradient-to-r from-purple-500 to-pink-500'
+    // },
+    // {
+    //   name: 'YouTube',
+    //   icon: <Youtube className="w-5 h-5" />,
+    //   url: '#',
+    //   color: 'hover:bg-red-600',
+    //   bgColor: 'bg-red-500'
+    // }
   ];
 
   const quickLinks = [
     { name: 'About Us', url: '#' },
     { name: 'Services', url: '#' },
-    { name: 'Portfolio', url: '#' },
-    { name: 'Testimonials', url: '#' },
-    { name: 'Blog', url: '#' },
+    // { name: 'Portfolio', url: '#' },
+    // { name: 'Testimonials', url: '#' },
+    // { name: 'Blog', url: '#' },
     { name: 'Contact', url: '#' }
   ];
 
