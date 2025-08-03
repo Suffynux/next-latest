@@ -1,11 +1,8 @@
 import Navbar from "../Navbar/Navbar"
 import Hero from "../Hero/Hero"
-import ServicesSection from "../OurServices/Services"
+import LandingService from "../../Components/OurServices/LandingService"
 import WhatWeDo from "../../Components/Industries/WhatWeDo"
 import Slider from "../Slider/Slider"
-// import AboutUsLanding from "../AboutUS/LandingAbout"
-// import AnimatedFooter from "../Footer/Footer"
-import DynamicServicePage from "../OurServices/DynamicServicePage"
 import MainLayout from "./MainLayout"
 import WhyChooseNextGrid from "../Industries/WhyChooseNextGrid"
 import WhoWeWorkWith from "../Industries/WhoWeWorkWith"
@@ -17,7 +14,8 @@ const Home = () => {
     {/* <Navbar/> */}
     <Hero/>
     <WhatWeDo/>
-    <ServicesSection/>
+    <LandingService/>
+    
     <WhyChooseNextGrid/>
     <WhoWeWorkWith/>
     <KeyMetricsSection/>

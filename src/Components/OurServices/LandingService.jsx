@@ -13,7 +13,6 @@ import {
   Palette
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import MainLayout from "../Layout/MainLayout";
 
 const services = [
   {
@@ -160,50 +159,59 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <MainLayout>
     <section ref={sectionRef} className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Key Services Section */}
-     
-        {/* All 7 Services with Links */}
-        <div>
-          <h2 className="text-3xl font-bold text-center text-[#003A75] mb-12">
-            Explore All Our Services
+        <div className="mb-20">
+          <h2
+            className={`text-3xl md:text-4xl font-bold text-center text-[#003A75] mb-12 transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+            }`}
+          >
+            Key Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <Link
-                to={service.path}
-                key={index}
-                ref={(el) => (cardRefs.current[index] = el)}
-                className={`bg-white rounded-xl shadow-md p-6 group transition-all duration-500 transform ${
-                  cardVisibility[index]
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {keyServices.map((service, index) => (
+              <div
+                key={`key-${index}`}
+                ref={(el) => (keyCardRefs.current[index] = el)}
+                className={`bg-white rounded-xl shadow-lg p-8 group transition-all duration-500 transform ${
+                  keyCardVisibility[index]
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
                 } hover:shadow-xl hover:-translate-y-2`}
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                }}
               >
                 <div
-                  className={`text-[#003A75] mb-4 transition-all duration-500 transform ${
-                    cardVisibility[index]
+                  className={`text-[#003A75] mb-6 transition-all duration-500 transform ${
+                    keyCardVisibility[index]
                       ? "scale-100 rotate-0"
                       : "scale-50 rotate-45"
                   } group-hover:scale-110 group-hover:text-blue-600`}
                 >
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-[#003A75] group-hover:text-blue-600">
+
+                <h3 className="text-xl font-bold mb-3 text-[#003A75] group-hover:text-blue-600 transition-colors duration-300">
                   {service.title}
                 </h3>
-              </Link>
+
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+
+                <div className="h-1 bg-gradient-to-r from-[#003A75] to-blue-500 rounded-full mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
             ))}
           </div>
         </div>
+
       </div>
     </section>
-    </MainLayout>
   );
-
 };
 
 export default ServicesSection;
