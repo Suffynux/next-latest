@@ -10,7 +10,8 @@ import ITAssetManagement from "./Components/OurServices/ITAssetManagement";
 import NetworkUserSupport from "./Components/OurServices/NetworkUserSupport";
 import ProjectChangeManagement from "./Components/OurServices/ProjectChangeManagement";
 import CreativeDigitalSupport from "./Components/OurServices/CreativeDigitalSupport";
-import ITServices from "./Components/OurServices/ItServices";
+import ServiceIt from "./Components/OurServices/Serviceit";
+
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
     {
         // First service
         path: "/it-service",
-        element: <ITServices />,
+        element: <ServiceIt />,
       },
       {
         // second service
