@@ -4,7 +4,6 @@ import IndustriesPage from "./Components/Industries/IndustriesPage";
 import About from "./Components/AboutUS/About";
 import Services from "./Components/OurServices/Services";
 import Contact from "./Components/ContactUs/Contact";
-import { Italic } from "lucide-react";
 import TechRecruitment from "./Components/OurServices/TechRecruitment";
 import ITManagedServices from "./Components/OurServices/ITManagedServices";
 import ITAssetManagement from "./Components/OurServices/ITAssetManagement";
