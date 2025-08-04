@@ -7,6 +7,8 @@ import MainLayout from "./MainLayout"
 import WhyChooseNextGrid from "../Industries/WhyChooseNextGrid"
 import WhoWeWorkWith from "../Industries/WhoWeWorkWith"
 import KeyMetricsSection from "../Industries/KeyMetricsSection"
+import Test from "../OurServices/LandingService"
+
 const Home = () => {
   return (
     <>
@@ -15,10 +17,12 @@ const Home = () => {
     <Hero/>
     <WhatWeDo/>
     <LandingService/>
+    {/* <LandingService/> */}
     
     <WhyChooseNextGrid/>
     <WhoWeWorkWith/>
     <KeyMetricsSection/>
+
     <Slider/>
    
     {/* <AnimatedFooter/> */}
