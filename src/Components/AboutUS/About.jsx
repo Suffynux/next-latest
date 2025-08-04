@@ -104,51 +104,66 @@ const AboutPage = () => {
       </div>
 
       {/* Header Section */}
-      <div className="bg-white/90 backdrop-blur-lg shadow-sm border-b border-gray-200 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <h1 
-              className="text-5xl font-bold text-[#284885] mb-4"
-              style={fadeInUp}
-            >
-              About NextGrid IT
-            </h1>
-            <p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
-              style={{
-                ...fadeInUp,
-                transitionDelay: '0.2s'
-              }}
-            >
-              IT support specialists delivering on-demand, location-based solutions across Europe and APAC
-            </p>
-          </div>
-        </div>
+    {/* About Section with Image */}
+<section className="bg-white py-20">
+  <div className="max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+    {/* Text Content */}
+    <div>
+      <h2 className="text-4xl font-bold text-[#284885] mb-6">About NextGrid IT</h2>
+      <p className="text-lg text-gray-700 leading-relaxed mb-4">
+        We are IT support specialists delivering on-demand, location-based solutions across Europe and APAC.
+      </p>
+      <p className="text-lg text-gray-700 leading-relaxed">
+        Our team connects you with nearby certified engineers for fast, reliable IT field support without the overhead of permanent teams in every region.
+      </p>
+    </div>
+
+    {/* Image */}
+    <div className="w-full">
+      <img 
+        src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg" 
+        alt="NextGrid IT team at work"
+        className="rounded-3xl shadow-lg w-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<section className="bg-[#f6f9fc] py-20">
+  <div className="container mx-auto px-6 lg:px-12">
+    <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
+      
+      {/* Image on Left */}
+      <div className="w-full lg:w-1/2">
+        <img
+          src="https://images.pexels.com/photos/7793097/pexels-photo-7793097.jpeg" // ⬅️ Replace with your actual image path
+          alt="IT Challenge"
+          className="rounded-3xl shadow-lg w-full object-cover h-[400px]"
+        />
       </div>
+
+      {/* Text on Right */}
+      <div className="w-full lg:w-1/2 ">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#284885] mb-6 leading-tight">
+          The Challenge Most Businesses Face
+        </h2>
+        <p className="text-gray-700 text-lg leading-relaxed mb-4">
+          Most businesses don’t have time to build IT teams in every region especially when urgent issues demand boots on the ground.
+        </p>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          When hardware fails, networks stall, or projects stall due to lack of technical hands, they’re forced to rely on rigid SLAs, inconsistent freelancers, or overstretched internal teams.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         
-        {/* Problem Statement */}
-        <div className="mb-20">
-          <div 
-            className="bg-white rounded-3xl p-12 shadow-lg border border-gray-100"
-            style={fadeInUp}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              The Challenge Most Businesses Face
-            </h2>
-            <div className="text-lg text-gray-700 leading-relaxed space-y-6">
-              <p>
-                <strong>Most businesses don't have time to build IT teams in every region</strong> — especially when urgent issues demand boots on the ground.
-              </p>
-              <p>
-                When hardware fails, networks stall, or projects stall due to lack of technical hands, they're forced to rely on rigid SLAs, inconsistent freelancers, or overstretched internal teams.
-              </p>
-            </div>
-          </div>
-        </div>
-
+      
         {/* Solution Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div style={fadeInLeft}>
@@ -160,7 +175,7 @@ const AboutPage = () => {
               <div className="relative z-10">
                 <h2 className="text-3xl font-bold mb-6">NextGrid IT was built to change that.</h2>
                 <p className="text-lg text-blue-100 leading-relaxed mb-6">
-                  We provide on-demand, location-based IT support across Europe and APAC — fast, reliable, and delivered by certified engineers near your sites.
+                  We provide on-demand, location-based IT support across EMEA and APAC fast, reliable, and delivered by certified engineers near your sites.
                 </p>
                 <p className="text-lg text-blue-100 leading-relaxed">
                   Whether you need a one-off fix, a multi-region rollout, or technical staff for a month, we move quickly to match the right talent to the right job.
@@ -171,7 +186,7 @@ const AboutPage = () => {
           
           <div style={fadeInRight}>
             <h3 className="text-2xl font-bold text-[#284885] mb-8">
-              From urgent break-fix calls to long-term field deployments, we're your IT team on the ground — without the overhead.
+              From urgent break-fix calls to long-term field deployments, we're your IT team on the ground without the overhead.
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed mb-8">
               We're not a generalist agency. We're IT support specialists with a proven network of engineers, backed by sharp recruiters, operational discipline, and a commitment to service that matches your urgency.
@@ -274,7 +289,7 @@ const AboutPage = () => {
               Scaling, relocating, or solving a crisis?
             </h2>
             <p className="text-xl text-gray-700 mb-8">
-              We're ready when you are — with people, processes, and presence in-region.
+              We're ready when you are with people, processes, and presence in-region.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 mt-12">

@@ -170,140 +170,115 @@ const AnimatedFooter = () => {
         </div>
 
         {/* Main Footer Links */}
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {/* Company Info */}
-            <div className="space-y-6">
-              <div className="group">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  NextGrid IT
-                </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Transforming businesses through innovative technology solutions. 
-                  We're your trusted partner in digital transformation and growth.
-                </p>
-              </div>
+       
+<div className="max-w-7xl mx-auto px-6 py-16">
+  <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    {/* Company Info */}
+    <div className="space-y-6 text-left">
+      <div>
+        <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-3">
+          NextGrid IT
+        </h3>
+        <p className="text-gray-300">
+          Transforming businesses through innovative technology solutions.
+          We're your trusted partner in digital transformation and growth.
+        </p>
+      </div>
 
-              {/* Contact Info */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors cursor-pointer group">
-                  <div className="p-2 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
-                    <Phone className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <span>+44 783 262-2054</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors cursor-pointer group">
-                  <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
-                    <Mail className="w-5 h-5 text-green-400" />
-                  </div>
-                  <span>info@nextgridit.co.uk</span>
-                </div>
-                <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors cursor-pointer group">
-                  <div className="p-2 bg-red-500/20 rounded-lg group-hover:bg-red-500/30 transition-colors mt-1">
-                    <MapPin className="w-5 h-5 text-red-400" />
-                  </div>
-                  <span>483 Green Lanes, London<br />United Kingdom, N13 4BS</span>
-                </div>
-              </div>
-
-              {/* Business Hours */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-gray-700/50">
-                <div className="flex items-center gap-2 mb-2">
-                  <Clock className="w-5 h-5 text-yellow-400" />
-                  <span className="font-semibold">Business Hours</span>
-                </div>
-                <div className="text-sm text-gray-300 space-y-1">
-                  <div>Mon - Fri: 9:00 AM - 6:00 PM</div>
-                  <div>Sat: 10:00 AM - 4:00 PM</div>
-                  <div>Sun: Emergency Support Only</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-xl font-semibold mb-6 text-white">Quick Links</h4>
-              <ul className="space-y-3">
-                {quickLinks.map((link, index) => (
-                  <li key={index}>
-                    <Link
-                      to={link.url}
-                      className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all duration-300 transform hover:translate-x-2"
-                    >
-                      <ChevronRight className="w-4 h-4 text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span className="group-hover:text-blue-400 transition-colors">
-                        {link.name}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h4 className="text-xl font-semibold mb-6 text-white">Our Services</h4>
-              <ul className="space-y-3">
-                {services.map((service, index) => (
-                  <li key={index}>
-                    <Link
-                      to={service.url}
-                      className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all duration-300 transform hover:translate-x-2"
-                    >
-                      <ChevronRight className="w-4 h-4 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <span className="group-hover:text-purple-400 transition-colors">
-                        {service.name}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Social & Trust */}
-            <div>
-              <h4 className="text-xl font-semibold mb-6 text-white">Connect With Us</h4>
-              
-              {/* Social Media */}
-              <div className="flex flex-wrap gap-3 mb-8">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group relative p-3 rounded-xl ${social.bgColor} text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg overflow-hidden`}
-                    onMouseEnter={() => setHoveredSocial(index)}
-                    onMouseLeave={() => setHoveredSocial(null)}
-                  >
-                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative z-10">
-                      {social.icon}
-                    </div>
-                    {hoveredSocial === index && (
-                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-xs whitespace-nowrap animate-fadeIn">
-                        {social.name}
-                      </div>
-                    )}
-                  </a>
-                ))}
-              </div>
-
-              {/* Trust Badges */}
-              <div className="space-y-3">
-                <h5 className="text-lg font-semibold text-white mb-4">Trust & Security</h5>
-                {trustBadges.map((badge, index) => (
-                  <div key={index} className="flex items-center gap-3 text-gray-300 group cursor-pointer">
-                    <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
-                      {badge.icon}
-                    </div>
-                    <span className="group-hover:text-white transition-colors">{badge.text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="space-y-4">
+        <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
+          <Phone className="text-blue-400 w-5 h-5 mt-1" />
+          <span>+44 783 262-2054</span>
         </div>
+        <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
+          <Mail className="text-green-400 w-5 h-5 mt-1" />
+          <span>info@nextgridit.co.uk</span>
+        </div>
+        <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
+          <MapPin className="text-red-400 w-5 h-5 mt-1" />
+          <span>483 Green Lanes, London<br />United Kingdom, N13 4BS</span>
+        </div>
+      </div>
+
+      <div className="bg-white/5 p-4 border border-gray-700/50 rounded-xl">
+        <div className="flex items-center gap-2 mb-2">
+          <Clock className="w-5 h-5 text-yellow-400" />
+          <span className="font-semibold">Business Hours</span>
+        </div>
+        <div className="text-sm text-gray-300 space-y-1">
+          <div>Mon - Fri: 9:00 AM - 6:00 PM</div>
+          <div>Sat: 10:00 AM - 4:00 PM</div>
+          <div>Sun: Emergency Support Only</div>
+        </div>
+      </div>
+    </div>
+
+    {/* Quick Links */}
+    <div className="text-left">
+      <h4 className="text-xl font-semibold mb-6 text-white">Quick Links</h4>
+      <ul className="space-y-3">
+        {quickLinks.map((link, i) => (
+          <li key={i}>
+            <Link to={link.url} className="group flex items-center gap-2 text-gray-300 hover:text-white transition">
+              <ChevronRight className="w-4 h-4 text-blue-400 opacity-0 group-hover:opacity-100" />
+              <span className="group-hover:text-blue-400">{link.name}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Services */}
+    <div className="text-left">
+      <h4 className="text-xl font-semibold mb-6 text-white">Our Services</h4>
+      <ul className="space-y-3">
+        {services.map((service, i) => (
+          <li key={i}>
+            <Link to={service.url} className="group flex items-center gap-2 text-gray-300 hover:text-white transition">
+              <ChevronRight className="w-4 h-4 text-purple-400 opacity-0 group-hover:opacity-100" />
+              <span className="group-hover:text-purple-400">{service.name}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Connect With Us */}
+    <div className="text-left">
+      <h4 className="text-xl font-semibold mb-6 text-white">Connect With Us</h4>
+      <div className="flex flex-wrap gap-3 mb-8">
+        {socialLinks.map((social, index) => (
+          <a
+            key={index}
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group p-3 rounded-xl ${social.bgColor} text-white hover:scale-105 transform transition`}
+            onMouseEnter={() => setHoveredSocial(index)}
+            onMouseLeave={() => setHoveredSocial(null)}
+          >
+            {social.icon}
+          </a>
+        ))}
+      </div>
+
+      <h5 className="text-lg font-semibold text-white mb-4">Trust & Security</h5>
+      <div className="space-y-3">
+        {trustBadges.map((badge, i) => (
+          <div key={i} className="flex items-start gap-3 text-gray-300 group">
+            <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition">
+              {badge.icon}
+            </div>
+            <span className="group-hover:text-white">{badge.text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700/50 bg-black/30 backdrop-blur-sm">
