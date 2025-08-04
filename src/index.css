@@ -8,3 +8,18 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+
+.text-gradient-animated {
+  background: linear-gradient(90deg, #284885, white, #2a4d8e, white, #284885);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientText 6s linear infinite;
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% center; }
+  100% { background-position: 100% center; }
+}

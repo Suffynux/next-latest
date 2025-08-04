@@ -121,7 +121,7 @@ const CreativeDigitalSupport = () => {
             </div>
             <div className="relative z-10">
               <h2 className="text-2xl font-semibold mb-4">Why Nextgrid</h2>
-              <p className="text-white/90 max-w-2xl">
+              <p className="text-white/90 max-w-2xl  ">
                 We combine tech literacy with creative clarity — making your brand message feel current and professional.
               </p>
             </div>
@@ -129,7 +129,7 @@ const CreativeDigitalSupport = () => {
 
           {/* Final CTA */}
           <div className="text-center pt-16">
-            <h3 className="text-2xl text-[#2a4d8e] font-medium mb-6">
+            <h3 className="text-2xl text-[#2a4d8e] font-medium mb-6 ">
               Ready to elevate your brand identity?
             </h3>
             <button

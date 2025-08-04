@@ -339,12 +339,7 @@ const Navbar = () => {
 
             {/* Right side desktop */}
             <div className="hidden md:flex items-center space-x-[20px]">
-              <Link
-                to="/contact-us"
-                className="bg-[#003A75] hover:bg-[#1D5BA6] text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 flex items-center"
-              >
-                Contact Us <span className="ml-2">→</span>
-              </Link>
+         
               <div className="flex items-center space-x-1 text-[#003A75]">
                 <Globe className="w-4 h-4" />
                 <select className="bg-transparent text-sm font-medium focus:outline-none cursor-pointer">
