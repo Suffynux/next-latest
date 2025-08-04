@@ -100,7 +100,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-6xl mx-auto text-center lg:text-left flex flex-col justify-center items-center lg:items-start">
-        <h1 className="text-white font-bold uppercase leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-[60px] tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#284885] to-[#2a4d8e]">
+        <h1 className="text-white font-bold uppercase leading-tight text-3xl sm:text-5xl md:text-6xl lg:text-[60px] tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#284885] to-[#2a4d8e]">
           IT Managed Support
           <br className="hidden sm:block" />
           <span className="block">Wherever You Need It</span>
@@ -108,7 +108,7 @@ const HeroSection = () => {
 
 
 
-        <p className="text-white text-md sm:text-lg md:text-xl lg:text-xl font-light max-w-[400px] md:max-w-2xl opacity-90 mb-8">
+        <p className="text-white text-sm sm:text-lg md:text-xl lg:text-xl font-light max-w-[400px] md:max-w-2xl opacity-90 mb-8">
           Trusted by businesses across ENEA and APAC to deliver fast, expert
           IT solutions on-site and on-demand.
         </p>
