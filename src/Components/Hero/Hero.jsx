@@ -109,7 +109,7 @@ const HeroSection = () => {
 
 
         <p className="text-white text-sm sm:text-lg md:text-xl lg:text-xl font-light max-w-[400px] md:max-w-2xl opacity-90 mb-8">
-          Trusted by businesses across ENEA and APAC to deliver fast, expert
+          Trusted by businesses across EMEA and APAC to deliver fast, expert
           IT solutions on-site and on-demand.
         </p>
 

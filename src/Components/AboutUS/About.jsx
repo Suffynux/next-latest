@@ -28,7 +28,7 @@ const AboutPage = () => {
 
     const timer = setTimeout(() => {
       animateCounter(50, 'regions');
-      animateCounter(200, 'engineers');
+      animateCounter(4000, 'engineers');
       animateCounter(10, 'response');
     }, 1000);
 
@@ -111,7 +111,7 @@ const AboutPage = () => {
     <div>
       <h2 className="text-4xl font-bold text-[#284885] mb-6">About NextGrid IT</h2>
       <p className="text-lg text-gray-700 leading-relaxed mb-4">
-        We are IT support specialists delivering on-demand, location-based solutions across Europe and APAC.
+        We are IT support specialists delivering on-demand, location-based solutions across EMEA and APAC.
       </p>
       <p className="text-lg text-gray-700 leading-relaxed">
         Our team connects you with nearby certified engineers for fast, reliable IT field support without the overhead of permanent teams in every region.
@@ -136,7 +136,7 @@ const AboutPage = () => {
       {/* Image on Left */}
       <div className="w-full lg:w-1/2">
         <img
-          src="https://images.pexels.com/photos/7793097/pexels-photo-7793097.jpeg" // ⬅️ Replace with your actual image path
+          src="https://images.pexels.com/photos/6964133/pexels-photo-6964133.jpeg" // ⬅️ Replace with your actual image path
           alt="IT Challenge"
           className="rounded-3xl shadow-lg w-full object-cover h-[400px]"
         />
@@ -173,7 +173,7 @@ const AboutPage = () => {
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full transform -translate-x-12 translate-y-12"></div>
               
               <div className="relative z-10">
-                <h2 className="text-3xl font-bold mb-6">NextGrid IT was built to change that.</h2>
+                <h2 className="text-3xl font-bold mb-6">NextGrid IT exists to redefine the standard</h2>
                 <p className="text-lg text-blue-100 leading-relaxed mb-6">
                   We provide on-demand, location-based IT support across EMEA and APAC fast, reliable, and delivered by certified engineers near your sites.
                 </p>
@@ -305,7 +305,7 @@ const AboutPage = () => {
               </div>
               <div className="p-6 border-2 border-[#284885]/20 rounded-xl hover:border-[#284885] transition-colors duration-300">
                 <Zap className="w-12 h-12 text-[#284885] mx-auto mb-4" />
-                <h3 className="font-semibold text-gray-900 mb-2">Emergency Response</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Quick Response</h3>
                 <p className="text-gray-600 text-sm">Rapid deployment for critical infrastructure issues</p>
               </div>
             </div>
@@ -341,20 +341,17 @@ const AboutPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
            
-                <Link
-                to={"/contact-us"}
-                className='inline-flex items-center justify-center bg-white text-[#284885] font-semibold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'
-                >
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Book Service Call
-          </Link>
-              <Link
-                to={"/contact-us"}
-                className="inline-flex items-center justify-center border-2 border-white text-white font-semibold py-4 px-8 rounded-xl hover:bg-white hover:text-[#284885] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-              >
-                <Target className="w-5 h-5 mr-2" />
-                Project Consult
-              </Link>
+           
+          <a 
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
+          target='_blank'
+          className='inline-flex items-center justify-center bg-white text-[#284885] font-semibold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'
+          >
+              <MessageCircle className="w-5 h-5 mr-2" />
+Book Service Call
+
+          </a>
+            
             </div>
           </div>
         </div>

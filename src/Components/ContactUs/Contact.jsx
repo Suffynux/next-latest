@@ -254,9 +254,9 @@ const ContactPage = () => {
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Business Hours</h3>
                     <div className="space-y-2 text-gray-600">
-                      <p><span className="font-medium">Monday - Friday:</span> 9:00 AM - 6:00 PM</p>
-                      <p><span className="font-medium">Saturday:</span> 10:00 AM - 4:00 PM</p>
-                      <p><span className="font-medium">Sunday:</span> Closed</p>
+                      <p><span className="font-medium">Monday-Friday:</span> 9:00 AM - 6:00 PM</p>
+                      <p><span className="font-medium">Saturday:</span>      Urgent Support Only</p>
+                      <p><span className="font-medium">Sunday:</span> Urgent Support Only</p>
                     </div>
                   </div>
                 </div>

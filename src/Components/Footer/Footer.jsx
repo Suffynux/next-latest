@@ -63,6 +63,7 @@ const AnimatedFooter = () => {
   ];
 
   const quickLinks = [
+    { name: "Home", url: "/" },
     { name: "About Us", url: "/about-us" },
     { name: "Services", url: "/services" },
     { name: "Contact", url: "/contact-us" },

@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 
 const services = [
-  { image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg", title: "IT Services", path: "/it-service" },
-  { image: "https://images.pexels.com/photos/5685961/pexels-photo-5685961.jpeg", title: "Tech Recruitment", path: "/tech-recruitment" },
-  { image: "https://images.pexels.com/photos/5950094/pexels-photo-5950094.jpeg", title: "Managed Services", path: "/managed-services" },
-  { image: "https://images.pexels.com/photos/12899151/pexels-photo-12899151.jpeg", title: "IT Asset Management", path: "/ITAsset-Management" },
-  { image: "https://images.pexels.com/photos/7709099/pexels-photo-7709099.jpeg", title: "Network & User Support", path: "/network-support" },
+  { image: "/itServices.jpg", title: "IT Services", path: "/it-service" },
+  { image: "/recurite.jpg", title: "Tech Recruitment", path: "/tech-recruitment" },
+  { image: "/managed.jpg", title: "Managed Services", path: "/managed-services" },
+  { image: "/asset.jpg", title: "IT Asset Management", path: "/ITAsset-Management" },
+  { image: "/support.jpg", title: "Network & User Support", path: "/network-support" },
   { image: "https://images.pexels.com/photos/5922204/pexels-photo-5922204.jpeg", title: "Project & Change Management", path: "/project-management" },
   { image: "https://images.pexels.com/photos/8636609/pexels-photo-8636609.jpeg", title: "Creative & Digital Support", path: "/creative-support" },
 ];

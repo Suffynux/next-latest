@@ -168,31 +168,32 @@ const Navbar = () => {
       </nav>
 
       {/* Mega Menu */}
-      <AnimatePresence>
-        {hoveredItem === "Services" && (
-          <motion.div
-            className="fixed top-[calc(80px+1rem)] left-0 w-full bg-white shadow-lg border-t border-gray-200 z-40" // Adjusted top position
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            onMouseEnter={() => setHoveredItem("Services")}
-            onMouseLeave={() => setHoveredItem(null)}
+   {/* Mega Menu */}
+<AnimatePresence>
+  {hoveredItem === "Services" && (
+    <motion.div
+      className="absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-200 z-40"
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.2 }}
+      onMouseEnter={() => setHoveredItem("Services")}
+      onMouseLeave={() => setHoveredItem(null)}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-3 gap-6">
+        {navItems.find(item => item.name === "Services").subLinks.map((link, idx) => (
+          <Link
+            key={idx}
+            to={link.path}
+            className="text-[#003A75] hover:text-[#1D5BA6] font-medium text-sm"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-3 gap-6">
-              {navItems.find(item => item.name === "Services").subLinks.map((link, idx) => (
-                <Link
-                  key={idx}
-                  to={link.path}
-                  className="text-[#003A75] hover:text-[#1D5BA6] font-medium text-sm"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {link.name}
+          </Link>
+        ))}
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* Add padding to the content below the navbar to prevent overlap */}
       <div className="pt-[80px]"></div>
