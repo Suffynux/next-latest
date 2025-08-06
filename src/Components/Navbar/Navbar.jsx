@@ -32,7 +32,7 @@ const Navbar = () => {
     <div className="relative">
       {/* Changed nav to fixed position with high z-index */}
       <nav className="fixed w-full bg-white shadow-sm border-b border-gray-100 z-50 top-0 left-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
@@ -195,7 +195,7 @@ const Navbar = () => {
       </AnimatePresence>
 
       {/* Add padding to the content below the navbar to prevent overlap */}
-      <div className="pt-[120px]"></div>
+      <div className="pt-[80px]"></div>
     </div>
   );
 };
