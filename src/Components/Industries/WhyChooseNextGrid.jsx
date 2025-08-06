@@ -17,7 +17,7 @@ const WhyChooseNextGrid = () => {
     {
       icon: <MapPin className="text-[#2a4d8e] w-8 h-8" />,
       title: "Fast, Location Based IT Support",
-      desc: "Immediate access to skilled engineers, wherever you need them — no delays, no distance issues.",
+      desc: "Immediate access to skilled engineers, wherever you need them no delays, no distance issues.",
     },
     {
       icon: <Users className="text-[#2a4d8e] w-8 h-8" />,
@@ -27,12 +27,12 @@ const WhyChooseNextGrid = () => {
     {
       icon: <Briefcase className="text-[#2a4d8e] w-8 h-8" />,
       title: "No Long-Term Hiring Headaches",
-      desc: "Forget the hiring hassle — we offer the talent, you get the job done. No contracts, just execution.",
+      desc: "Forget the hiring hassle we offer the talent, you get the job done. No contracts, just execution.",
     },
     {
       icon: <CheckCircle className="text-[#2a4d8e] w-8 h-8" />,
       title: "Efficient B2B Service Execution",
-      desc: "Built for businesses — our service model ensures efficiency, professionalism, and results.",
+      desc: "Built for businesses our service model ensures efficiency, professionalism, and results.",
     },
   ];
 
@@ -64,7 +64,7 @@ const WhyChooseNextGrid = () => {
           </h2>
 
           <p className="mt-4 text-lg text-gray-300">
-            We’re redefining how IT support works — fast, flexible, and focused on
+            We’re redefining how IT support works fast, flexible, and focused on
             business needs.
           </p>
         </motion.div>

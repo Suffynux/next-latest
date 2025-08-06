@@ -37,7 +37,7 @@ const WhatWeDo = () => {
           <h1 className="text-4xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight">
             What We Do
           </h1>
-          <h2 className="mt-4 text-xl sm:text-2xl font-semibold text-[#003A75]">
+          <h2 className="mt-4 text-md sm:text-2xl font-semibold text-[#003A75]">
             B2B IT Services, Delivered with Precision
           </h2>
         </motion.div>
@@ -58,9 +58,9 @@ const WhatWeDo = () => {
               viewport={{ once: true }}
               variants={fadeUp}
             >
-              <p>
+              <p className=''>
                 NextGrid provides businesses with rapid-response IT support, project delivery,
-                and managed services across ENEA and APAC. Whether you need a one-time fix
+                and managed services across EMEA and APAC. Whether you need a one-time fix
                 or full-time support, we connect you to certified engineers.
               </p>
             </motion.div>

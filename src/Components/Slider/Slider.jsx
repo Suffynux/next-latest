@@ -115,10 +115,10 @@ const AdvancedReviewSlider = () => {
             <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
             <span className="text-sm font-medium text-gray-600">Trusted by Industry Leaders</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight mb-4 ">
+          <h2 className="text-3xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight mb-4 ">
             Why Businesses Trust NextGrid IT
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-md  md:text-xl text-gray-600 max-w-2xl mx-auto">
             Real testimonials from clients who've experienced our reliable, professional IT support across Europe
           </p>
         </div>

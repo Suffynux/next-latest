@@ -71,10 +71,10 @@ const WhoWeWorkWith = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight">
             Who We Work With
           </h1>
-          <h2 className="mt-4 text-xl sm:text-2xl font-semibold text-[#003A75]">
+          <h2 className="mt-4 text-lg sm:text-2xl font-semibold text-[#003A75]">
             Trusted by Forward-Thinking Organizations
           </h2>
         </motion.div>
