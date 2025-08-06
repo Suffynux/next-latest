@@ -104,7 +104,7 @@ const AdvancedReviewSlider = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 bg-blue-600 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-purple-600 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 bg-blue-600 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-600 rounded-full blur-3xl"></div>
       </div>
 
@@ -115,7 +115,7 @@ const AdvancedReviewSlider = () => {
             <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
             <span className="text-sm font-medium text-gray-600">Trusted by Industry Leaders</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight mb-4 ">
             Why Businesses Trust NextGrid IT
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -255,7 +255,7 @@ const AdvancedReviewSlider = () => {
           <div className="mt-8 max-w-md mx-auto">
             <div className="bg-gray-200 rounded-full h-2 overflow-hidden">
               <div 
-                className="bg-gradient-to-r from-blue-500 to-purple-500 h-full rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-blue-500 to-blue-500 h-full rounded-full transition-all duration-300"
                 style={{ width: `${((currentSlide + 1) / reviews.length) * 100}%` }}
               />
             </div>

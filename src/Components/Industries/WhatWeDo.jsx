@@ -1,44 +1,82 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const WhatWeDo = () => {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.15, duration: 0.6, ease: 'easeOut' },
+    }),
+  };
+
+  const services = [
+    {
+      title: 'Rapid-Response Support',
+      description: '24/7 IT support with on-site or remote solutions',
+    },
+    {
+      title: 'Project Delivery',
+      description: 'End-to-end IT project implementation',
+    },
+  ];
+
   return (
     <div className="bg-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <motion.div
+          className="mb-10 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <h1 className="text-4xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight">
             What We Do
           </h1>
           <h2 className="mt-4 text-xl sm:text-2xl font-semibold text-[#003A75]">
             B2B IT Services, Delivered with Precision
           </h2>
-        </div>
+        </motion.div>
 
         {/* Content Card */}
-        <div className="overflow-hidden bg-gray-50 rounded-xl shadow-md">
+        <motion.div
+          className="overflow-hidden bg-gray-50 rounded-xl shadow-md"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <div className="px-6 py-10 sm:p-12">
-            <div className="prose prose-lg text-gray-600 max-w-none">
+            <motion.div
+              className="prose prose-lg text-gray-600 max-w-none"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+            >
               <p>
                 NextGrid provides businesses with rapid-response IT support, project delivery,
                 and managed services across ENEA and APAC. Whether you need a one-time fix
-                or full-time support, we connect you to certified engineers
+                or full-time support, we connect you to certified engineers.
               </p>
-            </div>
+            </motion.div>
 
             {/* Services List */}
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
-              {[
-                {
-                  title: 'Rapid-Response Support',
-                  description: '24/7 IT support with on-site or remote solutions',
-                },
-                {
-                  title: 'Project Delivery',
-                  description: 'End-to-end IT project implementation',
-                },
-              ].map((service, idx) => (
-                <div key={idx} className="flex">
+              {services.map((service, idx) => (
+                <motion.div
+                  key={idx}
+                  custom={idx}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="flex bg-white rounded-lg p-4 shadow transition-transform hover:scale-[1.02]"
+                >
                   <div className="flex-shrink-0 mt-1">
                     <svg
                       className="w-6 h-6 text-[#2a4d8e]"
@@ -60,20 +98,29 @@ const WhatWeDo = () => {
                     </h3>
                     <p className="mt-1 text-gray-600">{service.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* CTA */}
-        <div className="mt-14 text-center">
+        <motion.div
+          className="mt-14 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <Link to="/services">
-            <button className="px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-[#003A75] to-[#2a4d8e] rounded-md hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2a4d8e]">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-[#003A75] to-[#2a4d8e] rounded-md hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2a4d8e]"
+            >
               Explore Our Services
-            </button>
+            </motion.button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

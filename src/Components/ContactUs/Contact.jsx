@@ -353,24 +353,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-      {/* Footer CTA */}
-      <div className="bg-gray-50 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-              Let's Build Something Amazing Together
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Every great project starts with a conversation. Reach out to us today and let's 
-              discuss how we can help bring your vision to life.
-            </p>
-            <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-              <Clock className="w-4 h-4" />
-              <span>Usually responds within 24 hours</span>
-            </div>
-          </div>
-        </div>
-      </div>
+   
     </div>
     </MainLayout >
   );

@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
-  Instagram, 
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
   Youtube,
   ArrowUp,
   Send,
@@ -17,11 +17,11 @@ import {
   Award,
   Clock,
   ChevronRight,
-  ExternalLink
-} from 'lucide-react';
+  ExternalLink,
+} from "lucide-react";
 
 const AnimatedFooter = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [hoveredSocial, setHoveredSocial] = useState(null);
@@ -32,14 +32,14 @@ const AnimatedFooter = () => {
       setShowBackToTop(window.scrollY > 400);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -47,48 +47,47 @@ const AnimatedFooter = () => {
     e.preventDefault();
     if (email) {
       setIsSubscribed(true);
-      setEmail('');
+      setEmail("");
       setTimeout(() => setIsSubscribed(false), 3000);
     }
   };
 
   const socialLinks = [
     {
-      name: 'LinkedIn',
+      name: "LinkedIn",
       icon: <Linkedin className="w-5 h-5" />,
-      url: 'https://www.linkedin.com/company/nextgrid-it',
-      color: 'hover:bg-blue-700',
-      bgColor: 'bg-blue-600'
+      url: "https://www.linkedin.com/company/nextgrid-it",
+      color: "hover:bg-blue-700",
+      bgColor: "bg-blue-600",
     },
   ];
 
   const quickLinks = [
-    { name: 'About Us', url: '/about-us' },
-    { name: 'Services', url: '/services' },
-    { name: 'Contact', url: '/contact-us' }
+    { name: "About Us", url: "/about-us" },
+    { name: "Services", url: "/services" },
+    { name: "Contact", url: "/contact-us" },
   ];
 
   const services = [
-    { name: 'IT Managed Services', url: '/managed-services' },
-    { name: 'On-Demand Field Support (FSO)', url: '/it-service' },
-    { name: 'IT Asset Management', url: '/ITAsset-Management' },
-    { name: 'Network & User Support', url: '/network-support' },
-    { name: 'Project & Change Management', url: '/project-management' },
-    { name: 'Recruitment Services (Technical & IT)', url: '/tech-recruitment' },
-    { name: 'Creative & Digital Support', url: '/creative-support' }
+    { name: "IT Managed Services", url: "/managed-services" },
+    { name: "On-Demand Field Support (FSO)", url: "/it-service" },
+    { name: "IT Asset Management", url: "/ITAsset-Management" },
+    { name: "Network & User Support", url: "/network-support" },
+    { name: "Project & Change Management", url: "/project-management" },
+    { name: "Recruitment Services (Technical & IT)", url: "/tech-recruitment" },
+    { name: "Creative & Digital Support", url: "/creative-support" },
   ];
 
   const legalLinks = [
-    { name: 'Privacy Policy', url: '#' },
-    { name: 'Terms of Service', url: '#' },
-    { name: 'Cookie Policy', url: '#' },
-    { name: 'GDPR', url: '#' }
+    { name: "Privacy Policy", url: "#" },
+    { name: "Terms of Service", url: "#" },
+    { name: "Cookie Policy", url: "#" },
+    { name: "GDPR", url: "#" },
   ];
 
   const trustBadges = [
-    { icon: <Shield className="w-6 h-6" />, text: 'SSL Secured' },
-    { icon: <Award className="w-6 h-6" />, text: 'ISO Certified' },
-    { icon: <Globe className="w-6 h-6" />, text: 'Global Reach' }
+    { icon: <Shield className="w-6 h-6" />, text: "SSL Secured" },
+    { icon: <Globe className="w-6 h-6" />, text: "Global Reach" },
   ];
 
   return (
@@ -120,7 +119,8 @@ const AnimatedFooter = () => {
                   Stay Updated with Latest IT Trends
                 </h3>
                 <p className="text-gray-300">
-                  Subscribe to our newsletter and get exclusive insights, IT tips, and technology updates delivered to your inbox.
+                  Subscribe to our newsletter and get exclusive insights, IT
+                  tips, and technology updates delivered to your inbox.
                 </p>
               </div>
               <div className="relative">
@@ -141,8 +141,8 @@ const AnimatedFooter = () => {
                     type="button"
                     className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${
                       isSubscribed
-                        ? 'bg-green-500 text-white'
-                        : 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl'
+                        ? "bg-green-500 text-white"
+                        : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl"
                     }`}
                     disabled={isSubscribed}
                   >
@@ -170,115 +170,144 @@ const AnimatedFooter = () => {
         </div>
 
         {/* Main Footer Links */}
-       
-<div className="max-w-7xl mx-auto px-6 py-16">
-  <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-    {/* Company Info */}
-    <div className="space-y-6 text-left">
-      <div>
-        <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-3">
-          NextGrid IT
-        </h3>
-        <p className="text-gray-300">
-          Transforming businesses through innovative technology solutions.
-          We're your trusted partner in digital transformation and growth.
-        </p>
-      </div>
 
-      <div className="space-y-4">
-        <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
-          <Phone className="text-blue-400 w-5 h-5 mt-1" />
-          <span>+44 783 262-2054</span>
-        </div>
-        <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
-          <Mail className="text-green-400 w-5 h-5 mt-1" />
-          <span>info@nextgridit.co.uk</span>
-        </div>
-        <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
-          <MapPin className="text-red-400 w-5 h-5 mt-1" />
-          <span>483 Green Lanes, London<br />United Kingdom, N13 4BS</span>
-        </div>
-      </div>
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Company Info */}
+            <div className="space-y-6 text-left">
+              <div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-3">
+                  NextGrid IT
+                </h3>
+                <p className="text-gray-300">
+                  Transforming businesses through innovative technology
+                  solutions. We're your trusted partner in digital
+                  transformation and growth.
+                </p>
+              </div>
 
-      <div className="bg-white/5 p-4 border border-gray-700/50 rounded-xl">
-        <div className="flex items-center gap-2 mb-2">
-          <Clock className="w-5 h-5 text-yellow-400" />
-          <span className="font-semibold">Business Hours</span>
-        </div>
-        <div className="text-sm text-gray-300 space-y-1">
-          <div>Mon - Fri: 9:00 AM - 6:00 PM</div>
-          <div>Sat: 10:00 AM - 4:00 PM</div>
-          <div>Sun: Emergency Support Only</div>
-        </div>
-      </div>
-    </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
+                  <Phone className="text-blue-400 w-5 h-5 mt-1" />
+                  <span>+44 783 262-2054</span>
+                </div>
+                <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
+                  <Mail className="text-green-400 w-5 h-5 mt-1" />
+                  <a
+                    target="_blank"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
+                  >
+                    {" "}
+                    <span>info@nextgridit.co.uk</span>
+                  </a>
+                </div>
+                <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
+                  <MapPin className="text-red-400 w-5 h-5 mt-1" />
+                  <span>
+                    483 Green Lanes, London
+                    <br />
+                    United Kingdom, N13 4BS
+                  </span>
+                </div>
+              </div>
 
-    {/* Quick Links */}
-    <div className="text-left">
-      <h4 className="text-xl font-semibold mb-6 text-white">Quick Links</h4>
-      <ul className="space-y-3">
-        {quickLinks.map((link, i) => (
-          <li key={i}>
-            <Link to={link.url} className="group flex items-center gap-2 text-gray-300 hover:text-white transition">
-              <ChevronRight className="w-4 h-4 text-blue-400 opacity-0 group-hover:opacity-100" />
-              <span className="group-hover:text-blue-400">{link.name}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+              <div className="bg-white/5 p-4 border border-gray-700/50 rounded-xl">
+                <div className="flex items-center gap-2 mb-2">
+                  <Clock className="w-5 h-5 text-yellow-400" />
+                  <span className="font-semibold">Business Hours</span>
+                </div>
+                <div className="text-sm text-gray-300 space-y-2">
+                  <div>Mon - Fri: 9:00 AM - 6:00 PM</div>
 
-    {/* Services */}
-    <div className="text-left">
-      <h4 className="text-xl font-semibold mb-6 text-white">Our Services</h4>
-      <ul className="space-y-3">
-        {services.map((service, i) => (
-          <li key={i}>
-            <Link to={service.url} className="group flex items-center gap-2 text-gray-300 hover:text-white transition">
-              <ChevronRight className="w-4 h-4 text-purple-400 opacity-0 group-hover:opacity-100" />
-              <span className="group-hover:text-purple-400">{service.name}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    {/* Connect With Us */}
-    <div className="text-left">
-      <h4 className="text-xl font-semibold mb-6 text-white">Connect With Us</h4>
-      <div className="flex flex-wrap gap-3 mb-8">
-        {socialLinks.map((social, index) => (
-          <a
-            key={index}
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group p-3 rounded-xl ${social.bgColor} text-white hover:scale-105 transform transition`}
-            onMouseEnter={() => setHoveredSocial(index)}
-            onMouseLeave={() => setHoveredSocial(null)}
-          >
-            {social.icon}
-          </a>
-        ))}
-      </div>
-
-      <h5 className="text-lg font-semibold text-white mb-4">Trust & Security</h5>
-      <div className="space-y-3">
-        {trustBadges.map((badge, i) => (
-          <div key={i} className="flex items-start gap-3 text-gray-300 group">
-            <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition">
-              {badge.icon}
+                  <div>Sat - Sun: Urgent Support Only</div>
+                </div>
+              </div>
             </div>
-            <span className="group-hover:text-white">{badge.text}</span>
+
+            {/* Quick Links */}
+            <div className="text-left">
+              <h4 className="text-xl font-semibold mb-6 text-white">
+                Quick Links
+              </h4>
+              <ul className="space-y-3">
+                {quickLinks.map((link, i) => (
+                  <li key={i}>
+                    <Link
+                      to={link.url}
+                      className="group flex items-center gap-2 text-gray-300 hover:text-white transition"
+                    >
+                      <ChevronRight className="w-4 h-4 text-blue-400 opacity-0 group-hover:opacity-100" />
+                      <span className="group-hover:text-blue-400">
+                        {link.name}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div className="text-left">
+              <h4 className="text-xl font-semibold mb-6 text-white">
+                Our Services
+              </h4>
+              <ul className="space-y-3">
+                {services.map((service, i) => (
+                  <li key={i}>
+                    <Link
+                      to={service.url}
+                      className="group flex items-center gap-2 text-gray-300 hover:text-white transition"
+                    >
+                      <ChevronRight className="w-4 h-4 text-purple-400 opacity-0 group-hover:opacity-100" />
+                      <span className="group-hover:text-purple-400">
+                        {service.name}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Connect With Us */}
+            <div className="text-left">
+              <h4 className="text-xl font-semibold mb-6 text-white">
+                Connect With Us
+              </h4>
+              <div className="flex flex-wrap gap-3 mb-8">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group p-3 rounded-xl ${social.bgColor} text-white hover:scale-105 transform transition`}
+                    onMouseEnter={() => setHoveredSocial(index)}
+                    onMouseLeave={() => setHoveredSocial(null)}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+
+              <h5 className="text-lg font-semibold text-white mb-4">
+                Trust & Security
+              </h5>
+              <div className="space-y-3">
+                {trustBadges.map((badge, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 text-gray-300 group"
+                  >
+                    <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition">
+                      {badge.icon}
+                    </div>
+                    <span className="group-hover:text-white">{badge.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+        </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700/50 bg-black/30 backdrop-blur-sm">
@@ -287,13 +316,15 @@ const AnimatedFooter = () => {
               <div className="flex flex-col md:flex-row items-center gap-4 text-gray-300">
                 <div className="flex items-center gap-2">
                   <span>© 2025 NextGrid IT</span>
-                  <Heart className="w-4 h-4 text-red-400 animate-pulse" />
-                  <span>Made with passion </span>
+                <span>|</span>
+                  <span>Developed by <span><a 
+                  target="_blank"
+                  href="https://sufiyan-nine.vercel.app/">Suffynux</a></span></span>
                 </div>
               </div>
 
               {/* Legal Links */}
-              <div className="flex flex-wrap items-center gap-6">
+              <div className="flex flex-wrap items-center gap-4 m-4">
                 {legalLinks.map((link, index) => (
                   <Link
                     key={index}
@@ -314,7 +345,9 @@ const AnimatedFooter = () => {
       <button
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-xl z-50 ${
-          showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+          showBackToTop
+            ? "translate-y-0 opacity-100"
+            : "translate-y-16 opacity-0"
         }`}
       >
         <ArrowUp className="w-6 h-6" />
@@ -323,8 +356,14 @@ const AnimatedFooter = () => {
       {/* Custom CSS for animations */}
       <style jsx>{`
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;

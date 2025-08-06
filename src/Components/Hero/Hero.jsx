@@ -114,12 +114,15 @@ const HeroSection = () => {
         </p>
 
         <div className=" flex-col sm:flex-row gap-4 sm:gap-6 hidden md:flex ">
-          <Link
-            to={"/contact-us"}
-            className="inline-block px-8 py-4 bg-[#284885] text-white font-semibold rounded-lg hover:bg-[#2a4d8e] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[160px] text-center"
-          >
-            Contact Us
-          </Link>
+<a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block px-8 py-4 bg-[#284885] text-white font-semibold rounded-lg hover:bg-[#2a4d8e] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[160px] text-center"
+>
+  Contact us 
+</a>
+
 
           <Link
             to={"/services"}
