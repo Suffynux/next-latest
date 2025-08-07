@@ -9,7 +9,7 @@ const ServiceIt = () => {
     <section className="min-h-screen bg-gradient-to-br from-gray-50 to-white text-[#284885] px-6 py-16">
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Hero Section with Grid Layout */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center pb-5">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold text-[#2a4d8e] mb-4">
               IT Services
@@ -22,7 +22,7 @@ const ServiceIt = () => {
                
                 <Link to={"/contact-us"}
                  className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#2a4d8e] to-[#284885] text-white rounded-lg text-lg font-medium hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-md"
-                > Book an engineer today — no contracts required   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                > Book an engineer today    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
       
               
@@ -30,7 +30,7 @@ const ServiceIt = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#2a4d8e] to-[#284885] rounded-xl transform rotate-3 opacity-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2a4d8e] to-[#284885] rounded-xl transform rotate-3 opacity-2"></div>
             <div className="relative bg-white rounded-xl overflow-hidden h-80 shadow-2xl border border-gray-100">
               <img 
                 src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -41,6 +41,8 @@ const ServiceIt = () => {
             </div>
           </div>
         </div>
+        
+        
 
         {/* Features Grid */}
         <div className="pt-12">

@@ -143,7 +143,7 @@ const ContactPage = () => {
             
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6">
-                Ready to get immediate IT support?
+                Ready to get immediate IT support
               </h2>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
                 Contact NextGrid IT today to discuss your requirements or schedule an on-site visit.
