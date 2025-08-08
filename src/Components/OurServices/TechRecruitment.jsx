@@ -22,7 +22,7 @@ const TechRecruitment = () => {
                   className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#2a4d8e] to-[#284885] text-white rounded-lg text-lg font-medium hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-md"
                   to={"/contact-us"}
                 >
-                  Find the right tech talent — fast
+                  Find the right tech talent
                   <ArrowRight
                     className="ml-2 group-hover:translate-x-1 transition-transform"
                     size={20}
@@ -148,16 +148,18 @@ const TechRecruitment = () => {
               Ready to find exceptional tech talent?
             </h3>
 
-            <Link
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
               className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2a4d8e] to-[#284885] text-white rounded-lg text-lg font-medium hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg"
-              to={"/contact-us"}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Get Started Today
               <ArrowRight
                 className="ml-3 group-hover:translate-x-1 transition-transform"
                 size={20}
               />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

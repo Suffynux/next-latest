@@ -30,7 +30,7 @@ const ProjectChangeManagement = () => {
                 onClick={handleNavigation}
                 className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#2a4d8e] to-[#284885] text-white rounded-lg text-lg font-medium hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-md"
               >
-                Planning a move or upgrade? We're ready
+                Planning a move or upgrade! We're ready
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </button>
             </div>
@@ -133,13 +133,19 @@ const ProjectChangeManagement = () => {
           <h3 className="text-2xl text-[#2a4d8e] font-medium mb-6">
             Ready to execute your next IT transformation?
           </h3>
-          <button
-            onClick={handleNavigation}
-            className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2a4d8e] to-[#284885] text-white rounded-lg text-lg font-medium hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg"
-          >
-            Get Started Today
-            <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={20} />
-          </button>
+          
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
+              className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2a4d8e] to-[#284885] text-white rounded-lg text-lg font-medium hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Started Today
+              <ArrowRight
+                className="ml-3 group-hover:translate-x-1 transition-transform"
+                size={20}
+              />
+            </a>
         </div>
       </div>
     </section>

@@ -141,7 +141,14 @@ const ITAssetManagement = () => {
             onClick={handleNavigation}
             className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#2a4d8e] to-[#284885] text-white rounded-lg text-lg font-medium hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            Get Started Today
+            <a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
+  target="_blank"
+  rel="noopener noreferrer"
+  >
+  Contact us 
+</a>
+          
             <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={20} />
           </button>
         </div>
