@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";// Make sure the path is correct
 import Home from "./Components/Layout/Home";
 import IndustriesPage from "./Components/Industries/IndustriesPage";
 import About from "./Components/AboutUS/About";
@@ -11,76 +11,31 @@ import NetworkUserSupport from "./Components/OurServices/NetworkUserSupport";
 import ProjectChangeManagement from "./Components/OurServices/ProjectChangeManagement";
 import CreativeDigitalSupport from "./Components/OurServices/CreativeDigitalSupport";
 import ServiceIt from "./Components/OurServices/Serviceit";
-
-
+import Layout from "./Components/Layout/Layout";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: <Layout />, // All routes go inside this layout
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "/services", element: <Services /> },
+        { path: "/industries", element: <IndustriesPage /> },
+        { path: "/about-us", element: <About /> },
+        { path: "/contact-us", element: <Contact /> },
+        { path: "/it-service", element: <ServiceIt /> },
+        { path: "/tech-recruitment", element: <TechRecruitment /> },
+        { path: "/managed-services", element: <ITManagedServices /> },
+        { path: "/ITAsset-Management", element: <ITAssetManagement /> },
+        { path: "/network-support", element: <NetworkUserSupport /> },
+        { path: "/project-management", element: <ProjectChangeManagement /> },
+        { path: "/creative-support", element: <CreativeDigitalSupport /> },
+      ],
     },
-
-       {
-        // Main service Page
-      path: "/services",
-      element: <Services />,
-    },
-
-    {
-      path: "/industries",
-      element: <IndustriesPage />,
-    },
-    {
-      path: "/about-us",
-      element: <About />,
-    },
-    {
-      path: "/contact-us",
-      element: <Contact />,
-    },
-    {
-        // First service
-        path: "/it-service",
-        element: <ServiceIt />,
-      },
-      {
-        // second service
-        path: "/tech-recruitment",
-        element: <TechRecruitment />,
-      },
-      {
-        // Third service
-        path: "/managed-services",
-        element: <ITManagedServices />,
-      },
-      {
-        // Fourth service
-        path: "/ITAsset-Management",
-        element: <ITAssetManagement />,
-      },
-
-      {
-        // Fiveth service
-        path: "/network-support",
-        element: <NetworkUserSupport />,
-      },
-      {
-        // Sixth service
-        path: "/project-management",
-        element: <ProjectChangeManagement />,
-      },
-
-      {
-        // Seventh service
-        path: "/creative-support",
-        element: <CreativeDigitalSupport />,
-      },
-      
   ]);
 
   return <RouterProvider router={router} />;
 }
-
 
 export default App;

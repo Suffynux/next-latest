@@ -45,11 +45,11 @@ const WhatWeDo = () => {
   ];
 
   return (
-    <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
-          className="mb-10 text-center"
+          className="mb-5 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
