@@ -32,13 +32,18 @@ const Hero = () => {
           <div 
             className="absolute inset-0 bg-center bg-cover"
             style={{
-              backgroundImage: `url(${networkBg})`,
+              backgroundImage: `url('/heroImage.jpg')`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'center',
+              filter: 'blur(2px)'
             }}
           ></div>
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          {/* Dark overlay with increased opacity for better text contrast */}
+          <div className="absolute inset-0 bg-black/80
+          
+          
+          
+          "></div>
         </div>
       </div>
 
@@ -46,7 +51,7 @@ const Hero = () => {
       <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-center">
         
         {/* Left Side - Girl Image */}
-        <div className="hidden md:flex w-full md:w-[50%] h-full items-center justify-center relative">
+        <div className="mt-[100px] hidden md:flex w-full md:w-[50%] h-full items-center justify-center relative pt-4 ">
           <img
             src={girlImage}
             alt="Girl with laptop"
@@ -56,7 +61,7 @@ const Hero = () => {
         </div>
 
         {/* Right Side Content */}
-        <div className="w-full md:w-[50%] h-full flex flex-col justify-center px-6 sm:px-10 md:px-12 text-white relative"
+        <div className="w-full md:w-[60%] h-full flex flex-col justify-center px-6 sm:px-10 md:px-12 text-white relative"
         >
 
         {/* Content */}
@@ -64,10 +69,10 @@ const Hero = () => {
           <h1 className="text-white font-bold uppercase leading-tight text-3xl sm:text-5xl md:text-5xl tracking-tight mb-4">
             IT Managed Support
             <br className="hidden sm:block" />
-              <span className="block text-blue-300">Wherever You Need It</span>
+              <span className="block text-blue-300 font-medium">Wherever You Need It</span>
           </h1>
 
-          <p className="text-white text-sm sm:text-lg md:text-xl lg:text-xl font-light max-w-[250px] md:max-w-2xl opacity-90 mb-8">
+          <p className="text-white text-sm sm:text-lg md:text-md lg:text-md font-light max-w-[250px] md:max-w-2xl opacity-90 mb-8">
             Trusted by businesses across EMEA and APAC to deliver fast, expert
             IT solutions on-site and on-demand.
           </p>
