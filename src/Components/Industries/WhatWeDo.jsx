@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import supportImage from "../../assets/Images/support.jpeg"; // Update with your support image
 
 const WhatWeDo = () => {
@@ -9,39 +9,39 @@ const WhatWeDo = () => {
     visible: (i = 0) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.15, duration: 0.6, ease: 'easeOut' },
+      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
     }),
   };
 
   const services = [
     {
-      title: 'IT Services',
-      path: '/it-service',
+      title: "IT Services",
+      path: "/it-service",
     },
     {
-      title: 'Tech Recruitment',
-      path: '/tech-recruitment',
+      title: "Tech Recruitment",
+      path: "/tech-recruitment",
     },
     {
-      title: 'Managed Services',
-      path: '/managed-services',
+      title: "Managed Services",
+      path: "/managed-services",
     },
     {
-      title: 'IT Asset Management',
-      path: '/ITAsset-Management',
+      title: "IT Asset Management",
+      path: "/ITAsset-Management",
     },
     {
-      title: 'Network & User Support',
-      path: '/network-support',
+      title: "Network & User Support",
+      path: "/network-support",
     },
     {
-      title: 'Project & Change Management',
-      path: '/project-management',
+      title: "Project & Change Management",
+      path: "/project-management",
     },
     {
-      title: 'Creative & Digital Support',
-      path: '/creative-support',
-    }
+      title: "Creative & Digital Support",
+      path: "/creative-support",
+    },
   ];
 
   return (
@@ -55,17 +55,26 @@ const WhatWeDo = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight">
-            What We Do
-          </h1>
-          <h2 className="mt-4 text-md sm:text-2xl font-semibold text-[#003A75]">
-            B2B IT Services, Delivered with Precision
-          </h2>
-          <p className="mt-6 text-gray-600 max-w-3xl mx-auto text-center">
-            NextGrid provides businesses with rapid-response IT support, project delivery,
-            and managed services across EMEA and APAC. Whether you need a one-time fix
-            or full-time support, we connect you to certified engineers.
-          </p>
+      <div className="text-center px-4 sm:px-6 lg:px-8">
+  <h1 className="sm:text-5xl md:text-5xl  font-extrabold uppercase tracking-tight bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent">
+    B2B IT Services,{' '}
+    <span className="font-bold text-[#003A75]">
+      Delivered with Precision
+    </span>
+  </h1>
+
+  {/* Optional subtitle */}
+  {/* <h2 className="mt-4 text-md sm:text-2xl font-semibold text-[#003A75]">
+      Your subtitle here
+  </h2> */}
+
+  <p className="mt-6 max-w-2xl mx-auto text-gray-600 text-center text-md sm:text-xl">
+    NextGrid provides businesses with rapid-response IT support, project
+    delivery, and managed services across EMEA and APAC. Whether you need a
+    one-time fix or full-time support, we connect you to certified engineers.
+  </p>
+</div>
+
         </motion.div>
 
         {/* What's included section with image + services list */}
@@ -77,11 +86,11 @@ const WhatWeDo = () => {
           variants={fadeUp}
         >
           {/* Left side - Image */}
-          <div className="w-full md:w-5/12 bg-gray-100 p-2">
-            <img 
-              src={supportImage} 
-              alt="Support specialist with headset" 
-              className="w-full h-full object-cover" 
+          <div className="w-full md:w-5/12 bg-gray-100 p-2 h-[500px]">
+            <img
+              src={"/whatwedoImage.jpg"}
+              alt="Support specialist with headset"
+              className="w-full  object-cover"
             />
           </div>
 
@@ -89,7 +98,9 @@ const WhatWeDo = () => {
           <div className="w-full md:w-7/12 bg-gradient-to-br from-[#003A75] to-[#2a4d8e] p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Our Services</h3>
             <p className="text-white/90 text-sm mb-8">
-              We provide comprehensive IT solutions to businesses of all sizes. Our expert team delivers reliable support for all your technology needs:
+              We provide comprehensive IT solutions to businesses of all sizes.
+              Our expert team delivers reliable support for all your technology
+              needs:
             </p>
 
             {/* Services Grid */}
@@ -120,7 +131,10 @@ const WhatWeDo = () => {
                     </svg>
                   </div>
                   <div>
-                    <Link to={service.path} className="text-sm text-white hover:text-blue-200 transition-colors">
+                    <Link
+                      to={service.path}
+                      className="text-sm text-white hover:text-blue-200 transition-colors"
+                    >
                       {service.title}
                     </Link>
                   </div>
@@ -137,9 +151,7 @@ const WhatWeDo = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
-        >
-       
-        </motion.div>
+        ></motion.div>
       </div>
     </div>
   );
