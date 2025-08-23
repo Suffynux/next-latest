@@ -68,7 +68,7 @@ const WhatWeDo = () => {
       Your subtitle here
   </h2> */}
 
-  <p className="mt-6 max-w-2xl mx-auto text-gray-600 text-center text-md sm:text-xl">
+  <p className="mt-6 max-w-2xl mx-auto text-gray-600 text-center text-md sm:text-[19p]">
     NextGrid provides businesses with rapid-response IT support, project
     delivery, and managed services across EMEA and APAC. Whether you need a
     one-time fix or full-time support, we connect you to certified engineers.
@@ -86,7 +86,7 @@ const WhatWeDo = () => {
           variants={fadeUp}
         >
           {/* Left side - Image */}
-          <div className="w-full md:w-5/12 bg-gray-100 p-2 h-[500px]">
+          <div className="w-full md:w-5/12 bg-gray-100 p-2 h-[440px]">
             <img
               src={"/whatwedoImage.jpg"}
               alt="Support specialist with headset"

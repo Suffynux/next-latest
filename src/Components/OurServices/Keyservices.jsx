@@ -170,7 +170,7 @@ const keyServicesSection = () => {
         {/* Key Services Section */}
         <div className="mb-20">
           <h2 
-            className={`text-3xl md:text-4xl font-bold text-center text-[#003A75] mb-12 transition-all duration-1000 ${
+            className={`text-3xl md:text-2xl font-bold text-center text-[#003A75] mb-12 transition-all duration-1000 ${
               isVisible 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 -translate-y-8'

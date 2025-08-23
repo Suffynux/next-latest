@@ -92,7 +92,7 @@ const LandingService = () => {
     <section ref={sectionRef} className="py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-3xl md:text-5xl font-extrabold text-center text-[#003A75] mb-12 transition-all duration-1000 ${
+          className={`text-3xl md:text-4xl font-extrabold text-center text-[#003A75] mb-12 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
           }`}
         >
