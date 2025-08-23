@@ -51,7 +51,7 @@ const Hero = () => {
       <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-center">
         
         {/* Left Side - Girl Image */}
-        <div className="mt-[80px] hidden md:flex w-full md:w-[70%] h-[700px] items-center justify-center relative pt-4 ">
+        <div className=" hidden md:flex w-full md:w-[70%] h-[700px] items-center justify-center relative pt-4 ">
           <img
             src={girlImage}
             alt="Girl with laptop"
