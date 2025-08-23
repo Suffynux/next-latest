@@ -48,14 +48,14 @@ const Hero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-center">
+      <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-center p-8">
         
         {/* Left Side - Girl Image */}
-        <div className=" hidden md:flex w-full md:w-[70%] h-[700px] items-center justify-center relative pt-4 ">
+        <div className="mt-[50px] hidden md:flex w-full md:w-[70%] h-full items-center justify-center relative pt-4 ">
           <img
             src={girlImage}
             alt="Girl with laptop"
-            className="w-auto h-auto max-h-[80%] max-w-[85%] object-contain drop-shadow-2xl z-20"
+            className="w-auto h-auto max-h-[80%] max-w-[600px] object-contain drop-shadow-2xl z-20"
             style={{ filter: "drop-shadow(0 0 20px rgba(0, 0, 0, 0.5))" }}
           />
         </div>
@@ -65,8 +65,8 @@ const Hero = () => {
         >
 
         {/* Content */}
-        <div className="relative z-20 w-full mx-auto text-center md:text-left flex flex-col justify-center items-center md:items-start gap-5 md:pt-[90px]">
-          <h1 className="text-white font-bold uppercase leading-tight text-3xl sm:text-5xl md:text-5xl tracking-tight mb-4">
+        <div className="relative z-20 w-full mx-auto text-center md:text-left flex flex-col justify-center items-center md:items-start gap-2 md:pt-[90px]">
+          <h1 className="text-white font-bold uppercase leading-tight text-3xl sm:text-5xl md:text-4xl tracking-tight mb-4">
             IT Managed Support
             <br className="hidden sm:block" />
               <span className="block text-blue-300 font-medium">Wherever You Need It</span>
