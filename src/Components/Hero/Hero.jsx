@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Split Background */}
       <div className="absolute inset-0 flex flex-row">      
         {/* Left side - Background image with overlay */}
-        <div className="hidden md:block w-[60%] h-full relative overflow-hidden">
+        <div className="hidden md:block w-[40%] h-full relative overflow-hidden">
           {/* Background image */}
           <div 
             className="absolute inset-0 bg-center bg-cover"
@@ -51,7 +51,7 @@ const Hero = () => {
       <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-center">
         
         {/* Left Side - Girl Image */}
-        <div className="mt-[100px] hidden md:flex w-full md:w-[50%] h-full items-center justify-center relative pt-4 ">
+        <div className="mt-[100px] hidden md:flex w-full md:w-[70%] h-full items-center justify-center relative pt-4 ">
           <img
             src={girlImage}
             alt="Girl with laptop"
@@ -61,7 +61,7 @@ const Hero = () => {
         </div>
 
         {/* Right Side Content */}
-        <div className="w-full md:w-[60%] h-full flex flex-col justify-center px-6 sm:px-10 md:px-12 text-white relative"
+        <div className="w-full md:w-[70%] h-full flex flex-col justify-center px-6 sm:px-10 md:px-12 text-white relative"
         >
 
         {/* Content */}
