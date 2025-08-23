@@ -56,7 +56,7 @@ const WhatWeDo = () => {
           variants={fadeUp}
         >
       <div className="text-center px-4 sm:px-6 lg:px-8">
-  <h1 className="sm:text-5xl md:text-5xl  font-extrabold uppercase tracking-tight bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent">
+  <h1 className="sm:text-5xl md:text-4xl  font-extrabold uppercase tracking-tight bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent">
     B2B IT Services,{' '}
     <span className="font-bold text-[#003A75]">
       Delivered with Precision

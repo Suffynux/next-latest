@@ -11,43 +11,18 @@ import {
 import { motion } from "framer-motion";
 
 const WhoWeWorkWith = () => {
-  const clientTypes = [
-    {
-      icon: <Building2 className="w-6 h-6 text-[#2a4d8e]" />,
-      title: "Mid Sized Businesses & Enterprises",
-      description:
-        "Reliable, distributed IT support that scales with your operations without the overhead.",
-    },
-    {
-      icon: <Cpu className="w-6 h-6 text-[#2a4d8e]" />,
-      title: "Managed Service Providers (MSPs)",
-      description:
-        "Extend your reach with dispatch-ready engineers supporting SLAs across EMEA & APAC.",
-    },
-    {
-      icon: <Store className="w-6 h-6 text-[#2a4d8e]" />,
-      title: "Retail Chains & Co-Working Operators",
-      description:
-        "Rollouts, maintenance, and troubleshooting for seamless multi-location tech support.",
-    },
-    {
-      icon: <Warehouse className="w-6 h-6 text-[#2a4d8e]" />,
-      title: "Logistics & Warehouse Operations",
-      description:
-        "Maintain smooth backend systems, connectivity, and on-site infrastructure.",
-    },
-    {
-      icon: <Server className="w-6 h-6 text-[#2a4d8e]" />,
-      title: "Data Centre Providers",
-      description:
-        "Smart hands and on-demand tech support for high-uptime environments.",
-    },
-    {
-      icon: <AlertCircle className="w-6 h-6 text-[#2a4d8e]" />,
-      title: "Any Business That Needs Instant IT Support",
-      description:
-        "Rapid dispatch of certified engineers delivering expert support exactly when you need it",
-    },
+  // Out-of-scope tasks for NextGrid IT services
+  const outOfScopeTasks = [
+    "Graphic design or long-form copywriting",
+    "Full website design or web development projects",
+    "Paid ad campaign management",
+    "Cold calling, call answering, or telemarketing",
+    "Sales negotiations or outbound sales",
+    "Data extraction or domain warm-up",
+    "Professional accountancy or consultancy",
+    "Social media management outside CRM platforms",
+    "Third party software license or related cost",
+    "Requests exceeding 10 hours per week",
   ];
 
   // Animation variants
@@ -61,96 +36,34 @@ const WhoWeWorkWith = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          className="mb-10 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <h1 className="text-3xl sm:text-5xl font-extrabold uppercase bg-gradient-to-r from-[#003A75] to-[#2a4d8e] bg-clip-text text-transparent tracking-tight">
-            Who We Work With
-          </h1>
-          <h2 className="mt-4 text-lg sm:text-2xl font-semibold text-[#003A75]">
-            Trusted by Forward-Thinking Organizations
-          </h2>
-        </motion.div>
-
-        {/* Content Card */}
-        <motion.div
-          className="overflow-hidden bg-gray-50 rounded-xl shadow-md"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <div className="px-6 py-10 sm:p-12">
-            <motion.div
-              className="prose prose-lg text-gray-600 max-w-none"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
-              <p>
-                NextGrid partners with businesses across sectors to deliver
-                tailored, efficient, and scalable IT solutions from mid-size
-                enterprises to MSPs and logistics providers.
-              </p>
-            </motion.div>
-
-            {/* Clients List */}
-            <div className="mt-10 grid gap-8 sm:grid-cols-2">
-              {clientTypes.map((client, idx) => (
-                <motion.div
-                  key={idx}
-                  className="flex bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 hover:scale-[1.02]"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { delay: idx * 0.15, duration: 0.5 },
-                    },
-                  }}
-                >
-                  <div className="flex-shrink-0 mt-1">{client.icon}</div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-[#003A75]">
-                      {client.title}
-                    </h3>
-                    <p className="mt-1 text-gray-600">{client.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+    <div className="bg-white min-h-screen flex flex-col gap-0 items-stretch py-0 px-0">
+      {/* Out-of-Scope Tasks Section */}
+      <section className="w-full py-14 px-4 sm:px-10 bg-gradient-to-br from-[#3a1c71] via-[#5f2c82] to-[#1e2a78] relative">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">Out-of-Scope Tasks</h2>
+          <p className="text-white/90 mb-8 text-base sm:text-lg max-w-2xl">To keep our IT services cost-effective and focused, here’s what’s not included:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2">
+            {outOfScopeTasks.map((task, idx) => (
+              <div key={idx} className="flex items-start gap-2 mb-2">
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded bg-white/20 text-white text-lg font-bold">&#8250;</span>
+                <span className="text-white text-base">{task}</span>
+              </div>
+            ))}
           </div>
-        </motion.div>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <motion.div
-          className="mt-10 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
-            target="_blank"
-          >
-            <button className="px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-[#003A75] to-[#2a4d8e] rounded-md hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2a4d8e] transition-transform hover:scale-105">
-              Let’s Talk
-            </button>
-          </a>
-        </motion.div>
-      </div>
+      {/* Why NextGrid Section */}
+      <section className="w-full bg-[#a21caf] py-12 px-4 sm:px-10 flex flex-col md:flex-row items-stretch gap-0">
+        <div className="md:w-1/2 flex flex-col justify-center p-6 md:p-10">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">Why NextGrid</h2>
+          <p className="text-white/90 mb-4 text-base sm:text-lg">Based in the United Kingdom, NextGrid is a trusted global IT services provider with regional offices and a presence in over 50 countries.</p>
+          <p className="text-white/90 text-base sm:text-lg">We’ve delivered technology talent and managed services to clients worldwide for over a decade. Our engineers and consultants are handpicked based on your requirements and trained to deliver consistent, reliable results.</p>
+        </div>
+        <div className="md:w-1/2 flex items-center justify-center p-6 md:p-10">
+          <img src="/public/asset.jpg" alt="Professional at work" className="rounded-xl object-cover w-full max-w-md shadow-lg" />
+        </div>
+      </section>
     </div>
   );
 };

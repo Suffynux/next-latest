@@ -3,39 +3,8 @@ import { CheckCircle, MapPin, Users, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 
 const WhyChooseNextGrid = () => {
-  // Fade-up animation variant
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i = 0) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
-    }),
-  };
-
-  const items = [
-    {
-      icon: <MapPin className="text-[#2a4d8e] w-8 h-8" />,
-      title: "Fast, Location Based IT Support",
-      desc: "Immediate access to skilled engineers, wherever you need them no delays, no distance issues.",
-    },
-    {
-      icon: <Users className="text-[#2a4d8e] w-8 h-8" />,
-      title: "Vetted Network of IT Engineers",
-      desc: "Get access to a strong pool of experienced, trusted engineers ready to solve your IT problems.",
-    },
-    {
-      icon: <Briefcase className="text-[#2a4d8e] w-8 h-8" />,
-      title: "No Long-Term Hiring Headaches",
-      desc: "Forget the hiring hassle we offer the talent, you get the job done. No contracts, just execution.",
-    },
-    {
-      icon: <CheckCircle className="text-[#2a4d8e] w-8 h-8" />,
-      title: "Efficient B2B Service Execution",
-      desc: "Built for businesses our service model ensures efficiency, professionalism, and results.",
-    },
-  ];
-
+ 
+ 
   return (
     <section className="min-h-screen relative bg-gradient-to-br from-[#1c2b46] via-[#20325a] to-[#162039] py-20 text-white">
       {/* Subtle Background Image Overlay */}
@@ -47,53 +16,84 @@ const WhyChooseNextGrid = () => {
         }}
       ></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Section Header */}
-        <motion.div
-          className="mb-12 text-left"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-wide">
-            Why Choose{" "}
-            <span className="inline-block leading-tight bg-gradient-to-r from-blue-400 to-gray-400 bg-clip-text text-transparent">
-              NextGrid!
-            </span>
-          </h2>
+      <CostComparison/>
 
-          <p className="mt-4 text-lg text-gray-300">
-            We’re redefining how IT support works fast, flexible, and focused on
-            business needs.
-          </p>
-        </motion.div>
-
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {items.map((item, i) => (
-            <motion.div
-              key={i}
-              className="bg-[#1e2d49] p-6 rounded-2xl shadow-lg border border-[#2a4d8e]/20 hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-[1.02]"
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                {item.icon}
-                <h3 className="text-xl font-semibold text-white">
-                  {item.title}
-                </h3>
-              </div>
-              <p className="text-gray-300">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+    
     </section>
   );
 };
 
 export default WhyChooseNextGrid;
+
+const CostComparison = () => {
+  return (
+    <div className="flex flex-col items-center justify-center mt-10 mb-10">
+      <h3 className="md:text-4xl sm:text-3xl font-bold text-center text-white mb-[30px]">
+        Cost Comparison: NextGrid IT vs Typical  IT Provider
+      </h3>
+      {/* <p className="text-center text-gray-600 max-w-2xl mb-6 text-sm sm:text-base">
+        <span className="font-semibold">Note:</span> NextGrid provides rapid-response IT support, project delivery, and managed services for businesses. We do <span className="font-semibold">not</span> offer Virtual Assistant (VA) services. The comparison below highlights the value of our IT solutions versus a typical UK-based IT provider.
+      </p> */}
+      <div className="w-full flex justify-center">
+        <div className="relative w-full max-w-3xl">
+          {/* Gradient background */}
+          <div className="absolute inset-0 rounded-lg z-0 bg-gradient-to-br from-[#e0e7ff] via-[#f8fafc] to-[#ffe4e6] opacity-80"></div>
+          {/* Table content */}
+          <div className="relative z-10 overflow-x-auto shadow-lg rounded-lg border border-orange-200 bg-white">
+            <table className="min-w-full text-sm text-gray-800">
+              <thead>
+                <tr className="bg-[#f8fafc] border-b">
+                  <th className="py-3 px-4 text-left font-semibold">Feature / Cost Factor</th>
+                  <th className="py-3 px-4 text-left font-semibold text-[#003A75]">NextGrid IT Services</th>
+                  <th className="py-3 px-4 text-left font-semibold text-[#2a4d8e]">Typical UK-Based IT Provider</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="py-2 px-4">Monthly Cost</td>
+                  <td className="py-2 px-4">Custom, pay-as-you-go or retainer</td>
+                  <td className="py-2 px-4">£800 – £2,000+ (fixed contracts)</td>
+                </tr>
+                <tr className="bg-[#f8fafc] border-b">
+                  <td className="py-2 px-4">Hourly Rate</td>
+                  <td className="py-2 px-4">From £35/hour (all-inclusive)</td>
+                  <td className="py-2 px-4">£60 – £120/hour</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="py-2 px-4">Minimum Commitment</td>
+                  <td className="py-2 px-4">No minimum (ad-hoc available)</td>
+                  <td className="py-2 px-4">12 months typical</td>
+                </tr>
+                <tr className="bg-[#f8fafc] border-b">
+                  <td className="py-2 px-4">Setup/Onboarding Fees</td>
+                  <td className="py-2 px-4">£0</td>
+                  <td className="py-2 px-4">£100 – £500</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="py-2 px-4">Remote & Onsite Support</td>
+                  <td className="py-2 px-4">Included</td>
+                  <td className="py-2 px-4">Often extra</td>
+                </tr>
+                <tr className="bg-[#f8fafc] border-b">
+                  <td className="py-2 px-4">Monitoring & Reporting</td>
+                  <td className="py-2 px-4">Included</td>
+                  <td className="py-2 px-4">Extra or limited</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="py-2 px-4">Money-Back Guarantee</td>
+                  <td className="py-2 px-4"><span className="inline-block align-middle text-green-600 font-bold">✔</span> 7 days</td>
+                  <td className="py-2 px-4 text-red-500">Rare</td>
+                </tr>
+                <tr className="bg-[#f8fafc]">
+                  <td className="py-2 px-4">Working Hours Flexibility</td>
+                  <td className="py-2 px-4">High (24/7, global coverage)</td>
+                  <td className="py-2 px-4">Limited</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

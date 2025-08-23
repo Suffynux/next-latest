@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Split Background */}
       <div className="absolute inset-0 flex flex-row">      
         {/* Left side - Background image with overlay */}
-        <div className="hidden md:block w-[50%] h-full relative overflow-hidden">
+        <div className="hidden md:block w-[60%] h-full relative overflow-hidden">
           {/* Background image */}
           <div 
             className="absolute inset-0 bg-center bg-cover"
@@ -65,14 +65,14 @@ const Hero = () => {
         >
 
         {/* Content */}
-        <div className="relative z-20 w-full mx-auto text-center md:text-left flex flex-col justify-center items-center md:items-start">
+        <div className="relative z-20 w-full mx-auto text-center md:text-left flex flex-col justify-center items-center md:items-start gap-5 md:pt-[90px]">
           <h1 className="text-white font-bold uppercase leading-tight text-3xl sm:text-5xl md:text-5xl tracking-tight mb-4">
             IT Managed Support
             <br className="hidden sm:block" />
               <span className="block text-blue-300 font-medium">Wherever You Need It</span>
           </h1>
 
-          <p className="text-white text-sm sm:text-lg md:text-md lg:text-md font-light max-w-[250px] md:max-w-2xl opacity-90 mb-8">
+          <p className="text-white text-sm sm:text-lg md:text-[21px] font-light max-w-[100px] md:max-w-2xl opacity-90 mb-8">
             Trusted by businesses across EMEA and APAC to deliver fast, expert
             IT solutions on-site and on-demand.
           </p>
