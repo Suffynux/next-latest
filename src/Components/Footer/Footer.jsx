@@ -338,7 +338,7 @@ const AnimatedFooter = () => {
       {/* Back to Top */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-xl z-50 ${
+        className={`fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-500 to-blue-800 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-xl z-50 ${
           showBackToTop ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
         }`}
       >
