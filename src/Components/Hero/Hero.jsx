@@ -40,11 +40,7 @@ const Hero = () => {
             }}
           ></div>
           {/* Dark overlay with increased opacity for better text contrast */}
-          <div className="absolute inset-0 bg-black/80
-          
-          
-          
-          "></div>
+          <div className="absolute inset-0 bg-black/80"></div>
         </div>
       </div>
 
@@ -52,53 +48,53 @@ const Hero = () => {
       <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-center p-8">
         
         {/* Left Side - Girl Image */}
-<div className="mt-[80px] hidden md:flex w-full md:w-[60%] h-full items-center justify-center relative pt-8">
-  <img
-    src={girlImage}
-    alt="Girl with laptop"
-    className="w-auto h-auto max-h-[100%] max-w-[500px] object-contain drop-shadow-2xl z-20 -mr-20"
-    style={{ filter: "drop-shadow(0 0 20px rgba(0, 0, 0, 0.5))" }}
-  />
-</div>
-
-
-{/* Right Side Content */}
-<div className="w-full md:w-[70%] h-full flex flex-col justify-center px-6 sm:px-10 md:pl-16 text-white relative">
-  {/* Content */}
-  <div className="relative z-20 w-full mx-auto text-center md:text-left flex flex-col justify-center items-center md:items-start gap-2 md:pt-[90px]">
-    <h1 className="text-white font-bold uppercase leading-tight text-3xl sm:text-5xl md:text-[40px] tracking-tight mb-4">
-      IT Managed Support
-      <br className="hidden sm:block" />
-      <span className="block text-blue-300 font-medium">Wherever You Need It</span>
-    </h1>
-
-    <p className="text-white text-sm sm:text-lg md:text-[19px] font-light max-w-[400px] md:max-w-2xl opacity-90 mb-8">
-      Trusted by businesses across EMEA and APAC to deliver fast, expert
-      IT solutions on-site and on-demand.
-    </p>
-
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
-      <a 
-        href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block px-8 py-4 bg-[#284885] text-white font-semibold rounded-lg hover:bg-[#2a4d8e] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[160px] text-center"
-      >
-        Contact us 
-      </a>
-
-      <Link
-        to={"/services"}
-        className="inline-block px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#284885] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[160px] text-center"
-      >
-        Our Services
-      </Link>
-    </div>
-  </div>
-</div>
-
+        <div className="mt-[80px] hidden md:flex w-full md:w-[60%] h-full items-center justify-center relative pt-8">
+          <img
+            src={girlImage}
+            alt="Girl with laptop"
+            className="w-auto h-auto max-h-[100%] max-w-[500px] object-contain drop-shadow-2xl z-20 -mr-20"
+            style={{ filter: "drop-shadow(0 0 20px rgba(0, 0, 0, 0.5))" }}
+          />
         </div>
-      
+
+        {/* Right Side Content */}
+        <div className="w-full md:w-[70%] h-full flex flex-col justify-center px-6 sm:px-10 md:pl-16 text-white relative">
+          {/* Content */}
+          <div className="relative z-20 w-full mx-auto text-center md:text-left flex flex-col justify-center items-center md:items-start gap-2 md:pt-[90px]">
+            <h1 className="font-['Montserrat'] tracking-tight mb-4 md:mb-6 leading-none">
+              <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold block mb-2 tracking-tight">
+                IT Managed Support
+              </span>
+              <span className="text-xl sm:text-2xl md:text-3xl font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-300 tracking-wide block">
+                Wherever You Need It
+              </span>
+            </h1>
+
+            <p className="font-['Montserrat'] text-white text-base sm:text-lg font-light max-w-[400px] md:max-w-2xl opacity-90 mb-6 md:mb-8">
+              Trusted by businesses across EMEA and APAC to deliver fast, expert
+              IT solutions on-site and on-demand.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
+              <a 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-['Montserrat'] inline-block px-8 py-4 bg-[#284885] text-white font-semibold rounded-lg hover:bg-[#2a4d8e] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[160px] text-center"
+              >
+                Contact us 
+              </a>
+
+              <Link
+                to={"/services"}
+                className="font-['Montserrat'] inline-block px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#284885] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[160px] text-center"
+              >
+                Our Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

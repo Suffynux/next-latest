@@ -14,29 +14,29 @@ import bgImage from "../../assets/Images/heroBg1.jpg";
 const WhoWeWorkWith = () => {
   // Out-of-scope tasks for NextGrid IT services
   const outOfScopeTasks = [
-    "Graphic design or long-form copywriting",
-    "Full website design or web development projects",
-    "Paid ad campaign management",
-    "Cold calling, call answering, or telemarketing",
-    "Sales negotiations or outbound sales",
-    "Data extraction or domain warm-up",
-    "Professional accountancy or consultancy",
-    "Social media management outside CRM platforms",
-    "Third party software license or related cost",
-    "Requests exceeding 10 hours per week",
+    "Custom software development projects",
+    "Hardware manufacturing or repairs",
+    "On-premise legacy system maintenance",
+    "Physical security system installation",
+    "Full digital marketing campaigns",
+    "Complete infrastructure replacement projects",
+    "Data recovery from physically damaged devices",
+    "Proprietary system development",
+    "Specialized industry-specific software coding",
+    "Hardware procurement without managed services",
   ];
 
 
-    const advantages = [
-    "24/7 proactive monitoring & support",
-    "Fluent English-speaking technical team",
-    "Flat monthly rate — no hidden charges",
-    "Money-back guarantee in the first week",
-    "No long-term contracts — cancel anytime",
-    "Enterprise-grade security & compliance",
-    "Cost includes tools, equipment, and connectivity",
-    "Flexible working hours aligned to your timezone",
-    "Dedicated account manager for every client",
+  const advantages = [
+    "Proactive 24/7 monitoring & incident response",
+    "Certified IT professionals with industry expertise",
+    "Transparent service level agreements (SLAs)",
+    "Comprehensive security & compliance solutions",
+    "Flexible scalability as your business grows",
+    "Multi-platform & multi-vendor support expertise",
+    "Dedicated technical account management",
+    "Remote & on-site support options available",
+    "Regular technology assessments & roadmapping",
   ];
   // Animation variants
   const fadeUp = {
@@ -78,10 +78,10 @@ const WhoWeWorkWith = () => {
 
   <div className="relative max-w-7xl mx-auto">
     <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-      Out-of-Scope Tasks
+      Service Boundaries
     </h2>
     <p className="text-white/90 mb-8 text-base sm:text-lg max-w-2xl">
-      To keep our IT services cost-effective and focused, here’s what’s not included:
+      To ensure we deliver the highest quality IT services within our expertise, the following areas fall outside our core offerings:
     </p>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2">
@@ -109,10 +109,10 @@ const WhoWeWorkWith = () => {
     <div className="md:w-[900px] flex flex-col justify-center p-6 md:p-10 bg-gradient-to-r from-[#1e3a8a] via-[#0b2e78] to-[#1a4780]">
       <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">Why NextGrid</h2>
       <p className="text-white/90 mb-4 text-base sm:text-lg">
-        Based in the United Kingdom, NextGrid is a trusted global IT services provider with regional offices and a presence in over 50 countries.
+        Headquartered in the United Kingdom with strategic global operations, NextGrid delivers enterprise-grade IT services to businesses across more than 50 countries worldwide.
       </p>
       <p className="text-white/90 text-base sm:text-lg">
-        We’ve delivered technology talent and managed services to clients worldwide for over a decade. Our engineers and consultants are handpicked based on your requirements and trained to deliver consistent, reliable results.
+        With over a decade of experience in managed IT services, our team of certified engineers and consultants is carefully selected and trained to align with your specific technical requirements and business objectives.
       </p>
     </div>
 
@@ -134,8 +134,8 @@ const WhoWeWorkWith = () => {
 
          <section className="w-full py-16 px-6 sm:px-12 bg-gray-50">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1e1b4b] mb-10">
-          Our Advantages
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2a4d8e] mb-10">
+          The NextGrid Advantage
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border border-gray-300 rounded-lg overflow-hidden">
           {advantages.map((item, idx) => (
