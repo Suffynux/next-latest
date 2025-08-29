@@ -163,7 +163,7 @@ const Navbar = () => {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="px-2 pt-2 pb-3 space-y-1">
+              <div className="px-2 pt-2 pb-8 space-y-1">
                 {navItems.map((item) => (
                   <div key={item.name}>
                     {item.subLinks ? (
