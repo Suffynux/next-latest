@@ -62,7 +62,7 @@ const Hero = () => {
           {/* Content */}
           <div className="relative z-20 w-full mx-auto text-center md:text-left flex flex-col justify-center items-center md:items-start gap-2 md:pt-[90px]">
             <h1 className="font-['Montserrat'] tracking-tight mb-4 md:mb-6 leading-none">
-              <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold block mb-2 tracking-tight">
+              <span className="text-white text-3xl sm:text-4xl md:text-4xl lg:text-[55px] font-semibold block mb-2 tracking-tight">
                 IT Managed Support
               </span>
               <span className="text-xl sm:text-2xl md:text-3xl font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-300 tracking-wide block">
