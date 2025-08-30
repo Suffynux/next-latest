@@ -62,10 +62,10 @@ const Hero = () => {
           {/* Content */}
           <div className="relative z-20 w-full mx-auto text-center md:text-left flex flex-col justify-center items-center md:items-start gap-2 md:pt-[90px]">
             <h1 className="font-['Montserrat'] tracking-tight mb-4 md:mb-6 leading-none">
-              <span className="text-white text-3xl sm:text-4xl md:text-4xl lg:text-[55px] font-semibold block mb-2 tracking-tight">
+              <span className="text-white text-4xl sm:text-4xl md:text-4xl lg:text-[55px] font-semibold block mb-2 tracking-tight">
                 IT Managed Support
               </span>
-              <span className="text-xl sm:text-2xl md:text-3xl font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-300 tracking-wide block">
+              <span className="text-2xl sm:text-2xl md:text-3xl font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-300 tracking-wide block">
                 Wherever You Need It
               </span>
             </h1>
@@ -75,19 +75,19 @@ const Hero = () => {
               IT solutions on-site and on-demand.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
+            <div className="flex flex-row gap-3 sm:gap-6 w-full sm:w-auto justify-center md:justify-start">
               <a 
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-['Montserrat'] inline-block px-8 py-4 bg-[#284885] text-white font-semibold rounded-lg hover:bg-[#2a4d8e] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[160px] text-center"
+                className="font-['Montserrat'] inline-block px-4 py-3 sm:px-8 sm:py-4 bg-[#284885] text-white font-semibold text-sm sm:text-base rounded-lg hover:bg-[#2a4d8e] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[120px] sm:min-w-[160px] text-center"
               >
                 Contact us 
               </a>
 
               <Link
                 to={"/services"}
-                className="font-['Montserrat'] inline-block px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#284885] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[160px] text-center"
+                className="font-['Montserrat'] inline-block px-4 py-3 sm:px-8 sm:py-4 border-2 border-white text-white font-semibold text-sm sm:text-base rounded-lg hover:bg-white hover:text-[#284885] transition-all duration-300 transform hover:scale-105 hover:shadow-lg min-w-[120px] sm:min-w-[160px] text-center"
               >
                 Our Services
               </Link>

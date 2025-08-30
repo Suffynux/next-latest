@@ -1,370 +1,191 @@
 import React, { useEffect, useState } from 'react';
-import { Clock, MapPin, Users, Shield, Zap, Target, CheckCircle, MessageCircle } from 'lucide-react';
+import { Clock, MapPin, Users, Shield, Zap, Target, CheckCircle, MessageCircle, ArrowRight } from 'lucide-react';
 import MainLayout from '../Layout/MainLayout';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const AboutPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [counters, setCounters] = useState({ regions: 0, engineers: 0, response: 0 });
 
   useEffect(() => {
-    setIsVisible(true);
-    
-    // Animated counters
     const animateCounter = (target, key, duration = 2000) => {
       let start = 0;
       const increment = target / (duration / 16);
-      
       const timer = setInterval(() => {
         start += increment;
         if (start >= target) {
           setCounters(prev => ({ ...prev, [key]: target }));
           clearInterval(timer);
         } else {
-          setCounters(prev => ({ ...prev, [key]: Math.floor(start) }));
+          setCounters(prev => ({ ...prev, [key]: Math.ceil(start) }));
         }
       }, 16);
+      return () => clearInterval(timer);
     };
 
-    const timer = setTimeout(() => {
-      animateCounter(50, 'regions');
-      animateCounter(4000, 'engineers');
-      animateCounter(10, 'response');
-    }, 1000);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(50, 'regions');
+          animateCounter(4000, 'engineers');
+          animateCounter(10, 'response');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
 
-    return () => clearTimeout(timer);
+    const counterElement = document.querySelector('#stats-section');
+    if (counterElement) {
+      observer.observe(counterElement);
+    }
+
+    return () => {
+      if (counterElement) {
+        observer.unobserve(counterElement);
+      }
+    };
   }, []);
 
   const benefits = [
-    {
-      icon: Clock,
-      title: "No delays",
-      description: "We dispatch engineers based on proximity and availability"
-    },
-    {
-      icon: Target,
-      title: "No guesswork",
-      description: "Every engagement is scoped, scheduled, and documented"
-    },
-    {
-      icon: Shield,
-      title: "No drop-offs",
-      description: "Your issue stays visible until it's resolved"
-    }
+    { icon: Clock, title: "No Delays", description: "We dispatch engineers based on proximity and availability, ensuring rapid response times." },
+    { icon: Target, title: "No Guesswork", description: "Every engagement is meticulously scoped, scheduled, and documented for full transparency." },
+    { icon: Shield, title: "No Drop-offs", description: "Your issue remains our top priority from start to finish, with consistent updates until resolution." }
   ];
 
-  const fadeInUp = {
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-    transition: 'all 0.6s ease-out'
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
-
-  const fadeInLeft = {
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
-    transition: 'all 0.8s ease-out'
-  };
-
-  const fadeInRight = {
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'translateX(0)' : 'translateX(30px)',
-    transition: 'all 0.8s ease-out'
-  };
-
-  const staggeredDelay = (index, baseDelay = 0.2) => ({
-    transitionDelay: `${baseDelay + index * 0.1}s`
-  });
 
   return (
     <MainLayout>
-    <div className="min-h-screen bg-gray-50 overflow-hidden">
-      {/* Floating Background Elements */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div 
-          className="absolute top-20 left-10 w-72 h-72 bg-[#284885]/10 rounded-full blur-3xl"
-          style={{
-            animation: 'float 6s ease-in-out infinite',
-            animationDelay: '0s'
-          }}
-        ></div>
-        <div 
-          className="absolute top-40 right-10 w-96 h-96 bg-[#2a4d8e]/5 rounded-full blur-3xl"
-          style={{
-            animation: 'float 8s ease-in-out infinite reverse',
-            animationDelay: '2s'
-          }}
-        ></div>
-        <div 
-          className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#284885]/5 rounded-full blur-3xl"
-          style={{
-            animation: 'float 7s ease-in-out infinite',
-            animationDelay: '4s'
-          }}
-        ></div>
-      </div>
-
-      {/* Header Section */}
-    {/* About Section with Image */}
-<section className="bg-white py-20">
-  <div className="max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-    {/* Text Content */}
-    <div>
-      <h2 className="text-4xl font-bold text-[#284885] mb-6">About NextGrid IT</h2>
-      <p className="text-lg text-gray-700 leading-relaxed mb-4">
-        We are IT support specialists delivering on-demand, location-based solutions across EMEA and APAC.
-      </p>
-      <p className="text-lg text-gray-700 leading-relaxed">
-        Our team connects you with nearby certified engineers for fast, reliable IT field support without the overhead of permanent teams in every region.
-      </p>
-    </div>
-
-    {/* Image */}
-    <div className="w-full">
-      <img 
-        src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg" 
-        alt="NextGrid IT team at work"
-        className="rounded-3xl shadow-lg w-full object-cover"
-      />
-    </div>
-  </div>
-</section>
-
-<section className="bg-[#f6f9fc] py-20">
-  <div className="container mx-auto px-6 lg:px-12">
-    <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
-      
-      {/* Image on Left */}
-      <div className="w-full lg:w-1/2">
-        <img
-          src="https://images.pexels.com/photos/6964133/pexels-photo-6964133.jpeg" // ⬅️ Replace with your actual image path
-          alt="IT Challenge"
-          className="rounded-3xl shadow-lg w-full object-cover h-[400px]"
-        />
-      </div>
-
-      {/* Text on Right */}
-      <div className="w-full lg:w-1/2 ">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#284885] mb-6 leading-tight">
-          The Challenge Most Businesses Face
-        </h2>
-        <p className="text-gray-700 text-lg leading-relaxed mb-4">
-          Most businesses don’t have time to build IT teams in every region especially when urgent issues demand boots on the ground.
-        </p>
-        <p className="text-gray-700 text-lg leading-relaxed">
-          When hardware fails, networks stall, or projects stall due to lack of technical hands, they’re forced to rely on rigid SLAs, inconsistent freelancers, or overstretched internal teams.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+      <div className="bg-[#0D1A2E] text-white overflow-hidden">
         
-      
-        {/* Solution Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div style={fadeInLeft}>
-            <div className="bg-gradient-to-br from-[#284885] to-[#2a4d8e] rounded-3xl p-10 text-white relative overflow-hidden">
-              {/* Floating elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full transform translate-x-16 -translate-y-16"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full transform -translate-x-12 translate-y-12"></div>
-              
-              <div className="relative z-10">
-                <h2 className="text-3xl font-bold mb-6">NextGrid IT exists to redefine the standard</h2>
-                <p className="text-lg text-blue-100 leading-relaxed mb-6">
-                  We provide on-demand, location-based IT support across EMEA and APAC fast, reliable, and delivered by certified engineers near your sites.
-                </p>
-                <p className="text-lg text-blue-100 leading-relaxed">
-                  Whether you need a one-off fix, a multi-region rollout, or technical staff for a month, we move quickly to match the right talent to the right job.
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div style={fadeInRight}>
-            <h3 className="text-2xl font-bold text-[#284885] mb-8">
-              From urgent break-fix calls to long-term field deployments, we're your IT team on the ground without the overhead.
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              We're not a generalist agency. We're IT support specialists with a proven network of engineers, backed by sharp recruiters, operational discipline, and a commitment to service that matches your urgency.
-            </p>
-            
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div 
-                  className="text-3xl font-bold text-[#284885] mb-2"
-                  style={{
-                    transform: isVisible ? 'scale(1)' : 'scale(0)',
-                    transition: 'transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-                    transitionDelay: '1s'
-                  }}
-                >
-                  {counters.regions}+
-                </div>
-                <div className="text-sm text-gray-600">Regions Covered</div>
-              </div>
-              <div className="text-center">
-                <div 
-                  className="text-3xl font-bold text-[#284885] mb-2"
-                  style={{
-                    transform: isVisible ? 'scale(1)' : 'scale(0)',
-                    transition: 'transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-                    transitionDelay: '1.2s'
-                  }}
-                >
-                  {counters.engineers}+
-                </div>
-                <div className="text-sm text-gray-600">Engineers Network</div>
-              </div>
-              <div className="text-center">
-                <div 
-                  className="text-3xl font-bold text-[#284885] mb-2"
-                  style={{
-                    transform: isVisible ? 'scale(1)' : 'scale(0)',
-                    transition: 'transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-                    transitionDelay: '1.4s'
-                  }}
-                >
-                  {counters.response}min
-                </div>
-                <div className="text-sm text-gray-600">Avg Response</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Working with Us Section */}
-        <div className="mb-20">
-          <div className="text-center mb-16">
-            <h2 
-              className="text-4xl font-bold text-[#284885] mb-6"
-              style={{
-                ...fadeInUp,
-                transitionDelay: '0.3s'
-              }}
-            >
-              Working with us means:
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => {
-              const IconComponent = benefit.icon;
-              return (
-                <div 
-                  key={index} 
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group"
-                  style={{
-                    ...fadeInUp,
-                    ...staggeredDelay(index, 0.5)
-                  }}
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#284885] to-[#2a4d8e] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#284885] mb-4">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Services Overview */}
-        <div className="mb-20">
+        {/* --- Hero Section --- */}
+        <section className="relative py-24 md:py-32 text-center">
           <div 
-            className="bg-white rounded-3xl p-12 shadow-lg border border-gray-100 text-center"
-            style={{
-              ...fadeInUp,
-              transitionDelay: '0.8s'
-            }}
-          >
-            <h2 className="text-3xl font-bold text-[#284885] mb-8">
-              Scaling, relocating, or solving a crisis?
-            </h2>
-            <p className="text-xl text-gray-700 mb-8">
-              We're ready when you are with people, processes, and presence in-region.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="p-6 border-2 border-[#284885]/20 rounded-xl hover:border-[#284885] transition-colors duration-300">
-                <MapPin className="w-12 h-12 text-[#284885] mx-auto mb-4" />
-                <h3 className="font-semibold text-gray-900 mb-2">On-Site Support</h3>
-                <p className="text-gray-600 text-sm">Certified engineers at your location when you need them</p>
-              </div>
-              <div className="p-6 border-2 border-[#284885]/20 rounded-xl hover:border-[#284885] transition-colors duration-300">
-                <Users className="w-12 h-12 text-[#284885] mx-auto mb-4" />
-                <h3 className="font-semibold text-gray-900 mb-2">Project Teams</h3>
-                <p className="text-gray-600 text-sm">Dedicated technical staff for short or long-term projects</p>
-              </div>
-              <div className="p-6 border-2 border-[#284885]/20 rounded-xl hover:border-[#284885] transition-colors duration-300">
-                <Zap className="w-12 h-12 text-[#284885] mx-auto mb-4" />
-                <h3 className="font-semibold text-gray-900 mb-2">Quick Response</h3>
-                <p className="text-gray-600 text-sm">Rapid deployment for critical infrastructure issues</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div 
-          className="bg-gradient-to-r from-[#284885] to-[#2a4d8e] rounded-3xl p-12 text-center text-white relative overflow-hidden"
-          style={{
-            ...fadeInUp,
-            transitionDelay: '1s'
-          }}
-        >
-          {/* Background effects */}
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div 
-              className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full"
-              style={{ animation: 'float 4s ease-in-out infinite' }}
-            ></div>
-            <div 
-              className="absolute bottom-10 left-10 w-24 h-24 bg-white/10 rounded-full"
-              style={{ animation: 'float 5s ease-in-out infinite reverse' }}
-            ></div>
-          </div>
+            className="absolute inset-0 bg-cover bg-center opacity-10"
+            style={{ backgroundImage: "url('https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg')" }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0D1A2E] via-[#0D1A2E]/80 to-[#0D1A2E]"></div>
           
-          <div className="relative z-10">
-            <h2 className="text-4xl font-bold mb-6">
-              Ready to stop chasing support and start getting results?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's talk. Message NextGrid IT to book your service call or project consult.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-           
-           
-          <a 
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=info@nextgridit.co.uk"
-          target='_blank'
-          className='inline-flex items-center justify-center bg-white text-[#284885] font-semibold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'
-          >
-              <MessageCircle className="w-5 h-5 mr-2" />
-Book Service Call
+          <div className="relative max-w-4xl mx-auto px-4">
+            <motion.h1 
+              initial="hidden" animate="visible" variants={fadeUp}
+              className="text-4xl md:text-6xl font-bold tracking-tight mb-6 font-['Montserrat']"
+            >
+              The On-Demand IT Force Behind Global Business
+            </motion.h1>
+            <motion.p 
+              initial="hidden" animate="visible" variants={{...fadeUp, transition: { delay: 0.2, ...fadeUp.transition }}}
+              className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto"
+            >
+              NextGrid IT delivers fast, reliable, on-demand IT field support across EMEA and APAC, connecting you with certified engineers exactly when and where you need them.
+            </motion.p>
+          </div>
+        </section>
 
-          </a>
-            
+        {/* --- Stats Section --- */}
+        <section id="stats-section" className="py-16 bg-[#102039]">
+          <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="p-4">
+              <h2 className="text-5xl font-bold text-cyan-400 mb-2">{counters.regions}+</h2>
+              <p className="text-gray-400">Regions Covered</p>
+            </div>
+            <div className="p-4">
+              <h2 className="text-5xl font-bold text-cyan-400 mb-2">{counters.engineers}+</h2>
+              <p className="text-gray-400">Vetted Engineers in Our Network</p>
+            </div>
+            <div className="p-4">
+              <h2 className="text-5xl font-bold text-cyan-400 mb-2">&lt;{counters.response} min</h2>
+              <p className="text-gray-400">Average Initial Response Time</p>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          33% { transform: translateY(-10px) translateX(5px); }
-          66% { transform: translateY(5px) translateX(-5px); }
-        }
-      `}</style>
-    </div>
+        {/* --- The Challenge & Our Solution Section --- */}
+        <section className="py-20 md:py-28">
+          <div className="max-w-7xl mx-auto px-4 space-y-20">
+            {/* The Challenge */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7 }}>
+                <img src="https://images.pexels.com/photos/6964133/pexels-photo-6964133.jpeg" alt="Business challenge" className="rounded-2xl shadow-2xl object-cover w-full h-full" />
+              </motion.div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">The Challenge Most Businesses Face</h2>
+                <p className="text-gray-300 text-lg leading-relaxed mb-4">
+                  Urgent issues demand boots on the ground, but building and maintaining IT teams in every region is inefficient and costly.
+                </p>
+                <p className="text-gray-400 leading-relaxed">
+                  When hardware fails or projects stall, businesses are often left relying on rigid SLAs, inconsistent freelancers, or overstretched internal teams, leading to costly downtime.
+                </p>
+              </div>
+            </div>
+
+            {/* Our Solution */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="order-2 md:order-1">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">The NextGrid Solution</h2>
+                <p className="text-gray-300 text-lg leading-relaxed mb-4">
+                  We are your globally distributed, locally available IT team. We bridge the gap with a flexible network of certified engineers, ready to deploy for any task.
+                </p>
+                <ul className="space-y-3 text-gray-400">
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 mr-3 text-cyan-400" />One-off break-fix or multi-region rollouts.</li>
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 mr-3 text-cyan-400" />Short-term staff augmentation or long-term projects.</li>
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 mr-3 text-cyan-400" />Specialized talent matched to your specific job.</li>
+                </ul>
+              </div>
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7 }} className="order-1 md:order-2">
+                <img src="https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg" alt="NextGrid solution" className="rounded-2xl shadow-2xl object-cover w-full h-full" />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* --- "Working With Us Means" Section --- */}
+        <section className="py-20 md:py-28 bg-[#102039]">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-4xl font-bold mb-16">Working With Us Is Simple & Effective</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.5 }}
+                  variants={{...fadeUp, visible: {...fadeUp.visible, transition: { delay: index * 0.2, ...fadeUp.visible.transition }}}}
+                  className="bg-gradient-to-br from-[#ffffff08] to-transparent p-8 rounded-2xl border border-white/10 transition-all duration-300 hover:border-cyan-400/50 hover:-translate-y-2"
+                >
+                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 mx-auto">
+                    <benefit.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{benefit.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* --- CTA Section --- */}
+        <section className="py-24">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={fadeUp}>
+              <h2 className="text-4xl font-bold mb-6">Ready to Stop Chasing Support and Start Getting Results?</h2>
+              <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Let's talk. Message NextGrid IT to book your service call or project consultation and experience the difference of a truly on-demand IT partner.
+              </p>
+              <Link
+                to="/contact-us"
+                className='inline-flex items-center justify-center bg-cyan-500 text-[#0D1A2E] font-semibold py-4 px-8 rounded-lg hover:bg-cyan-400 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/20'
+              >
+                <MessageCircle className="w-5 h-5 mr-3" />
+                Book a Service Call
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      </div>
     </MainLayout>
   );
 };

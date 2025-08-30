@@ -42,6 +42,12 @@ const Navbar = () => {
     const bluePaths = ["/services", "/about-us", "/contact-us", "/courses", "/it-service", "/tech-recruitment", "/managed-services", "/ITAsset-Management", "/network-support", "/project-management", "/creative-support", "/courses/web-dev", "/courses/data-science", "/courses/cybersecurity"];
     return bluePaths.includes(location.pathname);
   };
+  
+  // Check if we're on the home page to determine spacing needs
+  const isHomePage = location.pathname === "/";
+  
+  // Define page types that need specific spacing
+  const needsDefaultSpacing = !isHomePage;
 
   // Effect to handle the scroll event for changing navbar color
   useEffect(() => {
@@ -70,13 +76,13 @@ const Navbar = () => {
   return (
     <div className="relative">
       {/* Main Navigation Bar */}
-   <nav
-  className={`fixed w-full top-0 left-0 z-50 transition-all duration-500
-    ${scrolled || isBluePage()
-      ? "bg-white/90 backdrop-blur-md shadow-md text-gray-800"
-      : "bg-transparent text-white md:bg-transparent md:text-white bg-white/90 text-gray-800"}`
-  }
->
+      <nav
+        className={`fixed w-full top-0 left-0 z-50 transition-all duration-500
+          ${scrolled || isBluePage()
+            ? "bg-white/90 backdrop-blur-md shadow-md text-gray-800"
+            : "bg-transparent text-white md:bg-transparent md:text-white bg-white/90 text-gray-800"}`
+        }
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
           <div className="flex items-center justify-between h-20">
             {/* Logo - Dynamically changes based on scroll state or page */}
@@ -258,6 +264,9 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </nav>
+      
+      {/* Conditional spacing div - only appears on non-home pages */}
+      {needsDefaultSpacing && <div className="h-24 md:h-20"></div>}
     </div>
   );
 };
