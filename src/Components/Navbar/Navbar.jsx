@@ -83,13 +83,20 @@ const Navbar = () => {
         }
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo - Dynamically changes based on scroll state or page */}
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo - Dynamically changes based on screen size and scroll */}
             <Link to="/" className="flex-shrink-0">
+              {/* Desktop Logo: Dynamic Source */}
               <img
                 src={logoSrc}
                 alt="Logo"
-                className="h-[800px] w-[265px] transition-all duration-300"
+                className="h-16 w-auto hidden md:block transition-all duration-300"
+              />
+              {/* Mobile Logo: Always Dark */}
+              <img
+                src={logoDark}
+                alt="Logo"
+                className="h-16 w-auto block md:hidden transition-all duration-300"
               />
             </Link>
 
@@ -145,7 +152,7 @@ const Navbar = () => {
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={`p-2 transition-colors duration-200 rounded-md
-                  ${textAndLogoColor} hover:bg-white/10`
+                  ${isNavbarSolid ? 'text-gray-800' : 'text-gray-800'} hover:bg-white/10`
                 }
               >
                 {isMobileMenuOpen ? (
@@ -162,7 +169,11 @@ const Navbar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden bg-white/95 shadow-lg border-t border-gray-100 z-50"
+              className={`md:hidden shadow-lg border-t z-50 ${
+                isNavbarSolid
+                  ? 'bg-white/95 border-gray-100'
+                  : 'bg-[#0D1A2E]/95 border-white/10'
+              }`}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -175,13 +186,17 @@ const Navbar = () => {
                       <>
                         <button
                           onClick={() => toggleMobileSubMenu(item.name)}
-                          className="w-full text-left text-gray-800 hover:bg-gray-100 px-3 py-2 text-base font-medium flex justify-between items-center rounded-md"
+                          className={`w-full text-left px-3 py-2 text-base font-medium flex justify-between items-center rounded-md transition-colors ${
+                            isNavbarSolid
+                              ? 'text-gray-800 hover:bg-gray-100'
+                              : 'text-white hover:bg-white/10'
+                          }`}
                         >
                           {item.name}
                           <span
-                            className={`transform transition-transform
-                              ${expandedMobileService === item.name ? "rotate-180" : ""}`
-                            }
+                            className={`transform transition-transform ${
+                              expandedMobileService === item.name ? "rotate-180" : ""
+                            }`}
                           >
                             ▼
                           </span>
@@ -195,12 +210,20 @@ const Navbar = () => {
                               exit={{ height: 0, opacity: 0 }}
                               className="overflow-hidden"
                             >
-                              <div className="pl-4 pr-2 py-2 bg-gray-50 rounded-lg mx-3 mt-1">
+                              <div
+                                className={`pl-4 pr-2 py-2 rounded-lg mx-3 mt-1 ${
+                                  isNavbarSolid ? 'bg-gray-50' : 'bg-white/5'
+                                }`}
+                              >
                                 {item.subLinks.map((link, idx) => (
                                   <Link
                                     key={idx}
                                     to={link.path}
-                                    className="block text-sm text-gray-700 hover:text-[#003A75] py-1 transition-colors"
+                                    className={`block text-sm py-1 transition-colors ${
+                                      isNavbarSolid
+                                        ? 'text-gray-700 hover:text-[#003A75]'
+                                        : 'text-gray-300 hover:text-white'
+                                    }`}
                                   >
                                     {link.name}
                                   </Link>
@@ -213,7 +236,11 @@ const Navbar = () => {
                     ) : (
                       <Link
                         to={item.path}
-                        className="text-gray-800 hover:bg-gray-100 block px-3 py-2 text-base font-medium rounded-md transition-colors"
+                        className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
+                          isNavbarSolid
+                            ? 'text-gray-800 hover:bg-gray-100'
+                            : 'text-white hover:bg-white/10'
+                        }`}
                       >
                         {item.name}
                       </Link>
@@ -221,7 +248,11 @@ const Navbar = () => {
                   </div>
                 ))}
                 {/* Mobile Contact Button */}
-                <div className="pt-4 border-t border-gray-100">
+                <div
+                  className={`pt-4 mt-4 border-t ${
+                    isNavbarSolid ? 'border-gray-200' : 'border-white/10'
+                  }`}
+                >
                   <Link
                     to="/contact-us"
                     className="w-full block text-center bg-[#003A75] hover:bg-[#1D5BA6] text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200"
@@ -265,7 +296,7 @@ const Navbar = () => {
       </nav>
       
       {/* Conditional spacing div - only appears on non-home pages */}
-      {needsDefaultSpacing && <div className="h-24 md:h-20"></div>}
+      {needsDefaultSpacing && <div className="h-16 md:h-20"></div>}
     </div>
   );
 };
