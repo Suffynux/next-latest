@@ -109,10 +109,11 @@ const WhoWeWorkWith = () => {
     <div className="md:w-[900px] flex flex-col justify-center p-6 md:p-10 bg-gradient-to-r from-[#1e3a8a] via-[#0b2e78] to-[#1a4780]">
       <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">Why NextGrid</h2>
       <p className="text-white/90 mb-4 text-base sm:text-lg">
-        Headquartered in the United Kingdom with strategic global operations, NextGrid delivers enterprise-grade IT services to businesses across more than 50 countries worldwide.
-      </p>
+        Driven by innovation and a strong client-first approach, NextGrid delivers enterprise-grade IT services to businesses across more than 50 countries worldwide.
+
+     </p>
       <p className="text-white/90 text-base sm:text-lg">
-        With over a decade of experience in managed IT services, our team of certified engineers and consultants is carefully selected and trained to align with your specific technical requirements and business objectives.
+        With over a decade of expertise in managed IT services, our team of certified engineers and consultants is carefully selected and trained to align with your specific technical requirements and business objectives. 
       </p>
     </div>
 

@@ -7,7 +7,7 @@ import Container from "../Layout/Container";
 const services = [
   { image: "/itServices.jpg", title: "IT Services", path: "/it-service" },
   { image: "/recurite.jpg", title: "Tech Recruitment", path: "/tech-recruitment" },
-  { image: "/managed.jpg", title: "Managed Services", path: "/managed-services" },
+  { image: "/managed.jpg", title: "IT Managed Services", path: "/managed-services" },
   { image: "/asset.jpg", title: "IT Asset Management", path: "/ITAsset-Management" },
   { image: "/support.jpg", title: "Network & User Support", path: "/network-support" },
   { image: "https://images.pexels.com/photos/5922204/pexels-photo-5922204.jpeg", title: "Project & Change Management", path: "/project-management" },

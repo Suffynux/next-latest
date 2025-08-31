@@ -23,7 +23,7 @@ const WhatWeDo = () => {
       path: "/tech-recruitment",
     },
     {
-      title: "Managed Services",
+      title: "IT Managed Services",
       path: "/managed-services",
     },
     {

@@ -19,7 +19,7 @@ const navItems = [
     subLinks: [
       { name: "IT Services", path: "/it-service" },
       { name: "Tech Recruitment", path: "/tech-recruitment" },
-      { name: "Managed Services", path: "/managed-services" },
+      { name: "IT Managed Services", path: "/managed-services" },
       { name: "IT Asset Management", path: "/ITAsset-Management" },
       { name: "Network & User Support", path: "/network-support" },
       { name: "Project Management", path: "/project-management" },
