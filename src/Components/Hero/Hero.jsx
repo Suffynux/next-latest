@@ -9,7 +9,7 @@ import bodyBg from "../../assets/Images/bodyBg.jpeg";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mt-[80px] md:mt-0">
+    <section className="relative w-full h-[700px] md:h-screen mt-[80px] md:mt-0">
       {/* Split Background */}
       <div className="absolute inset-0 flex flex-row">      
         {/* Left side - Background image with overlay */}
