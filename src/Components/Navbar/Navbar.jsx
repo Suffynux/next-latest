@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Globe, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import dark from "../../assets/Images/dark.svg"
+import light from "../../assets/Images/light.svg"
+// import logo from "../../assets/Images/p;re.svg"
 
 // The local image paths caused a compilation error previously. I've left the
 // placeholders here to ensure the code works correctly. Please update these
 // paths to your actual hosted logo files when you are ready.
-const logoLight = "https://placehold.co/100x40/003A75/ffffff?text=Logo+Light";
-const logoDark = "https://placehold.co/100x40/ffffff/003A75?text=Logo+Dark";
+const logoLight = light;
+const logoDark = dark;
 
 // Define all navigation items, including nested sub-links
 const navItems = [
@@ -36,15 +39,11 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  // Check if the current path is one of the blue pages
-  const isBluePage = () => {
-    // You can add all the paths that have a blue background here
-    const bluePaths = ["/services", "/about-us", "/contact-us", "/courses", "/it-service", "/tech-recruitment", "/managed-services", "/ITAsset-Management", "/network-support", "/project-management", "/creative-support", "/courses/web-dev", "/courses/data-science", "/courses/cybersecurity"];
-    return bluePaths.includes(location.pathname);
-  };
-  
-  // Check if we're on the home page to determine spacing needs
+  // Check if we're on the home page to determine navbar style
   const isHomePage = location.pathname === "/";
+
+  // Determine if the navbar should be non-transparent
+  const isNavbarSolid = !isHomePage || scrolled;
   
   // Define page types that need specific spacing
   const needsDefaultSpacing = !isHomePage;
@@ -69,18 +68,18 @@ const Navbar = () => {
     setExpandedMobileService(expandedMobileService === itemName ? null : itemName);
   };
 
-  // Determine the text and logo color based on scroll and page
-  const textAndLogoColor = scrolled || isBluePage() ? "text-gray-800" : "text-white";
-  const logoSrc = scrolled || isBluePage() ? logoDark : logoLight;
+  // Determine the text and logo color based on navbar state
+  const textAndLogoColor = isNavbarSolid ? "text-gray-800" : "text-white";
+  const logoSrc = isNavbarSolid ? logoDark : logoLight;
 
   return (
     <div className="relative">
       {/* Main Navigation Bar */}
       <nav
         className={`fixed w-full top-0 left-0 z-50 transition-all duration-500
-          ${scrolled || isBluePage()
+          ${isNavbarSolid
             ? "bg-white/90 backdrop-blur-md shadow-md text-gray-800"
-            : "bg-transparent text-white md:bg-transparent md:text-white bg-white/90 text-gray-800"}`
+            : "bg-transparent text-white"}`
         }
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
@@ -90,7 +89,7 @@ const Navbar = () => {
               <img
                 src={logoSrc}
                 alt="Logo"
-                className="h-16 w-auto transition-all duration-300"
+                className="h-[800px] w-[265px] transition-all duration-300"
               />
             </Link>
 

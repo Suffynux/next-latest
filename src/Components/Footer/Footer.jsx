@@ -87,16 +87,16 @@ const AnimatedFooter = () => {
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/3 w-40 h-40 bg-indigo-500 rounded-full blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-10 left-1/4 w-24 h-24 bg-pink-500 rounded-full blur-2xl animate-pulse delay-700"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-blue-800 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/3 w-40 h-40 bg-white-500 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-10 left-1/4 w-24 h-24 bg-blue-400 rounded-full blur-2xl animate-pulse delay-700"></div>
       </div>
 
       {/* Floating Shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-10 w-4 h-4 bg-blue-400 rotate-45 animate-bounce delay-300"></div>
         <div className="absolute top-1/3 right-20 w-3 h-3 bg-purple-400 rounded-full animate-ping delay-500"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-pink-400 animate-pulse delay-700"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-blue-900 animate-pulse delay-700"></div>
         <div className="absolute bottom-1/4 right-1/3 w-5 h-5 bg-indigo-400 rotate-12 animate-bounce delay-1000"></div>
       </div>
 
@@ -134,7 +134,7 @@ const AnimatedFooter = () => {
                     className={`w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 ${
                       isSubscribed
                         ? "bg-green-500 text-white"
-                        : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl"
+                        : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-800 text-white shadow-lg hover:shadow-xl"
                     }`}
                     disabled={isSubscribed}
                   >
@@ -167,7 +167,7 @@ const AnimatedFooter = () => {
             {/* Company Info */}
             <div className="space-y-6 text-left">
               <div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-3">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent mb-3">
                   NextGrid IT
                 </h3>
                 <p className="text-gray-300">
@@ -192,7 +192,7 @@ const AnimatedFooter = () => {
                   </a>
                 </div>
                 <div className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors">
-                  <MapPin className="text-red-400 w-5 h-5 mt-1" />
+                  <MapPin className="text-blue-800 w-5 h-5 mt-1" />
                   <span>
                     483 Green Lanes, London
                     <br />
@@ -247,7 +247,7 @@ const AnimatedFooter = () => {
                       to={service.url}
                       className="group flex items-center gap-2 text-gray-300 hover:text-white transition"
                     >
-                      <ChevronRight className="w-4 h-4 text-purple-400 opacity-0 group-hover:opacity-100" />
+                      <ChevronRight className="w-4 h-4 text-blue-400 opacity-0 group-hover:opacity-100" />
                       <span className="group-hover:text-purple-400">
                         {service.name}
                       </span>
@@ -305,7 +305,7 @@ const AnimatedFooter = () => {
               <div className="flex flex-col sm:flex-row items-center gap-2 text-center">
                 <span>© 2025 NextGrid IT</span>
                 <span className="hidden sm:inline">|</span>
-                <span>
+                {/* <span>
                   Developed by{" "}
                   <a
                     target="_blank"
@@ -315,7 +315,7 @@ const AnimatedFooter = () => {
                   >
                     Suffynux
                   </a>
-                </span>
+                </span> */}
               </div>
 
               <div className="flex flex-wrap justify-center gap-3 mt-2 md:mt-0">

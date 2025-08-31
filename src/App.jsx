@@ -10,7 +10,9 @@ import ITAssetManagement from "./Components/OurServices/ITAssetManagement";
 import NetworkUserSupport from "./Components/OurServices/NetworkUserSupport";
 import ProjectChangeManagement from "./Components/OurServices/ProjectChangeManagement";
 import CreativeDigitalSupport from "./Components/OurServices/CreativeDigitalSupport";
-import ServiceIt from "./Components/OurServices/Serviceit";
+import ShopifyDevelopment from "./Components/OurServices/Creative/ShopifyDevelopment";
+import CustomWebDevelopment from "./Components/OurServices/Creative/CustomWebDevelopment";
+import DigitalMarketing from "./Components/OurServices/Creative/DigitalMarketing";
 import Layout from "./Components/Layout/Layout";
 
 function App() {
@@ -24,13 +26,16 @@ function App() {
         { path: "/industries", element: <IndustriesPage /> },
         { path: "/about-us", element: <About /> },
         { path: "/contact-us", element: <Contact /> },
-        { path: "/it-service", element: <ServiceIt /> },
+        // { path: "/it-service", element: </> },
         { path: "/tech-recruitment", element: <TechRecruitment /> },
         { path: "/managed-services", element: <ITManagedServices /> },
         { path: "/ITAsset-Management", element: <ITAssetManagement /> },
         { path: "/network-support", element: <NetworkUserSupport /> },
         { path: "/project-management", element: <ProjectChangeManagement /> },
         { path: "/creative-support", element: <CreativeDigitalSupport /> },
+        { path: "/services/creative-support/shopify-development", element: <ShopifyDevelopment /> },
+        { path: "/services/creative-support/custom-web-development", element: <CustomWebDevelopment /> },
+        { path: "/services/creative-support/digital-marketing", element: <DigitalMarketing /> },
       ],
     },
   ]);
