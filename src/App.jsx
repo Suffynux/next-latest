@@ -14,6 +14,7 @@ import ShopifyDevelopment from "./Components/OurServices/Creative/ShopifyDevelop
 import CustomWebDevelopment from "./Components/OurServices/Creative/CustomWebDevelopment";
 import DigitalMarketing from "./Components/OurServices/Creative/DigitalMarketing";
 import Layout from "./Components/Layout/Layout";
+import ITServices from "./Components/OurServices/ItServices";
 
 function App() {
   const router = createBrowserRouter([
@@ -26,7 +27,7 @@ function App() {
         { path: "/industries", element: <IndustriesPage /> },
         { path: "/about-us", element: <About /> },
         { path: "/contact-us", element: <Contact /> },
-        // { path: "/it-service", element: </> },
+        { path: "/it-service", element: <ITServices/> },
         { path: "/tech-recruitment", element: <TechRecruitment /> },
         { path: "/managed-services", element: <ITManagedServices /> },
         { path: "/ITAsset-Management", element: <ITAssetManagement /> },
