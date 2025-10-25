@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MainLayout from "../../Layout/MainLayout";
 import img1 from "../../../assets/Images/Emailmarketing/image1.jpg";
 import img3 from "../../../assets/Images/Emailmarketing/image4.png";
@@ -11,6 +11,21 @@ import EmailMarketingServices from "./EmailMarketingServices";
 import ResultsCarousel from "./ResultsCarousel";
 import EmailMarketingComparison from "./EmailMarketingComparison";
 import EmailMarketingTestimonials from "./EmailMarketingTestimonials";
+import EmailMarketingFAQ from "./EmailMarketingFAQ";
+
+const BlurImage = ({ src, alt, className, loading = "lazy" }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`${className} ${styles.blurLoad} ${isLoaded ? styles.imageLoaded : ""}`}
+      onLoad={() => setIsLoaded(true)}
+      loading={loading}
+    />
+  );
+};
 
 const EmailMarketing = () => {
     const handleWhatsAppClick = () => {
@@ -59,23 +74,48 @@ We use our proven strategies with a track record of success to deliver result-dr
                 <div className={`${styles.carouselColumn} ${styles.colA}`}>
                   <div className={styles.carouselColumnInner}>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                        loading="eager"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img3} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img3}
+                        className={styles.carouselImg}
+                        alt="Ecommerce promotional email layout"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                     {/* Duplicate for seamless loop */}
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img3} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img3}
+                        className={styles.carouselImg}
+                        alt="Ecommerce promotional email layout"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                   </div>
                 </div>
@@ -83,23 +123,48 @@ We use our proven strategies with a track record of success to deliver result-dr
                 <div className={`${styles.carouselColumn} ${styles.colB}`}>
                   <div className={styles.carouselColumnInner}>
                     <div className={styles.carouselCard}>
-                      <img src={img2} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img2}
+                        className={styles.carouselImg}
+                        alt="Automated welcome email series preview"
+                        loading="eager"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img4} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img4}
+                        className={styles.carouselImg}
+                        alt="Email performance analytics dashboard"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                     {/* Duplicate for seamless loop */}
                     <div className={styles.carouselCard}>
-                      <img src={img2} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img2}
+                        className={styles.carouselImg}
+                        alt="Automated welcome email series preview"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img4} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img4}
+                        className={styles.carouselImg}
+                        alt="Email performance analytics dashboard"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                   </div>
                 </div>
@@ -107,29 +172,62 @@ We use our proven strategies with a track record of success to deliver result-dr
                 <div className={`${styles.carouselColumn} ${styles.colC}`}>
                   <div className={styles.carouselColumnInner}>
                     <div className={styles.carouselCard}>
-                      <img src={img3} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img3}
+                        className={styles.carouselImg}
+                        alt="Ecommerce promotional email layout"
+                        loading="eager"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                      <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                      <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                     {/* Duplicate for seamless loop */}
                     <div className={styles.carouselCard}>
-                      <img src={img3} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img3}
+                        className={styles.carouselImg}
+                        alt="Ecommerce promotional email layout"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                     <div className={styles.carouselCard}>
-                      <img src={img1} className={styles.carouselImg} alt="" />
+                      <BlurImage
+                        src={img1}
+                        className={styles.carouselImg}
+                        alt="Retention campaign dashboard screenshot"
+                      />
                     </div>
                   </div>
                 </div>
@@ -144,6 +242,7 @@ We use our proven strategies with a track record of success to deliver result-dr
       <EmailMarketingServices />
       <EmailMarketingComparison />
       <EmailMarketingTestimonials />
+        <EmailMarketingFAQ />
     </MainLayout>
   );
 };

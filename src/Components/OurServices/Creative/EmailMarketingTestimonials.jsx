@@ -144,6 +144,7 @@ const EmailMarketingTestimonials = () => {
                     <img
                       src={testimonial.avatar}
                       alt={testimonial.name}
+                      loading="lazy"
                       className="h-12 w-12 rounded-full object-cover border-2 border-[#d6e3ff]"
                     />
                     <div>

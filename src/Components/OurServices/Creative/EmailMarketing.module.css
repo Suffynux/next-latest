@@ -122,7 +122,8 @@
   overflow: hidden;
   box-shadow: 0 18px 40px rgba(6,18,36,0.6);
   transform-origin: center;
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.12));
+  background: linear-gradient(180deg, rgba(24, 50, 88, 0.35), rgba(11, 22, 34, 0.85));
+  position: relative;
 }
 
 .carouselImg {
@@ -130,6 +131,20 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.blurLoad {
+  filter: blur(18px);
+  opacity: 0;
+  transform: scale(1.05);
+  transition: filter 0.65s ease, opacity 0.65s ease, transform 0.65s ease;
+  background: linear-gradient(135deg, rgba(24, 50, 88, 0.35), rgba(11, 22, 34, 0.65));
+}
+
+.imageLoaded {
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Continuous vertical scroll animations; different speeds/directions for interest */

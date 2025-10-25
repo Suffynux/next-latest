@@ -45,6 +45,7 @@ const LogoBar = () => {
                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp6cl5dkoqtKOcROZ82P6uvsOwsvuHzldWxw&s"
 
             alt="Shopify"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -66,6 +67,7 @@ const LogoBar = () => {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp6cl5dkoqtKOcROZ82P6uvsOwsvuHzldWxw&s"
             alt="Nike"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -87,6 +89,7 @@ const LogoBar = () => {
           <img
             src="https://logo.clearbit.com/apple.com"
             alt="Apple"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -108,6 +111,7 @@ const LogoBar = () => {
           <img
             src="https://logo.clearbit.com/airbnb.com"
             alt="Airbnb"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -129,6 +133,7 @@ const LogoBar = () => {
           <img
             src="https://logo.clearbit.com/stripe.com"
             alt="Stripe"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -150,6 +155,7 @@ const LogoBar = () => {
           <img
             src="https://logo.clearbit.com/tesla.com"
             alt="Tesla"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -171,6 +177,7 @@ const LogoBar = () => {
           <img
             src="https://logo.clearbit.com/netflix.com"
             alt="Netflix"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -192,6 +199,7 @@ const LogoBar = () => {
           <img
             src="https://logo.clearbit.com/spotify.com"
             alt="Spotify"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -213,6 +221,7 @@ const LogoBar = () => {
           <img
             src="https://logo.clearbit.com/figma.com"
             alt="Figma"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",
@@ -234,6 +243,7 @@ const LogoBar = () => {
           <img
             src="https://logo.clearbit.com/slack.com"
             alt="Slack"
+            loading="lazy"
             style={{
               width: "70px",
               height: "auto",

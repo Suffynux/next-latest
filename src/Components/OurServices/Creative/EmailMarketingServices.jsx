@@ -131,6 +131,7 @@ const EmailMarketingServices = () => {
                   <img
                     src={service.image}
                     alt={service.title}
+                    loading="lazy"
                     className="object-cover w-full h-full hover:scale-110 transition-transform duration-300"
                   />
                 </div>
