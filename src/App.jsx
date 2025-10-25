@@ -14,7 +14,7 @@ import ShopifyDevelopment from "./Components/OurServices/Creative/ShopifyDevelop
 import CustomWebDevelopment from "./Components/OurServices/Creative/CustomWebDevelopment";
 import DigitalMarketing from "./Components/OurServices/Creative/DigitalMarketing";
 import Layout from "./Components/Layout/Layout";
-import ITServices from "./Components/OurServices/ItServices";
+import ITServices from "./Components/OurServices/ITServices";
 import EmailMarketing from "./Components/OurServices/Creative/EmailMarketing";
 
 function App() {
