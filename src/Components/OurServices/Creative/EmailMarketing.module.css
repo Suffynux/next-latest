@@ -1,0 +1,196 @@
+
+.emailSection {
+    padding-top: 100px !important;
+    /* soft multi-stop diagonal gradient with subtle vignette */
+    background: linear-gradient(135deg, #0b1622 0%, #183258 35%, #0f2336 100%);
+    background-image: radial-gradient( circle at 10% 10%, rgba(255,255,255,0.02), transparent 20% ),
+                      linear-gradient(135deg, #0b1622 0%, #183258 35%, #0f2336 100%);
+    color: #ffffff;
+    /* ensure content isn't hidden behind a fixed navbar */
+    padding-bottom: 20px;
+    overflow: visible;
+    overflow-x: hidden; /* prevent horizontal scroll from carousel */
+}
+
+@media (min-width: 768px) {
+  .emailSection {
+    padding-top: 60px !important;
+  }
+}
+
+.emailContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.theSmall {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 1px;
+  text-transform: none;
+}
+
+.heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.02;
+  margin: 0;
+  color: #ffffff;
+}
+
+.paragraph {
+    padding-top: 20px;
+  color: rgba(255,255,255,0.85);
+  max-width: 680px;
+  font-size: 16px;
+  line-height: 1.6;
+  .span{
+    padding-top: 30px;
+  }
+}
+
+.ctaButton {
+  background: #183258;
+  color: #ffffff;
+  padding: 14px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  margin-top: 20px !important;
+   font-family: 'Montserrat', sans-serif !important; 
+}
+
+/* Hover State */
+.ctaButton:hover {
+  background: #1a3a5e;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+
+
+.ImageSection {
+  /* kept as placeholder if you want a right column later */
+  min-height: 1px;
+}
+
+/* Carousel styles - three vertical columns of image cards */
+.carousel {
+  position: fixed; /* use fixed so it doesn't affect page layout or cause scrolling */
+  right: -6%; /* push slightly beyond the navbar area */
+  top: 80px; /* overlap over the top area */
+  display: flex;
+  gap: 20px;
+  z-index: 1; /* low z-index so carousel sits behind other sections */
+  pointer-events: none; /* images decorative only */
+  transform: translateZ(0);
+}
+
+.carouselColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  will-change: transform;
+  overflow: visible;
+  height: 1140px; /* 3 cards × 380px + 2 gaps × 18px = 1140px for seamless loop */
+}
+
+.carouselColumnInner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation-duration: inherit;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.carouselCard {
+  width: 200px;
+  height: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(6,18,36,0.6);
+  transform-origin: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.12));
+}
+
+.carouselImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Continuous vertical scroll animations; different speeds/directions for interest */
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50%); }
+}
+
+.colA { animation: scrollUp 18s linear infinite; }
+.colB { animation: scrollDown 22s linear infinite; }
+.colC { animation: scrollUp 20s linear infinite; }
+
+/* Make carousel decorative only on desktop; hide on smaller screens */
+@media (max-width: 1024px) {
+  .carousel { display: none; }
+}
+
+
+/* --- Blue glow overlay at top and bottom --- */
+.emailSection::before,
+.emailSection::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* Top glow */
+.emailSection::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(24, 50, 88, 0.65), transparent 80%);
+}
+
+/* Bottom glow */
+.emailSection::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(24, 50, 88, 0.65), transparent 80%);
+}
+
+
+.emailSection {
+  position: relative; /* ✅ Add this */
+  padding-top: 100px !important;
+  background: linear-gradient(135deg, #0b1622 0%, #183258 35%, #0f2336 100%);
+  background-image: radial-gradient(
+      circle at 10% 10%,
+      rgba(255, 255, 255, 0.02),
+      transparent 20%
+    ),
+    linear-gradient(135deg, #0b1622 0%, #183258 35%, #0f2336 100%);
+  color: #ffffff;
+  padding-bottom: 60px;
+  overflow: hidden; /* ✅ ensures blur doesn’t spill out */
+  overflow-x: hidden;
+}

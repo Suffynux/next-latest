@@ -15,6 +15,7 @@ import CustomWebDevelopment from "./Components/OurServices/Creative/CustomWebDev
 import DigitalMarketing from "./Components/OurServices/Creative/DigitalMarketing";
 import Layout from "./Components/Layout/Layout";
 import ITServices from "./Components/OurServices/ItServices";
+import EmailMarketing from "./Components/OurServices/Creative/EmailMarketing";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +28,7 @@ function App() {
         { path: "/industries", element: <IndustriesPage /> },
         { path: "/about-us", element: <About /> },
         { path: "/contact-us", element: <Contact /> },
+        { path: "/email-marketing", element: <EmailMarketing /> },
         { path: "/it-service", element: <ITServices/> },
         { path: "/tech-recruitment", element: <TechRecruitment /> },
         { path: "/managed-services", element: <ITManagedServices /> },

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Container from "../Layout/Container";
 
 const services = [
+   { image: "/itServices.jpg", title: "Email Marketing", path: "/email-marketing" },
   { image: "/itServices.jpg", title: "IT Services", path: "/it-service" },
   { image: "/recurite.jpg", title: "Tech Recruitment", path: "/tech-recruitment" },
   { image: "/managed.jpg", title: "IT Managed Services", path: "/managed-services" },
