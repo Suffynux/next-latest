@@ -1,264 +1,90 @@
 import Slider from "react-infinite-logo-slider";
 
+import Image1 from "../../../assets/companiesLogo/1.svg";
+import Image2 from "../../../assets/companiesLogo/2.svg";
+import Image3 from "../../../assets/companiesLogo/3.svg";
+import Image4 from "../../../assets/companiesLogo/4.svg";
+import Image5 from "../../../assets/companiesLogo/5.svg";
+import Image6 from "../../../assets/companiesLogo/6.svg";
+import Image7 from "../../../assets/companiesLogo/7.svg";
+import Image8 from "../../../assets/companiesLogo/8.svg";
+import Image9 from "../../../assets/companiesLogo/9.svg";
+import Image10 from "../../../assets/companiesLogo/10.svg";
+import Image11 from "../../../assets/companiesLogo/11.svg";
+import Image12 from "../../../assets/companiesLogo/12.svg";
+
 const LogoBar = () => {
+  const logos = [
+    Image1,
+    Image2,
+    Image3,
+    Image4,
+    Image5,
+    Image6,
+    Image7,
+    Image8,
+    Image9,
+    Image10,
+    Image11,
+    Image12,
+  ];
+
   return (
     <div
       style={{
-        backgroundColor: "#0f1a2e",
-        padding: "24px 16px",
-        overflow: "hidden",
-        textAlign: "center",
         position: "relative",
         zIndex: 10,
+        background: "#fff",
+        color: "#000",
+        padding: "20px",
+        overflow: "hidden",
+        textAlign: "center",
+
+        borderTop: "1px solid rgba(15, 35, 54, 0.18)",
+        borderBottom: "1px solid rgba(15, 35, 54, 0.12)",
+        boxShadow: "0 18px 35px -22px rgba(12, 29, 55, 0.45)",
       }}
     >
       {/* Header Text */}
       <p
+        className="md:text-lg text-sm mb-4"
         style={{
-        //   fontSize: "13px",
-        //   fontWeight: "500",
-          marginBottom: "16px",
-          color: "#ffffff",
+          color: "#122b51",
+          fontWeight: 500,
           letterSpacing: "0.4px",
-          opacity: 0.9,
         }}
-    className="md:text-xl text-sm"
       >
-        Trusted by 1000+ brands
+        Trusted by 100+ brands
       </p>
 
       {/* Infinite Logo Slider */}
       <Slider
-        width="160px"
+        width="140px"
         duration={50}
         pauseOnHover={true}
-        blurBorders={true}
-        blurBorderColor="#0f1a2e"
+        blurBorders={false}
         style={{
           margin: "0 auto",
           maxWidth: "100%",
         }}
       >
-        {/* Shopify */}
-        <Slider.Slide>
-          <img
-                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp6cl5dkoqtKOcROZ82P6uvsOwsvuHzldWxw&s"
-
-            alt="Shopify"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Nike */}
-        <Slider.Slide>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp6cl5dkoqtKOcROZ82P6uvsOwsvuHzldWxw&s"
-            alt="Nike"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Apple */}
-        <Slider.Slide>
-          <img
-            src="https://logo.clearbit.com/apple.com"
-            alt="Apple"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Airbnb */}
-        <Slider.Slide>
-          <img
-            src="https://logo.clearbit.com/airbnb.com"
-            alt="Airbnb"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Stripe */}
-        <Slider.Slide>
-          <img
-            src="https://logo.clearbit.com/stripe.com"
-            alt="Stripe"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Tesla */}
-        <Slider.Slide>
-          <img
-            src="https://logo.clearbit.com/tesla.com"
-            alt="Tesla"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Netflix */}
-        <Slider.Slide>
-          <img
-            src="https://logo.clearbit.com/netflix.com"
-            alt="Netflix"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Spotify */}
-        <Slider.Slide>
-          <img
-            src="https://logo.clearbit.com/spotify.com"
-            alt="Spotify"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Figma */}
-        <Slider.Slide>
-          <img
-            src="https://logo.clearbit.com/figma.com"
-            alt="Figma"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
-
-        {/* Slack */}
-        <Slider.Slide>
-          <img
-            src="https://logo.clearbit.com/slack.com"
-            alt="Slack"
-            loading="lazy"
-            style={{
-              width: "70px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "brightness(0.85) invert(0.85)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1) invert(1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "brightness(0.85) invert(0.85)";
-            }}
-          />
-        </Slider.Slide>
+        {logos.map((logo, index) => (
+          <Slider.Slide key={index}>
+            <img
+              src={logo}
+              alt={`Company ${index + 1}`}
+              loading="lazy"
+              style={{
+                width: "150px",
+                height: "auto",
+                maxHeight: "50px",
+                objectFit: "contain",
+                margin: "0 auto",
+                display: "block",
+              }}
+            />
+          </Slider.Slide>
+        ))}
       </Slider>
     </div>
   );

@@ -6,7 +6,8 @@ import gradient from "../../assets/Images/gradient.jpeg";
 import girlImage from "../../assets/Images/boy.png";
 import networkBg from "../../assets/Images/heroBg2.jpg";
 import bodyBg from "../../assets/Images/bodyBg.jpeg";
-
+// new  images
+import Image1 from "../../assets/HeroImages/"
 const Hero = () => {
   return (
     <section className="relative w-full h-[700px] md:h-screen mt-[80px] md:mt-0">
