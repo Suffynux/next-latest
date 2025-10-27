@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Globe, Menu, X } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Globe, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import dark from "../../assets/Images/dark.svg"
@@ -48,6 +48,36 @@ const Navbar = () => {
   // Define page types that need specific spacing
   const needsDefaultSpacing = !isHomePage;
 
+  // WhatsApp click handler (used by the compact top promo CTA)
+  const handleWhatsAppClick = (e) => {
+    // prevent Link navigation default if used
+    if (e && e.preventDefault) e.preventDefault();
+    const phoneNumber = "+923097972767";
+    const message = "Hi! I'm interested in learning more about your email marketing services.";
+  const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(message)}`;
+    // open in a new tab
+    window.open(whatsappUrl, "_blank");
+  };
+
+  // Measure promo bar height so the navbar sits flush without a gap
+  const promoRef = useRef(null);
+  const [promoHeight, setPromoHeight] = useState(0);
+  useEffect(() => {
+    const updatePromoHeight = () => {
+      if (promoRef.current) {
+        const { height } = promoRef.current.getBoundingClientRect();
+        setPromoHeight(height);
+      } else {
+        setPromoHeight(0);
+      }
+    };
+
+    updatePromoHeight();
+    window.addEventListener('resize', updatePromoHeight);
+    return () => window.removeEventListener('resize', updatePromoHeight);
+  }, [isEmailMarketingPage]);
+
+  const navTopOffset = isEmailMarketingPage ? Math.max(promoHeight - 1, 0) : 0;
   // Effect to handle the scroll event for changing navbar color
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +88,7 @@ const Navbar = () => {
         setScrolled(false);
       }
     };
+
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -74,9 +105,35 @@ const Navbar = () => {
 
   return (
     <div className="relative">
+      {isEmailMarketingPage && (
+        <div ref={promoRef} className="fixed top-0 left-0 w-full z-[60]">
+          <div className="bg-gradient-to-r from-[#00152d] via-[#042a53] to-[#0a3f7f] text-white/90">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] sm:text-xs leading-tight">
+              <span className="font-semibold uppercase tracking-[0.18em] sm:tracking-[0.28em]">Black Friday Offer</span>
+
+              <span className="text-white/80 normal-case sm:hidden">
+                Save 20% on your first sprint this week.
+              </span>
+              <span className="hidden sm:inline text-white/80 normal-case">
+                Secure 20% off your first email marketing sprint when you book this week.
+              </span>
+
+              <button
+                onClick={handleWhatsAppClick}
+                className="inline-flex items-center gap-1 rounded-full bg-white/15 hover:bg-white/25 text-white px-3 py-0.5 text-[10px] sm:text-xs font-semibold transition-colors duration-200"
+                aria-label="Book a strategy call via WhatsApp"
+              >
+                Book a strategy call
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Main Navigation Bar */}
       <nav
-        className={`fixed w-full top-0 left-0 z-50 transition-all duration-500
+        style={{ top: navTopOffset }}
+        className={`fixed w-full left-0 z-50 transition-all duration-500
           ${isNavbarSolid
             ? "bg-white/90 backdrop-blur-md shadow-md text-gray-800"
             : "bg-transparent text-white"}`
