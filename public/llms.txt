@@ -1,0 +1,15 @@
+# NextGrid IT
+
+> NextGrid IT is one team that plans, builds and grows digital businesses: brand and marketing, technology and software, e-commerce, and IT managed services. NEXTGRID IT LTD is registered in England and Wales (company number 16591385) and delivers services online to clients in the UK, Europe, the Gulf, the United States and Pakistan.
+
+## Services
+- [Brand & Marketing](https://nextgridit.co.uk/services/brand-marketing): brand strategy, identity, content, social media, paid advertising, SEO, CRM
+- [Technology & Software](https://nextgridit.co.uk/services/technology): web, mobile apps, SaaS, custom software, APIs, automation, cloud
+- [E-commerce](https://nextgridit.co.uk/services/ecommerce): Shopify, headless storefronts, inventory and order systems, optimisation
+- [IT Managed Services & Recruitment](https://nextgridit.co.uk/services/it-managed-services): managed IT support, technical recruitment, IT resourcing
+
+## Company
+- [About](https://nextgridit.co.uk/about)
+- [Industries](https://nextgridit.co.uk/industries)
+- [Insights](https://nextgridit.co.uk/insights)
+- [Contact and quotes](https://nextgridit.co.uk/contact)
