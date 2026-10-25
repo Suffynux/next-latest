@@ -5,6 +5,7 @@ import Reveal from "../components/Reveal";
 import ConsentBanner from "../components/ConsentBanner";
 import JsonLd from "../components/JsonLd";
 import { SITE_URL, COMPANY, AREAS } from "../lib/site";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const archivo = Archivo({

@@ -339,14 +339,14 @@ footer.site a { text-decoration: none; }
 /* Every motion is optional. Without JavaScript all text is fully visible. */
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
-  html.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 500ms var(--ease), transform 500ms var(--ease); transition-delay: min(var(--d, 0s), 0.24s); }
+  html.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); transition-delay: min(var(--d, 0s), 0.24s); }
   html.js .reveal.in { opacity: 1; transform: none; }
   html.js .hero-words .word { animation: word-in 200ms var(--ease) both; animation-delay: calc(var(--word) * 40ms); }
   html.js .ghost-number { transform: translateY(var(--drift, 0px)); }
   .arrow-chip svg { transition: transform 180ms var(--ease); }
   a:hover > .arrow-chip svg, button:hover > .arrow-chip svg { transform: translateX(4px); }
   .service-art { transition: transform 300ms var(--ease); }
-  .service-card:hover .service-art { transform: scale(1.03); }
+  .service-card:hover .service-art { transform: translateY(var(--art-drift, 0px)) scale(1.06); }
   .footer-nav a { transition: transform 200ms var(--ease); }
   .footer-nav .arrow-chip { transition: opacity 200ms var(--ease); }
   .footer-nav a:hover { transform: translateX(8px); }
@@ -369,3 +369,29 @@ footer.site a { text-decoration: none; }
 .engage > p:not(.lbl):not(:has(.pull-line)) { font: italic 400 1.5rem/1.35 var(--font-serif), Georgia, serif; }
 
 .coal .lead-link:hover { color: var(--bone-on-coal); }
+
+
+.scroll-progress { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  html.js .scroll-progress { display: block; position: fixed; inset: 0 0 auto; height: 2px; background: var(--blue); z-index: 55; transform: scaleX(var(--scroll-progress, 0)); transform-origin: left; pointer-events: none; }
+  html.js .motion-enter { opacity: 0; transform: translateY(24px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); transition-delay: var(--motion-delay, 0ms); }
+  html.js .motion-enter.in { opacity: 1; transform: none; }
+  html.js :is(.reveal, .motion-enter):focus-within { opacity: 1; transform: none; transition-delay: 0ms; }
+  html.js .hero h1 { transform: translateY(var(--hero-drift, 0px)); }
+  html.js .service-art { transform: translateY(var(--art-drift, 0px)) scale(1.03); }
+  html.js .service-card:hover .service-art { transform: translateY(var(--art-drift, 0px)) scale(1.06); }
+  html.js .service-card .service-frame { clip-path: inset(0 0 12% 0); transition: clip-path 600ms var(--ease); transition-delay: var(--d, 0s); }
+  html.js .service-card.in .service-frame { clip-path: inset(0); }
+  html.js .timeline::after { content: ""; position: absolute; inset: 14px auto 40px 5px; width: 1px; background: var(--ink); transform: scaleY(var(--line-progress, 0)); transform-origin: top; pointer-events: none; }
+  .tiles .say, .category-row h3 { transition: transform 240ms var(--ease); }
+  .tiles a:hover .say, .category-row:hover h3 { transform: translateX(6px); }
+  .btn .arrow-chip { transition: transform 240ms var(--ease); }
+  .btn:hover .arrow-chip { transform: translateX(3px); }
+  nav.main.open > ul > li { animation: menu-in 400ms var(--ease) both; }
+  nav.main.open > ul > li:nth-child(2) { animation-delay: 40ms; }
+  nav.main.open > ul > li:nth-child(3) { animation-delay: 80ms; }
+  nav.main.open > ul > li:nth-child(4) { animation-delay: 120ms; }
+  nav.main.open > ul > li:nth-child(5) { animation-delay: 160ms; }
+  nav.main.open > ul > li:nth-child(6) { animation-delay: 200ms; }
+  @keyframes menu-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+}

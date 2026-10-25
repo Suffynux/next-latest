@@ -73,7 +73,7 @@ export default function Header({ areas }) {
         <button ref={triggerRef} type="button" className="menu-btn" aria-expanded={open} aria-controls="mainNav" onClick={() => { if (open) triggerRef.current.focus(); setOpen(!open); }}>
           {open ? "Close" : "Menu"}<span aria-hidden="true">{open ? "−" : "+"}</span>
         </button>
-        <nav className={`main${open ? " open" : ""}`} id="mainNav" aria-label="Main" onClick={event => {
+        <nav className={`main${open ? " open" : ""}`} id="mainNav" data-lenis-prevent aria-label="Main" onClick={event => {
           if (event.target.closest("a")) {
             setOpen(false);
             setSubOpen(false);
