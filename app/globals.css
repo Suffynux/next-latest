@@ -276,40 +276,47 @@ nav.main .cta { margin-left: 10px; }
 
 /* ---------- Home hero ---------- */
 .hero { min-height: max(640px, calc(100svh - 64px - var(--inset) * 3)); display: flex; }
-.floor { position: absolute; inset: 0; z-index: -1; overflow: hidden; perspective: 700px; perspective-origin: 50% 30%; }
+.floor { position: absolute; inset: 0; z-index: -1; overflow: hidden; perspective: 620px; perspective-origin: 50% 0%; }
+.floor::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 54%;
+  background-image: radial-gradient(rgba(188, 212, 255, 0.5) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(70% 100% at 50% 100%, #000, transparent 75%);
+  mask-image: radial-gradient(70% 100% at 50% 100%, #000, transparent 75%);
+  opacity: 0.55;
+}
 .floor i {
   position: absolute;
-  left: -60%;
-  right: -60%;
-  top: 38%;
-  height: 160%;
+  left: -75%;
+  right: -75%;
+  top: 46%;
+  height: 190%;
   transform-origin: 50% 0;
-  transform: rotateX(68deg);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 55%, transparent 92%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 55%, transparent 92%);
+  transform: rotateX(72deg);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 40%, transparent 85%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 40%, transparent 85%);
 }
 .floor i::before {
   content: "";
   position: absolute;
-  inset: -72px 0 0;
-  background-image: linear-gradient(rgba(188, 212, 255, 0.34) 1px, transparent 1px), linear-gradient(90deg, rgba(188, 212, 255, 0.34) 1px, transparent 1px);
-  background-size: 72px 72px;
+  inset: -80px 0 0;
+  background-image: linear-gradient(rgba(188, 212, 255, 0.55) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(188, 212, 255, 0.55) 1.5px, transparent 1.5px);
+  background-size: 80px 80px;
 }
 .floor b {
   position: absolute;
-  left: 50%;
-  top: 38%;
-  width: min(900px, 110%);
-  aspect-ratio: 2.4;
-  translate: -50% -55%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(188, 212, 255, 0.5), rgba(60, 100, 168, 0.28) 45%, transparent 72%);
-  filter: blur(18px);
+  inset: 46% -10% auto;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ice) 30%, #fff 50%, var(--ice) 70%, transparent);
+  box-shadow: 0 0 34px 6px rgba(188, 212, 255, 0.55), 0 0 160px 60px rgba(60, 100, 168, 0.65);
 }
-.hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(7, 11, 24, 0.94) 0%, rgba(7, 11, 24, 0.55) 38%, transparent 70%); }
+.hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(7, 11, 24, 0.92) 0%, rgba(7, 11, 24, 0.5) 30%, transparent 56%); }
 @media (prefers-reduced-motion: no-preference) {
   .floor i::before { animation: floor 5s linear infinite; }
-  @keyframes floor { to { transform: translateY(72px); } }
+  @keyframes floor { to { transform: translateY(80px); } }
 }
 .hero-inner {
   width: 100%;
