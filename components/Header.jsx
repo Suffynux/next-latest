@@ -64,11 +64,11 @@ export default function Header({ areas }) {
   }, [open, subOpen]);
   const current = href => pathname === href ? "page" : undefined;
   return (
-    <header ref={headerRef} className={`site coal${pathname === "/" ? " home-header" : ""}${scrolled ? " scrolled" : ""}${open ? " menu-open" : ""}`}>
+    <header ref={headerRef} className={`site${scrolled ? " scrolled" : ""}${open ? " menu-open" : ""}`}>
       <noscript><style>{`header.site { position: static; } .bar { height: auto; flex-wrap: wrap; padding-block: 12px; } .menu-btn { display: none; } nav.main { display: block; position: static; height: auto; width: 100%; padding: 16px 0; } .sub[hidden] { display: block !important; position: static; width: auto; }`}</style></noscript>
       <div className="wrap bar">
         <Link className="plate" href="/" aria-label="NextGrid IT home">
-          <Image src="/logo.png" alt="NextGrid IT, Where IT meets reliability" width={480} height={152} priority sizes="160px" />
+          <Image src="/logo.png" alt="NextGrid IT, Where IT meets reliability" width={480} height={152} priority sizes="140px" />
         </Link>
         <button ref={triggerRef} type="button" className="menu-btn" aria-expanded={open} aria-controls="mainNav" onClick={() => { if (open) triggerRef.current.focus(); setOpen(!open); }}>
           {open ? "Close" : "Menu"}<span aria-hidden="true">{open ? "−" : "+"}</span>

@@ -37,12 +37,12 @@ export default function IndustriesPage() {
           <div className="cards industry-list">
             {INDUSTRIES.map((ind, i) => (
               <div key={ind.t} className="card reveal" style={{ "--d": `${(i % 3) * 0.06}s` }}>
-                <h3 style={{ fontSize: "1.15rem" }}>{ind.t}</h3>
+                <h3>{ind.t}</h3>
                 <p>{ind.d}</p>
               </div>
             ))}
-            <div className="card reveal" style={{ "--d": "0.12s" }}>
-              <h3 style={{ fontSize: "1.15rem" }}>Your sector</h3>
+            <div className="card alt reveal" style={{ "--d": "0.12s" }}>
+              <h3>Your sector</h3>
               <p>
                 Not listed here? If your business is ethical and legal, we can
                 work with it. Tell us what you do and we will recommend a
@@ -53,12 +53,8 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <section
-        className="block"
-        style={{ borderTop: "1px solid var(--rule)", background: "var(--paper-2)" }}
-        aria-labelledby="apply-title"
-      >
-        <div className="wrap">
+      <section className="block tight-top" aria-labelledby="apply-title">
+        <div className="wrap split">
           <div className="head">
             <p className="kicker">How this applies</p>
             <h2 id="apply-title">The same four service areas, applied to your sector</h2>
@@ -68,7 +64,7 @@ export default function IndustriesPage() {
               and IT managed services.
             </p>
           </div>
-          <ul className="when" style={{ maxWidth: 900 }}>
+          <ul className="when">
             {AREAS.map((a, i) => (
               <li key={a.slug} className="reveal" style={{ "--d": `${Math.min(i, 4) * 0.06}s` }}>
                 <Link href={`/services/${a.slug}`}>{a.name}</Link>: {a.tagline}

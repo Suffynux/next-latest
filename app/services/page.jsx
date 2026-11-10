@@ -1,7 +1,5 @@
-import { Arrow, GhostNumber, Headline } from "../../components/Editorial";
-import Link from "next/link";
-import { AREAS } from "../../lib/site";
-import { Breadcrumbs, CtaBanner, ProcessTimeline } from "../../components/Sections";
+import { Headline } from "../../components/Editorial";
+import { Breadcrumbs, CtaBanner, ProcessSection, ServiceCards } from "../../components/Sections";
 
 export const metadata = {
   title: "Brand, Technology & E-commerce Services",
@@ -32,54 +30,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="block">
-        <div className="wrap">
-          <div className="cards service-cards">
-            {AREAS.map((a, i) => (
-              <Link
-                key={a.slug}
-                href={`/services/${a.slug}`}
-                className="card service-card reveal"
-                style={{ "--d": `${Math.min(i, 4) * 0.06}s` }}
-              >
-                <span className="count">{a.order} / 04</span>
-                <div className="service-frame" aria-hidden="true"><div className="service-art">{a.order}</div></div>
-                <span className="kicker">Solutions</span>
-                <div className="service-title"><GhostNumber>{a.order}</GhostNumber><h3>{a.name}</h3></div>
-                <p className="sub-line">{a.tagline}</p>
-                <p>{a.intro}</p>
-                <p className="svc-list">
-                  {a.groups[0].items
-                    .slice(0, 5)
-                    .map((s) => s.t)
-                    .join(" · ")}
-                </p>
-                <span className="to"><span>View {a.navLabel}</span><Arrow /></span>
-              </Link>
-            ))}
-          </div>
-        </div>
+      <section className="block" style={{ paddingInline: "var(--inset)", paddingTop: "var(--inset)" }}>
+        <ServiceCards verb="View" />
       </section>
 
-      <section
-        className="block"
-        style={{ borderTop: "1px solid var(--rule)", background: "var(--paper-2)" }}
-        aria-labelledby="process-title"
-      >
-        <div className="wrap">
-          <div className="head">
-            <p className="kicker">How we work</p>
-            <h2 id="process-title">
-              A clear path from first conversation to measurable progress
-            </h2>
-            <p>
-              The same four stages apply to every engagement, whether you need a
-              brand, a platform, a store or ongoing IT support.
-            </p>
-          </div>
-          <ProcessTimeline />
-        </div>
-      </section>
+      <ProcessSection text="The same four stages apply to every engagement, whether you need a brand, a platform, a store or ongoing IT support." />
 
       <CtaBanner />
     </>

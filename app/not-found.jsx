@@ -9,13 +9,11 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="block">
+    <section className="page-hero">
       <div className="wrap">
         <p className="kicker">404</p>
-        <h1 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", margin: "16px 0" }}>
-          Page not found
-        </h1>
-        <p style={{ color: "var(--ink-soft)", maxWidth: "36em", marginBottom: 28 }}>
+        <h1>Page not found</h1>
+        <p className="lede">
           The page you are looking for could not be found. It may have moved
           during the site update.
         </p>

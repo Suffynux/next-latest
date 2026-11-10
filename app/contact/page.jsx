@@ -23,7 +23,7 @@ export default function ContactPage() {
             ]}
           />
           <p className="kicker">Contact</p>
-          <Headline text="Request a quote or submit an RFP" accent="quote" annotate />
+          <Headline text="Request a quote or submit an RFP" accent="quote" />
           <p className="lede">
             Every engagement is scoped to your requirements. We prepare a
             quotation once we understand your objectives.
@@ -44,7 +44,7 @@ export default function ContactPage() {
               <li>Include your website or store address if you have one</li>
               <li>Describe the outcome you want, not just the deliverable</li>
             </ul>
-            <p className="lbl" style={{ marginTop: 20 }}>
+            <p className="lbl" style={{ marginTop: 8 }}>
               Other ways to reach us
             </p>
             <div className="contact-ways">

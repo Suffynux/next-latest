@@ -43,7 +43,7 @@ export default function InsightsPage() {
               </div>
             ))}
           </div>
-          <div className="empty" style={{ marginTop: 32 }}>
+          <div className="empty" style={{ marginTop: "var(--inset)" }}>
             <p>Our first articles are in preparation and will be published here.</p>
           </div>
         </div>

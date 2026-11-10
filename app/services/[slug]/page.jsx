@@ -1,4 +1,4 @@
-import { ButtonContent, Headline, PullLine } from "../../../components/Editorial";
+import { Arrow, ButtonContent, Headline, PullLine } from "../../../components/Editorial";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AREAS, getArea, SITE_URL } from "../../../lib/site";
@@ -7,7 +7,7 @@ import {
   Breadcrumbs,
   CtaBanner,
   FaqSection,
-  ProcessTimeline,
+  ProcessSection,
 } from "../../../components/Sections";
 
 export function generateStaticParams() {
@@ -66,7 +66,7 @@ export default async function AreaPage({ params }) {
             ]}
           />
           <p className="count">{area.order} / 04</p>
-          <Headline text={area.name} accent={area.name.includes("(") ? "Technology" : undefined} />
+          <Headline text={area.name} accent={area.name.split(" ").slice(-1)[0]} motion="hero-words" />
           <p className="tagline">{area.tagline}</p>
           <p className="lede">{area.intro}</p>
           <div className="actions">
@@ -79,7 +79,7 @@ export default async function AreaPage({ params }) {
         </div>
       </section>
 
-      <section className="area" style={{ borderTop: 0 }}>
+      <section className="area">
         <div className="wrap area-grid">
           <div className="side">
             <div className="engage reveal">
@@ -128,21 +128,7 @@ export default async function AreaPage({ params }) {
         </div>
       </section>
 
-      <section
-        className="block"
-        style={{ borderTop: "1px solid var(--rule)", background: "var(--paper-2)" }}
-        aria-labelledby="process-title"
-      >
-        <div className="wrap">
-          <div className="head">
-            <p className="kicker">How we work</p>
-            <h2 id="process-title">
-              A clear path from first conversation to measurable progress
-            </h2>
-          </div>
-          <ProcessTimeline />
-        </div>
-      </section>
+      <ProcessSection />
 
       <section className="block" aria-labelledby="related-title">
         <div className="wrap">
@@ -161,7 +147,7 @@ export default async function AreaPage({ params }) {
                 <span className="count">{r.order} / 04</span>
                 <h3>{r.name}</h3>
                 <p>{r.intro}</p>
-                <span className="to">View {r.navLabel} &rarr;</span>
+                <span className="to"><span>View {r.navLabel}</span><Arrow /></span>
               </Link>
             ))}
           </div>

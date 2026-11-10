@@ -100,6 +100,15 @@ export default function Reveal() {
           lenis?.scrollTo(window.scrollY, { immediate: true });
         }
       }
+      // The call-to-action grid lights up around the pointer.
+      function spotlight(event) {
+        const band = event.target.closest?.(".cta-band");
+        if (!band) return;
+        const rect = band.getBoundingClientRect();
+        band.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+        band.style.setProperty("--my", `${event.clientY - rect.top}px`);
+      }
+      document.addEventListener("pointermove", spotlight, { passive: true });
       window.addEventListener("scroll", schedule, { passive: true });
       window.addEventListener("resize", schedule);
       document.addEventListener("focusin", revealFocus);
@@ -137,6 +146,7 @@ export default function Reveal() {
         progressObserver.disconnect();
         resizeObserver?.disconnect();
         cancelAnimationFrame(frame);
+        document.removeEventListener("pointermove", spotlight);
         window.removeEventListener("scroll", schedule);
         window.removeEventListener("resize", schedule);
         document.removeEventListener("focusin", revealFocus);

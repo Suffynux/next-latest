@@ -1,4 +1,4 @@
-import { Archivo, Instrument_Serif, Inter } from "next/font/google";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
@@ -8,26 +8,25 @@ import { SITE_URL, COMPANY, AREAS } from "../lib/site";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
-const archivo = Archivo({
+const display = Inter_Tight({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
-  preload: false,
-  weight: ["400", "500"],
+  weight: ["400", "500", "600"],
   variable: "--font-body",
   display: "swap",
 });
 
-const serif = Instrument_Serif({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-serif",
+  preload: false,
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -54,7 +53,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#07112A",
+  themeColor: "#070B18",
   width: "device-width",
   initialScale: 1,
 };
@@ -107,7 +106,7 @@ const organizationLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-GB" className={`${archivo.variable} ${inter.variable} ${serif.variable}`}>
+    <html lang="en-GB" className={`${display.variable} ${inter.variable} ${mono.variable}`}>
       <body id="top">
         <JsonLd data={organizationLd} />
         <a className="skip" href="#content">
