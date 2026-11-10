@@ -96,7 +96,7 @@ img { max-width: 100%; height: auto; }
 /* ---------- Labels ---------- */
 .kicker, .lbl, .count, .footer-label {
   font-family: var(--mono);
-  font-size: 0.69rem;
+  font-size: 0.72rem;
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.06em;
@@ -359,6 +359,7 @@ nav.main .cta { margin-left: 10px; }
 .hero-tabs .name { align-self: end; font-size: 0.95rem; font-weight: 500; line-height: 1.2; color: var(--on-night-2); transition: color 0.3s; }
 .hero-tabs .bar { align-self: start; margin-top: 8px; height: 1px; background: var(--line-night); overflow: hidden; }
 .hero-tabs .bar i { display: block; height: 100%; background: #fff; transform: scaleX(0); transform-origin: left; }
+@media (max-width: 719px) { .hero-tabs .thumb { width: 40px; height: 36px; } .hero-tabs a { padding: 8px; column-gap: 10px; } .hero-tabs .name { font-size: 0.86rem; } }
 .hero-tabs li.on a, .hero-tabs a:hover { background: rgba(255, 255, 255, 0.09); }
 .hero-tabs li.on .name, .hero-tabs a:hover .name { color: #fff; }
 .hero-tabs li.on .bar i { transform: scaleX(1); }
@@ -372,7 +373,7 @@ nav.main .cta { margin-left: 10px; }
 @media (min-width: 1000px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); column-gap: 40px; }
   .hero-tabs { grid-column: 1 / -1; }
-  .stage { display: grid; align-self: end; }
+  .stage { display: grid; align-self: end; align-items: end; }
   .stage-card {
     grid-area: 1 / 1;
     display: flex;
@@ -674,7 +675,7 @@ html.js .card.in .gantt span, html.js .card.in .bars span { transform: none; }
 .timeline h3 { margin-top: 44px; font-size: 1.35rem; }
 .timeline p { color: var(--secondary); font-size: 0.93rem; }
 
-.prose { max-width: calc(760px + var(--gutter) * 2); }
+.prose > * { max-width: 760px; }
 .prose > * + * { margin-top: 1.1em; }
 .prose h2 { margin-top: 2em; padding-top: 1em; border-top: 1px dashed var(--line); font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
 .prose h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
